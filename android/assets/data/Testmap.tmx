@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" nextobjectid="1">
+ <tileset firstgid="1" name="Verschiedenes" tilewidth="32" tileheight="32" tilecount="3072" columns="64">
+  <image source="../Downloads/hyptosis tiles/DungeonCrawl_ProjectUtumnoTileset.png" width="2048" height="1536"/>
+ </tileset>
+ <tileset firstgid="3073" name="Garnitur" tilewidth="32" tileheight="32" tilecount="100" columns="10">
+  <image source="../Downloads/hyptosis tiles/dungeonex.png" width="320" height="320"/>
+ </tileset>
+ <layer name="Kachelebene 1" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYKA+OMRMGL9C429hpsw8dDwUzEPHlJiHDY+aN2reqHmEzRsF5AMAotXGQw==
+  </data>
+ </layer>
+ <layer name="Collision" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJwrZWFgKKUyjuFhwAD3mTDFkIE8M1AvOoaaRw4AuYGa5oEAtc1DBvJUNg8ECJnHyEyeebnc5LtJEhgvUkAszUMd/yoDzVEBYlUyzcMXBvSOD2qZxwsMCxYg5seSD3mwiNHafaSmM0LmUQPEIKWXe1TCQ8U8amIAmJ5deA==
+  </data>
+ </layer>
+ <layer name="Collectable" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYKANkGejkcHDEIyG1SgYBfjBaB4ZnAAAyukAcA==
+  </data>
+ </layer>
+</map>

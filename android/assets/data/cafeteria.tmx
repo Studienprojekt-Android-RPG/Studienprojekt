@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="2">
+ <tileset firstgid="1" name="SchoolHouse_zpse3dc36f7" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="SchoolHouse_zpse3dc36f7.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="257" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1157" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <layer name="Collision" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt100OwiAQBlBceAnu6TG9kysTTURQ+RnpewlJNw3T+QqBlAAAAAAAAAAAAAAAAACO6XIaP2gnjzhympNHXv2hf2JWn+RRl1OfPj3uSaVnedTJI5ZeebTORd2s9THjzLDD2UEe/V3P3787q/Yj5fHrHWI38ohFHrFEyCO6PGiU5lhp9fwt56sRNb7KI4LVdcjjWc81P7JG6u59Kv3XLVatjx3JIxb7VSzWRyzyiMV+FUuPu3Ckc/VO3vXt07uX/o8V9S4MAAAAAAAAAAAAAAAAAAAAUd0At3mMlw==
+  </data>
+ </layer>
+ <layer name="Kachelebene 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt22tqwkAUBtAg2YOom+keCl1Pl14LpU2HedyYMUZzDlysRn84X+7MpJhhAAAAAAAAAAAAAAAAANin98Pwdu969Hd8JsfD/Yu46/m7uI6N48SdxmE4j3+Pl0bl3pN+Nn1O3Gn8X+fJmEayKr0+/QxxaR7TDFrH0uxK2RJX64/aeKeZ5d4rj/lqGeTmrtKY12qNPfWr7K2jPZFbryM99H1sjT31q+yta2Pb6pXIXPfTH6vVFizp7zSPVj/MmdNK+UT3DK39wlbXqiX9ncsjXROi1yi18SyNf2S/HM1iK3ks6e/cuZ8b01bv5PogzenWcz66b9hKHpHvVvuutRxa4xLZA+zNnHkgMse08oiu9XvNYzr2tXWyNhe05v5oHrnzgLjSWtu6JmnlsbU19lnk5qoeeex5vlpibh7R95qvbnNLHtE9rP6YLx2/pXmkewt5zBO5pmj9b9181U/0erG01zVfPcZ0jHk8eWyLPAAAAAAAAAAA2KqPQ6wu4/B5vtbpWtPX6St6L+Q0j63dA/1Kor9nLR2nr9LvtHO/Ic4dp6/I/ZD6Yz3TdSFyz7D+uK8kj9+/c88zRWe5PEoZpY/y6K+Wx0Ueq0vzSKvWJ/LoL5dBq+RxP4E123oOAAAr+AIWcNsz
+  </data>
+ </layer>
+ <layer name="Kachelebene 3" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt1z9KxUAQB+CozzOI2ll6BG3EUsFCb6Cn0VoLLX3NO4KtJ/EIXsEVElBUsu9PsvPW74MfbBHIMMMOSdMAAAAAAAAAAAAAAAAAALBODtoQw7zzuE956DmTL/X+pJvB1+R6Tpn2nMl3+kdYT/ZVLPYVtdrZLF0B1Otiq3QFMU23S1dQxu6kafZS9ielK/nuteA8cr53DzeGebd5/JTzvfvf5hHdUPOoTdenZf6rS+6r2nR9Wua/uuS+qs1YfTKPPPZVLPZVLPZVLJ99GisAAAAAAAAAAACMb9aGGF7aAL87Sjle8MzqnaWcL3hm9dyPWNyPWNyPWNyPuC5TrlJuU+4K10LTXKfcpDymPPU8+zZ8OczhvXQBAABQkQ9WiFPZ
+  </data>
+ </layer>
+ <layer name="Kachelebene 4" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztzjERACAQBLG3jBCEoAdDUCGB+yKZ2X6rAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKCXmR4AAADgq3Fb6QmenR4AAABo4ABi0QJ7
+  </data>
+ </layer>
+ <objectgroup name="Spawnpoints">
+  <object id="1" name="spawnpoint1" x="824" y="1368" width="40" height="40"/>
+ </objectgroup>
+</map>

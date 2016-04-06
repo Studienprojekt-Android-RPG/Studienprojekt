@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="80" height="60" tilewidth="32" tileheight="32" nextobjectid="8">
+ <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2701" name="town" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../Downloads/hyptosis tiles/town.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="2957" name="trees" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../Downloads/hyptosis tiles/trees.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="3213" name="trees_plants" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../Downloads/hyptosis tiles/trees_plants.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="3469" name="trees_plants_rocks" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../Downloads/hyptosis tiles/trees_plants_rocks.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="3725" name="Nachtfilter" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../Downloads/hyptosis tiles/Nachtfilter.png" width="64" height="64"/>
+ </tileset>
+ <layer name="Wiese dunkel" width="80" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAMBKHzP7zmuugECaumqqqqqqqqqqqqqqqqqqqqqqqqTw+0wWcX
+  </data>
+ </layer>
+ <layer name="Wiese hell" width="80" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztmltuxCAMRdlid9AddLqQqs0O5n/62GLjjlApTRxfzMMovpK/RiFwcg0YJoR9va7xwMQL86zL+Wnl/HRyfjo5P52cn07OTyfn919fa7wnwcn53ZUy+wh/GXA6O7/ILWfm/HhJuDm/X+VzmoSbhN+yxjPz7Iz8clYoL4QfifPgbY3POsNqKm7+L4mn8OOdK8XRu488+C5oY5SQeQzh9gb2g/OgRX61uUV2KLeomXKY2NXkpmVHOlqHrXiwBTsKDTvSET8LHrTou6gjfqM9aJkdScJvlAdrsytdYzlJ+I1gWJNdC25RUn69GGr3J+n+N0YLblEIv5YMS7nlvFqy2tIS+BqkJcMatVdvXltCPYgw3Krpa9SrFrhFlXgwMtxjU7Omz8Pi2VCJB0eFJe9FkQcvocyHZ2eXyiLHlvu3VrKUzxbnuyORD614cEZ+JCsMNXm7t3/qVYuOZqjxHldD96znRzLU8LN0tjlqPSnlJz2/6cWQPDhiX1PKD/nePden3rlcMjb07LD3+o7mMu1/L1lIn401NpJjaP8s89u7a0DnA2SeQnPEMr+V0SPX1vr7FfFiC4Yz81uAtlCG0n7OzI+E5puU4Vn4oW1Kx2yRH7I3QO6pz8AP3VdJvUc6Az90jAi/2nMg8q178Cv5PwDCj1TzLlraVs3/wnAqOT9A+S0F77jd+3bNw5L3QujDj4TmsTas8tPkBVKTzMIP9UWJ99J39eLX806PxnVU88ezFm2/ejAcdR+658Xaa1lLhqPvkqMX02jRp633IPNI/n0tsButlKlkLmn5fWfXlj+dl8vl+gad/qzC
+  </data>
+ </layer>
+ <layer name="Weg" width="80" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztm1tOAzEMRbMLBGIZFArb6Ad8sgrWz0TUknHjvMbTOLGPFPWLMjm9eboNwXH087i1J9ScNt62dkLtfezjTAf4O19fX8c+znTQ/Lm/NqI/yJ77awfnL3p0f234+P3jgbRafP0I4Sf8z9Cp4W+t54+6gxzVYjF/MEZTufP88aSc4b3Hx9Yu11bL6v5qsgbeeljRX42zvd4AOv8973y/kZSc0bEqAc3fbBlscSbtLjKzv9L4TK0LsX0KPgMdv7P4y62jvWtpD6n8aZ8Dj1pLe/kKt5+hNoe1e7dRgENtOazdh4yG3mNpcHiP/ZskqQyOcKh9rHKk1pJ7O0xlju4/NJNaS+7lkHM3G3Qcn9GrpEN834vdwf+b0R3AzYWQQ1xzp3ffNW2GNXUvXA6PbFrXhl5iX1JZpC4l3K6QOY7ceE61Vr8ruwNyOcR7jBbXluouEc4R7X9rXq34A+L6Wbrzop5zY9iSP3pOKc1dNVm07K+m75zDFeourfTW7Epri5UM7v3OFufRUgZx/3v7reW+bARSdXfujLj6WIbzv0R/rY3llyDfX0sOsT+pWknqM5F0CL9z0cIRcz93VpFwCPO1pnmV62/vM3IZlHAI87UmfxGaw733ULnzcm/f8VqnzV9EsjYmnUH6fhr9SZPLYItDWmexcEcLbLn55vbW0WHpNxqpep6F7GFyYxl7pC5XqSNLEHNIs8jV9lesI0vSWhNwd7fkcjjDd4w0UMqhZ67MJdMcx3EcZxS/PP+u0Q==
+  </data>
+ </layer>
+ <layer name="Steine" width="80" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt2MENwjAMBdBOwCawAew/FidEBT1Q7LRJ/N69UuXY/mmXBajgfjn7DahOD8K4buaXgGuwf6LPw0MP7ZY1d5VqLys5wno2fV/1r9IOzDTL3U8ucKRe58YczEvG1eCcx9ZrNvxDntCLVntxpnn91edcv2qwVeOt+tgLtLTuOfehb5Ga+J+Zo2JuRJnlNxkK47LL+uAc4BzZs+dOxB76hVll7lZ3JBiLbKMFfZVLtgIA1T0BLY0LgQ==
+  </data>
+ </layer>
+ <layer name="Collision" width="80" height="60">
+  <data encoding="base64" compression="zlib">
+   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
+  </data>
+ </layer>
+ <objectgroup name="Spawnpoints">
+  <object id="1" x="363.636" y="78.7879" width="32" height="32"/>
+  <object id="3" x="2451.52" y="327.273" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Exitpoints">
+  <object id="4" x="230.303" y="3.0303" width="272.727" height="30.303"/>
+  <object id="7" x="2515.15" y="230.303" width="39.3939" height="206.061"/>
+ </objectgroup>
+ <layer name="Nacht" width="80" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAMA6AqmPN6rotdkNBLqqqqqqqqqqqqqqqqqqqqqqqqqk8HTYla5g==
+  </data>
+ </layer>
+</map>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="32" tileheight="32" nextobjectid="3">
+ <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2701" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="3601" name="225838_hyptosis_tile-art-batch-4" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225838_hyptosis_tile-art-batch-4.png" width="960" height="960"/>
+ </tileset>
+ <layer name="Kachelebene 1" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztmEESgyAMRVnJAAdRDt32IG3vJgsZftO0pTLKX/BmGKNmNAS+SIx55zIZc03tNik3CbinuB6pPcnic9YYn1qwxc5HBuYUx5JatMXOx0W5Jv1yf5zwc+Le3j7L52Aeg3JN89PGAPvg4FzLTW18Ht7tRRzhh5/fcqv5RTjHmGtyGsW4hM0OjfMP8zfD87WYe4Dz7lOuasb3KGbQEuaPCdQTI6gFRlALjKB+GXHk8y+S52/ot4BrUi1n6hfXgdp/ljP1u0eLQ79tDP22MdbfNoZ+28B9NCN5D9q6FzwKtu+ftn+XdQffMV5Zr5G1GrR7IOs1slaDdg++ja2s6fQg2NcajqzpoN2Df2pbDPGxje+AgxWA6SNm
+  </data>
+ </layer>
+ <layer name="Kachelebene 2" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztl10KwjAMgAvC8Bg5ijfpLtKTDH8evYMKXkN9yVFM0crWrWI341LMB4FtTcnXlq6bMX3WlTEbim010CiAA3kdKU5C/S7kdaW4CfUrgWZpdq4btQ9L16Gdom73sY+cV37c/s/sF2Y1sh+Ea5pf0bjIz4957Lg5aITOX3uNn/c4j0nZ0Pqe53Z4h1O/SUjdv8p30P3bZ+gsCOdqK8A/l75/C/ATjXQ/K3x9lWlIfz/r94HyC+L/tQ/ykcckWQ8y85HHJFkPMvORxyRZDzLzkcckWQ8y85HHJFkPMvORx0SRzh24PD8F
+  </data>
+ </layer>
+ <layer name="Collision" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztmM0NwiAUx0mKN6PtBh3Do8todAGn8OLHQTdwAo/GJfRmwg46gJDmRYrwAGlLE/knBCgUfny1j0dIXcMBuSr5XuiUkXLBWZYKj+5ZDAm+XU7IPq8/3/D8Nv9w6mJdGiuDNO+T+fC51j1S15p63fj7d1rnA3YTM/CF9o0J2n7y+EXrcwnrZOMDzYsqgB5jvM+mhPGtcl3J5z0epr8EU7uX7DuP7UmsD8uwsXGVSBlTx+BzZpqQjU9KB81DiES/sE8PNC6LTvIcnmn3a2iTusaJz0+JL0xd8sl2mKvd1TWf+NbD995kT6n5LvkaaIOFkxjbLiG9zvB/thxkW6jt8+FrN6TzG6bEFyaZ75jsF28lvjD1jQ9sCJMdofpHYtzZdshdGnwFcGeKwTcZVXc1x/qsVaDv/koRnx34bD6DNuRrg8Xkc/Ef9XX+YvlchGaFvY7Ye5jPrE35+N/iEP6H3uAKtO0=
+  </data>
+ </layer>
+ <layer name="Kachelebene 4" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt2LENgDAMRNGTyACZELEDpIKCnj2YhEEySlxQJA2iiRLQf5ILuzrJjWWpdDrt0Wm6K1rfjeCly/Lls9lmi28UCK+xJwAAUNNmN+tqNXZ0u37NMbROAAD4o/DwC+BXAACoLQE/uA13
+  </data>
+ </layer>
+ <layer name="Kachelebene 5" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
+  </data>
+ </layer>
+ <objectgroup name="Spawnpoints">
+  <object id="1" name="spcade4" x="192" y="8" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Exitpoints">
+  <object id="2" name="excade4" x="128" y="-16" width="160" height="16"/>
+ </objectgroup>
+</map>

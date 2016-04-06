@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="50" tilewidth="32" tileheight="32" nextobjectid="5">
+ <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" trans="ffffff" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" trans="ffffff" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" trans="ffffff" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2701" name="DungeonCrawl_ProjectUtumnoTileset" tilewidth="32" tileheight="32" tilecount="3072" columns="64">
+  <image source="../Downloads/hyptosis tiles/DungeonCrawl_ProjectUtumnoTileset.png" trans="ffffff" width="2048" height="1536"/>
+ </tileset>
+ <tileset firstgid="5773" name="225838_hyptosis_tile-art-batch-4" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225838_hyptosis_tile-art-batch-4.png" trans="ffffff" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="6673" name="CGTportal1" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../Downloads/hyptosis tiles/CGTportal1.png" trans="ffffff" width="32" height="64"/>
+ </tileset>
+ <layer name="Kachelebene 1" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt08ENgCAQRcGlCCuzaTuxDcOBAkzQsMtM8o8cHslGANR0tn+mY9+O65g7HToq3Uf1jhn/oOObjru9f79aR28Yy9hR5c516NChQwcAAAAA5PQAqVrFLQ==
+  </data>
+ </layer>
+ <layer name="Kachelebene 2" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt1sEJgCAUxvF371wjuE07NEqXbg3hCC0QNFp5i0ANtOzZ/wciPkG+pxdFAOS0emZfLbQXOgt5zU3pBGm059du+cn9T63Yy1qFviudAGdGxPpG6Wx3mfj+9kaOVPTxLbX04RxZBzdiNXyT5n+l5uw1Ot5jDK0BAAAAAAAA4Ck7QTUakQ==
+  </data>
+ </layer>
+ <layer name="Collision" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztkzlOw0AUhl+cIiwRHbkCB+AMiGvRUOUELAdgb1kKoAICtGyiBQS0bKLjsyKLwTiWInsmJvyf9GkWv3lvnqwxE0KIb+ZrXW+Zz5jNpcZfe0l8j3OZOdxzPvuI+cROszsma0vN3b28b+m9ZAzRR9m0m+Fq+c4dslace8xZzzbKNWQfLunaRRh0H8PwP/bxAA8L5OyVQ++8vNwrxK3iGq7jBm7iVh93q0IfR8Qd4wl28BTP8Dzn/OQA30fCqGPMHXH3+IATdbNHxid8rmXHx0xXoI8px5goMqtHP2MarEei7Ph+apXBf3vnVa81bH0stMwWcQmXW35r+cy9zd13cBf3CvbRHs+v5YMk9wV3v8QrvMYbD/8kRB8v3PsV3/AdP/5oHyHw3UdIhRBCCCGEEEIIIYT4Al7WdLY=
+  </data>
+ </layer>
+ <layer name="Kachelebene 4" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztzkkNACAQA0CeSMElVgClrAiuhJmkzzZNCQD4Tbl9YIMW6ZFxeWOF+sgGsFc+3AMAAAAAAPjBBDsjBP0=
+  </data>
+ </layer>
+ <layer name="Kachelebene 5" width="50" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztz8EJACAQA8FrQZ82a+uW4OdACTMFLEkVAECG/UkDAOBmrNcLesyQHwAAAABAjgMu+wFW
+  </data>
+ </layer>
+ <objectgroup name="Exitpoints">
+  <object id="2" name="exsede3" x="768" y="704" width="32" height="64"/>
+ </objectgroup>
+ <objectgroup name="Spawnpoints">
+  <object id="1" name="spsede3" x="768" y="640" width="32" height="32"/>
+ </objectgroup>
+</map>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="32" tileheight="32" nextobjectid="9">
+ <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2701" name="beach tileset" tilewidth="32" tileheight="32" tilecount="256" columns="8">
+  <image source="../Downloads/hyptosis tiles/beach tileset.png" width="256" height="1024"/>
+ </tileset>
+ <tileset firstgid="2957" name="test" tilewidth="32" tileheight="32" tilecount="240" columns="20">
+  <image source="../Downloads/hyptosis tiles/verdunkeln.png" width="640" height="400"/>
+ </tileset>
+ <tileset firstgid="3197" name="Wasserfelsen" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../Downloads/hyptosis tiles/Wasserfelsen.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="3201" name="Nachtfilter" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../Downloads/hyptosis tiles/Nachtfilter.png" width="64" height="64"/>
+ </tileset>
+ <layer name="Wiese 1" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztw8EJAAAMA6Hb/5GZu0dRcNVUVVVVVVUfPVKRd64=
+  </data>
+ </layer>
+ <layer name="Wiese 2" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztlksKAkEMRNuVFxO8jrjyEqJzA/f+ruDRnEaCQ0g7iZN0ssiD2sqzigldSmLBc8zNOI8FbnuU7aqUjWLgd6Wu1e1O+FnnynD0cuM4ertBjsgL9o/gRvnNEWnjCH64Q+89W4EOh4/vxdsHgu8kMARwo/adEsXxsP4mqmPNLnCP54YbcHJ049zo9Eu/9GvjeWO4byyvDudun6ef5H3qsbH0/dzbkbstduzxRpR2R3lG6w4z/sdXxO4s/eo7T6O7ivbGWl5TtO6i1qYYjQ41N6VY0qGlF/Bvhz3cAGmHPd2kflbfQvr95g3keua4
+  </data>
+ </layer>
+ <layer name="Steine und Sträucher" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztl9ENgCAMROs8bsIg7j+C4YNECGpLq1xJ358a5HoHWoiIdpIzMkZLEt5HovWrXLfae76mzjOPNaMi8dKD70EQ1Hj5FmUQtbaajm2KjEBJye2pl4hsx0DZtzk/FC3eKGuf0+fFPlmHu7wj45oRP/720PsZDVX/rH+Ktz1o4ZO25ut4zbtQ1yIHSw8zlusfqT/jZCzRK+mhRuf4gtnzW8Kt5S2jlTzpcQIPUA7D
+  </data>
+ </layer>
+ <layer name="Wasser" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt1NEJgCAQxnF98KW5GqRFWqUlWqAF2qnuISwxSL07v+D+IElE/ThC5yzr3+2F9zUKIX6f9m/P5PYSrYPs+1sim8QqafTPa2qTcJa0+Hi9luTsap1pGr4Wo5av1mg+8/X0aRpbQvXNwU20UH3o87vPEdknPUfOkG1/8HEb6d9G9Z22jdvGaZSs5czRCtlWY+wVsu2LESV0Xy7JM86yLNwOfWCVVw==
+  </data>
+ </layer>
+ <layer name="Tiefes Wasser 1" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt08ENgCAMheHeWZKFdAYdgjujSQ8kpEk1phTQvD/hKp9NIUII/b09zBbosc3jrGz7gs/qTIGOLVCE0WY8B9jKHRm+OT7vHSzfzsmwf9VY/jG2p4e5h+3ObDF62ixGdvH8vW01+X74fs08YmYyuZt8vzZXyzvtnTTOmN1T7WxXsyGEEEIIIfS2C8Ud2hc=
+  </data>
+ </layer>
+ <layer name="Collision" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJy9WDlvE0EUHifrje0EUGigBQoKSEIDLSDRQI5/ABQgQRogNddCDylzFCgcDQJBEcVJFY6GEpSr4mpoIoyUOBKhgu95/eTh7ZvdtdfwSZ9mvZ6d+eZdszvGRDGRM2YSnAKnc437/QVjBgrR/jtwbye4S/xn9z+E9jDYpzwvx7V/a2PPQVMZnAcXLH1D6DOsjO+a29VfQvazf8uxl6BnGVwBV8G1XHS8fwWXHyQ2oGkTrIJbKfQ99dqjz+UHV1z1dhizuyO8noHO73TRZcxv35j1+nUFzTsv/E3XvV54f72uu2L1o+f4+mATfpH+74OmfnAAPAIWMVY+b4yXb7Q0N//+5kX/l/ft/tyyxoES5iml1zsITUPgMDjSEdpuEuPPltpPwjDaEUtf2jgkkO1u9SCfRYwVHM+uot+a6Ludjz5D92YdNrPjkGx8Ctxb/Lslsja23WIumVX03fKS+xFoTMwR0LXLxw9yIY8VGy33DeraytZ8L7r+noORRrsEjX2zJ9QofcwYVezLfWl95RhbtKKPfU2gsW2Nmq+3fe1uCI4P13w0VxpdcXqTNGr2c+mj+M6iJ0nj7Z5GvDHjclnLLzl+Vs2MsqfPF/dewf3tmMlqL64/rnwmdEPL+05jPoC/RPx1WzqT4i9tXL60cl6rP7x+234VaPvRmZwfUiPP5bJDFj9L/47l3e8Gtj7NjmnrcBZ943n3OyTXaFuf5ut22ZHyTLMfQcthrtE8v0tjVjvyfuSyHyEuh3l++WwrWuy8kXbX9FEOEy6gvdgZ1cbQbMg516rdbLuzNqmvUtd0B+3dGH22DTU7ZtnnWNtVjH8NHAOveI36V7NFTI2xkZQrreQEj3sPmu6D417DdlT/knzL0PK5WTtp62J9z6DruXivpb0iybcM+52Lqemw94okfazNhT3FsG3mfX+wYIIz4Gkw7Tu1lsNaLEscreuLqy8So9B1GbxU10fgWEqrkZ7D+gzWSeuNoBl7uYB6E6DuBEmxKP1NoGewPoN10nojsO21D7G3HzygxGDc3ox6E1Tr+tL6mbXNlvTvPAna345D1wnwpKIvzfmOXbtl7XBpI3BNjQPtb2eh6xx4PkUOa5C1O8luHBdJ486gJj8Er0PXjRa1MWROM+z3TrYzx0XSmIvQ9spvT67InNaYxp82PkLbJ7+52vI/wf5Nu/cSpvF9OgVOghOO7+lm4DpHJrB/5fdRHBagaR4sg3Nt0Oc6Ryawf13f52zfR+Bj8IlfO+sNVsEVcBlcyqBRO0fW5vzp6/fZvq/BN+Bbv3bWG1TBTXCjDfaT58janATtPtv3M/gF/OrXznqD3o7suiT4HFmb8w9Cfltw
+  </data>
+ </layer>
+ <layer name="Tiefes Wasser 2" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt0MEJADAIA0D/7j+M27mEgqV3kH+SCOAHlfO5bLLfxtbr/wEAAADA6xoeyhJh
+  </data>
+ </layer>
+ <layer name="Glättung" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztl8sNwyAQRDnEdUBpFJJDSnFvSSEByZFIYiHvMjtw2He2rKfZDxCC4ziOnNdttkGf1f3iFvJsB0vuW9hnO/R4Lt4fTD/NrLDzK/2UJN+z/aQZut83Ur/SD3WH7iYyJ2hmpDomkufIeceo9Ygfo9aj9wWrDOPRQyWDx8h/rPxQ9yyrGiPvgegMI6CuLZ99g9g5h1vGmP2jzbKZhwwV+kHbj8x3hyZDpp/0/EPPw1Wu5DjLrdLLEXU+IDjLcaV3eLsf00K5OY7D5w29GTGq
+  </data>
+ </layer>
+ <objectgroup name="Spawnpoints">
+  <object id="7" x="689" y="1202" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Exitpoints">
+  <object id="6" x="427" y="1248" width="583" height="29"/>
+ </objectgroup>
+</map>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="21" height="15" tilewidth="32" tileheight="32" nextobjectid="9">
+ <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2701" name="225838_hyptosis_tile-art-batch-4" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225838_hyptosis_tile-art-batch-4.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="3601" name="225839_hyptosis_tile-art-batch-5" tilewidth="32" tileheight="32" tilecount="722" columns="19">
+  <image source="../Downloads/hyptosis tiles/225839_hyptosis_tile-art-batch-5.png" width="636" height="1219"/>
+ </tileset>
+ <tileset firstgid="4323" name="CGTportal1" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+  <image source="../Downloads/hyptosis tiles/CGTportal1.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="4325" name="town" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../Downloads/hyptosis tiles/town.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="4581" name="trees_plants_rocks" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../Downloads/hyptosis tiles/trees_plants_rocks.png" width="512" height="512"/>
+ </tileset>
+ <layer name="Kachelebene 1" width="21" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBjZ4B83A0MWFGdzQ/jZWPi4xGFiID4MZKGZmUUBRjeTUvNwmUmsubjUEWNmNh67sIkjm5nNjZ0m5D5SzSQnHHCZiY5JCVd0M/FhXGFJit/x6cfndmxpntJ0SgogRT0AI7Bjqg==
+  </data>
+ </layer>
+ <layer name="Collision" width="21" height="15">
+  <data encoding="base64" compression="zlib">
+   eJytk8ENwjAMRY16JKVc00qIPUDcGYEJWIsjU3AosAeIAVBZAGwRC9fEIZX40lPi1P5qvtrjGOD0R87IFWmRhQOYBaheC1qxzl3/nOYYqm/B84Is3Qeq9wKqt2Fduf65nmNPrbIEmCAVMg3Qns8PxZuN+561PLUekVlL2tMXsIvtY7J6tWctntXKk+4vZfVqz0Y8k3vOsRMZeKM39Z6yj/IkqjLem7p7k5HnPfjn5ukTebI4h9w8rbtrUQZW9rnf5xD98uT/hRji+SRPlwHk9Y2QF7JrXys=
+  </data>
+ </layer>
+ <layer name="Kachelebene 3" width="21" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBi64D0PA8MHIP7IgxADsWHi1AYxNDCTVODIjWArsuBXOxVJ/jIXbnXxSGbaI+nBFo7TCNiJDQDd2YBPfgqRZorxMCTA2ApkuIOQmfgAKelJkkgz0UE7M3HqHhKpDgTaSFA73AEAWDgRUw==
+  </data>
+ </layer>
+ <layer name="Kachelebene 4" width="21" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIwFc4aK+mZ9oYOZlGpg5WMFHnoF2wcgCAL0OA7U=
+  </data>
+ </layer>
+ <objectgroup name="Spawnpoints">
+  <object id="2" name="spawnpoint2" x="321" y="419" width="30" height="29"/>
+  <object id="7" name="spawnpoint1" x="320" y="320" width="24" height="24"/>
+ </objectgroup>
+ <objectgroup name="Exitpoints">
+  <object id="6" name="exitpoint2" x="322" y="449" width="29" height="32"/>
+ </objectgroup>
+</map>
