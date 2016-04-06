@@ -13,8 +13,8 @@ public class Testmap extends Game {
 		
 		System.out.println("Game starting!");
 		
-		//setScreen(new Gamescreen(game));
-		setScreen(startMenu);
+		setScreen(new Gamescreen(game));
+		//setScreen(startMenu);
 
 	}
 
