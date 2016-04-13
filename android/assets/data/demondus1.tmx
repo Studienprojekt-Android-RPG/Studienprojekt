@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="50" tilewidth="32" tileheight="32" nextobjectid="12">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="50" tilewidth="32" tileheight="32" nextobjectid="13">
  <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
   <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
  </tileset>
@@ -57,7 +57,7 @@
  </layer>
  <layer name="Kachelebene 9" width="40" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt0LENgDAMBEC3bMU4wCCEQYA58QBRJApcoDvpqy/ecsT/nFPMV+bOvOmq7LndMkfnhlFXZcntNbN1bhh1VfwPAAAAAAAA+MID1UgXrQ==
+   eJzt0MERQEAQRNHZo6wEsXLAETEgEMSpA1i75TIU/1X1qQ/TNWbfs1VW78qh3Om8zLq9KGtiQ67z0up2p/SJDbnOC/8DAJTEYNaEp1dcG7RtVKYXbwQAAAAAAACAPzoBVDYZtA==
   </data>
  </layer>
  <objectgroup name="Exitpoints">
@@ -70,5 +70,8 @@
   <object id="6" name="spde2" x="672" y="1568" width="24" height="24"/>
   <object id="8" name="spzede1" x="80" y="448" width="32" height="24"/>
   <object id="10" name="sprode1" x="960" y="1120" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Battlepoints">
+  <object id="12" name="fight" x="264" y="460" width="56" height="56"/>
  </objectgroup>
 </map>

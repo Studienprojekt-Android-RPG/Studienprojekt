@@ -23,7 +23,7 @@
  </tileset>
  <layer name="Wiese 1" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJztw8EJAAAMA6Hb/5GZu0dRcNVUVVVVVVUfPVKRd64=
+   eJztzrEJAAAIA7CCu6d7s2cIkiF7JskAAAA803V/AAAA7ixscHcx
   </data>
  </layer>
  <layer name="Wiese 2" width="40" height="40">
@@ -43,7 +43,7 @@
  </layer>
  <layer name="Tiefes Wasser 1" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt08ENgCAMheHeWZKFdAYdgjujSQ8kpEk1phTQvD/hKp9NIUII/b09zBbosc3jrGz7gs/qTIGOLVCE0WY8B9jKHRm+OT7vHSzfzsmwf9VY/jG2p4e5h+3ObDF62ixGdvH8vW01+X74fs08YmYyuZt8vzZXyzvtnTTOmN1T7WxXsyGEEEIIIfS2C8Ud2hc=
+   eJzt08ENgCAMheEmHkmckYV0Bh2CO6NJDyRIgh5KKZr3J1zlsylECKG/tztrQTu2aZyZbV/wSZ3B0bE58jDKjOcAW7ojwmfj097B9O0YBPuXjekffXl6mHvYnswSo6ZNYmQXz1/blqvfD9/fMo+YWV29m3x/a66Sd9q72mgxu7fK2c5mQwghdG9drAUIITR/Fx0V2ig=
   </data>
  </layer>
  <layer name="Collision" width="40" height="40">
@@ -62,9 +62,9 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="7" x="689" y="1202" width="32" height="32"/>
+  <object id="7" name="spsee" x="688" y="1224" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="6" x="427" y="1248" width="583" height="29"/>
+  <object id="6" name="exsee" x="432" y="1264" width="583" height="29"/>
  </objectgroup>
 </map>

@@ -62,10 +62,10 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="7" x="689" y="1202" width="32" height="32"/>
+  <object id="7" name="spweg" x="688" y="1224" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="6" x="427" y="1248" width="583" height="29"/>
+  <object id="6" name="exweg" x="424" y="1264" width="583" height="29"/>
  </objectgroup>
  <layer name="Nacht" width="40" height="40">
   <data encoding="base64" compression="zlib">

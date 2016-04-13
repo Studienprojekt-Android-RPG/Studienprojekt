@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="32" tileheight="32" nextobjectid="10">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="200" height="200" tilewidth="32" tileheight="32" nextobjectid="35">
  <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
   <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
  </tileset>
@@ -18,6 +18,11 @@
  <layer name="Boden" width="200" height="200">
   <data encoding="base64" compression="zlib">
    eJzt3N1q20AAhFFDnqLp+79ne6MbS2MqeRvNrs+BgrFboZ/5SAg0jwcAAMA9fn09Ht9///z+uv76+b2zx2FOI559yzESfXBVy7b1QaOWbeuDRi3bXmGDzefGNS3b1geNWratDxq1bFsfNGrZtj5o1LJtfdCoZdv64Kqj7fzre1eOrY9rms9tZfrQB5k+9EGmD32QvdNHeu/V5/q4pvncVqYPfZDpQx9k+tAH2TstXDm2Pq5pPreV6UMfZPrQB5k+9ME9WratDxq1bFsfNGrZtj5o1LJtfdCoZdv6oFHLtvVBo5Zt64NGLdvWB41atq0PGrVsWx80atm2PmjUsm190Khl2/qgUcu29QFr0wdk+oBMH5DpA7Izfbz6u//zM7iLPiDTB2T6gEwfkOkDMn1Apg/I9AGZPiDTB2T6gEwfkOljnNHXffQM+FlnnqE+XtPHevQxjj7W4/urcfSxHn2Mo4/16GMcfaxHH+PMfv7s6WOc2c+fPX2MM/v5s3emD17Tx3r0MY4+1qOPcfSxHn2Mo4/16GMcfaxHH+PoYz36GEcf69HHOPpYjz7G0cd69AGZPiDTB2T6gEwfkOkDMn1Apg/I9AGZPiDTB2T6gEwfkOkDMn1Apg/I9AHZT/Xxzu8ZhbvoAzJ9sDm698+vP+3/1OuDjT729MFGH3v6YKOPPX2w0ceePtjoY08fbI7uferkU+iDjT729MFGH3v6IPnEHp7pg0Qf9+7yqBF66EMfZPrQB5k+9EGmD33M6OrPOWb5rIk+5tO05Vn6aLq+We7ZrJqeyyzPuun6Zrlns2p6LrM866brm+WezarpuczyrJuub5Z7Nqum5zLLs266vlnuGZ+jacv6gPH0AZk+INMHZPqATB+Q6QMyfUCmD8j0AZk+INMHZPqATB+Q6QMyfUCmD8j0AZk+INMHZPqATB80uuv3lJw5D7iLPiDTB2T6gEwfkOkDMn1Apg/I9AGZPiDTB2T6gOyuPs78G7iLPiDz/RVk+oBMH5DpAzJ9QKYPyPQBWUsfAMB9vg++dqev5el1yzFgtJZt64NGLdvWB41atq0PGrVsWx80atm2PmjUsm190Khl2/qgUcu29UGjlm3rg0Yt29YHjVq2rQ8atWxbHzRq2bY+aNSybX3QqGXb+qBRy7b1QaOWbeuDRi3b1geNWratDxq1bFsfNGrZtj5o1LJtfdCoZdv6oFHLtvVBo5Zt64NGLdvWB41atq0PGrVsWx80atm2PmjUsm190Khl2/qgUcu29UGjlm3rg0Yt29YHjVq2rQ8A7vYHjA1cgA==
+  </data>
+ </layer>
+ <layer name="jesus" width="200" height="200">
+  <data encoding="base64" compression="zlib">
+   eJzt27EJAEAIBEHB3P7L/SYeRJ2pYMNLLgIAAOCmyu4CAACYwXYGAAAAAAAAAAAAAAAA+MNfCwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgC0eUhgANA==
   </data>
  </layer>
  <layer name="Collision" width="200" height="200">
@@ -41,13 +46,33 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="1" x="529" y="190" width="32" height="32"/>
-  <object id="3" x="998" y="814" width="32" height="32"/>
-  <object id="7" x="3698" y="2350" width="32" height="32"/>
+  <object id="1" x="528" y="208" width="32" height="32"/>
+  <object id="3" x="976" y="816" width="32" height="32"/>
+  <object id="7" name="spdach" x="3696" y="2384" width="32" height="32"/>
+  <object id="10" name="speg" x="512" y="3728" width="40" height="32"/>
+  <object id="12" name="sp1s" x="6208" y="3648" width="32" height="32"/>
+  <object id="13" name="sp12s" x="4448" y="3648" width="32" height="32"/>
+  <object id="14" name="sp2s" x="4256" y="1984" width="32" height="32"/>
+  <object id="15" name="spbiog" x="6272" y="1296" width="32" height="32"/>
+  <object id="16" name="spbiug" x="6272" y="5112" width="32" height="32"/>
+  <object id="17" name="spbib1" x="4720" y="5552" width="24" height="32"/>
+  <object id="18" name="spbib2" x="4720" y="6064" width="24" height="32"/>
+  <object id="20" name="spbi2" x="1136" y="1072" width="32" height="32"/>
+  <object id="22" name="spbi1" x="1144" y="560" width="24" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="4" x="512" y="234" width="65" height="19"/>
-  <object id="6" x="960" y="800" width="21" height="62"/>
-  <object id="9" x="3670" y="2404" width="82" height="24"/>
+  <object id="4" x="512" y="248" width="65" height="19"/>
+  <object id="6" x="944" y="800" width="21" height="62"/>
+  <object id="9" name="exdach" x="3672" y="2424" width="82" height="24"/>
+  <object id="23" name="exbi1" x="1176" y="544" width="16" height="64"/>
+  <object id="24" name="exbi2" x="1176" y="1056" width="16" height="64"/>
+  <object id="25" name="exeg" x="464" y="3680" width="32" height="96"/>
+  <object id="26" name="exbib1" x="4696" y="5536" width="16" height="64"/>
+  <object id="27" name="exbib2" x="4696" y="6048" width="16" height="64"/>
+  <object id="29" name="exbiug" x="6240" y="5088" width="96" height="16"/>
+  <object id="31" name="ex1s" x="6256" y="3616" width="16" height="96"/>
+  <object id="32" name="ex12s" x="4416" y="3616" width="16" height="96"/>
+  <object id="33" name="ex2s" x="4304" y="1952" width="16" height="96"/>
+  <object id="34" name="exbiog" x="6240" y="1344" width="96" height="32"/>
  </objectgroup>
 </map>

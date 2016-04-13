@@ -1,8 +1,9 @@
 package de.test.game;
 
+import java.io.IOException;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
@@ -14,8 +15,8 @@ public class Gamemenu extends Window {
 	TextButton stats;
 	TextButton save;
 	TextButton resume;
-	TextButton exit;	
-	Stage stage;
+	TextButton exit;
+	
 	public Gamemenu(Skin skin) {
 		super("Menu", skin);
 		
@@ -49,19 +50,32 @@ public class Gamemenu extends Window {
 		 
 		 stats.addListener(new ClickListener() {
 		        public void clicked(InputEvent e, float x, float y) {
+		        	if(Gamescreen.player.speed == 3f){
+		        		Gamescreen.player.speed = 10f;
+		        	}
+		        	else{
+		        		Gamescreen.player.speed = 3f;
+		        	}
 		            System.out.println("Du bist schwach!");
 		        }
 		    });
 		 
 		 save.addListener(new ClickListener() {
 		        public void clicked(InputEvent e, float x, float y) {
-		            System.out.println("Speichern geht nicht!");
+		        	try {
+						Gamescreen.player.savePlayer(Gamescreen.player);
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+		        	System.out.println("Gespeichert!");
 		        }
 		    });
 		 
 		 resume.addListener(new ClickListener() {
 		        public void clicked(InputEvent e, float x, float y) {
-		            Gamescreen.gamenu.setVisible(false);;
+		            Gamescreen.gamenu.setVisible(false);
+		            Gamescreen.player.allowMov = true;
 		        }
 		    });
 		 

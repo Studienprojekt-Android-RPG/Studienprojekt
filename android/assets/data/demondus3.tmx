@@ -49,11 +49,11 @@
  <objectgroup name="Spawnpoints">
   <object id="2" name="spde2" x="32" y="128" width="32" height="32"/>
   <object id="3" name="spde4" x="864" y="1856" width="32" height="32"/>
-  <object id="5" name="spde7" x="2176" y="1568" width="32" height="32"/>
+  <object id="5" name="spde7" x="2184" y="1568" width="32" height="32"/>
   <object id="11" name="sprode3" x="1256" y="928" width="24" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="6" name="exde7" x="2208" y="1536" width="32" height="96"/>
+  <object id="6" name="exde7" x="2224" y="1536" width="32" height="96"/>
   <object id="7" name="exde4" x="800" y="1888" width="160" height="32"/>
   <object id="9" name="exde2" x="0" y="96" width="32" height="128"/>
   <object id="10" name="exrode3" x="1216" y="928" width="32" height="32"/>

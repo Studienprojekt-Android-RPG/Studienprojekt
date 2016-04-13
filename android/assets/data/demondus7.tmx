@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="45" height="10" tilewidth="32" tileheight="32" nextobjectid="10">
- <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900">
+ <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
   <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
  </tileset>
- <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900">
+ <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
   <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
  </tileset>
- <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900">
+ <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
   <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
  </tileset>
- <tileset firstgid="2701" name="trees_plants_rocks" tilewidth="32" tileheight="32" tilecount="256">
+ <tileset firstgid="2701" name="trees_plants_rocks" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="../Downloads/hyptosis tiles/trees_plants_rocks.png" width="512" height="512"/>
  </tileset>
  <layer name="Kachelebene 1" width="45" height="10">
@@ -19,12 +19,12 @@
  </layer>
  <layer name="Collision" width="45" height="10">
   <data encoding="base64" compression="zlib">
-   eJztUTtuAjEUfAhWskTB7pI7JKHjDkDoInED8iuIKOAUIApo4ApbE7gHOQUdnCGzsq0MD4OAGkujfZ73ZubJG4tIBqTuWwFiIHF1zj8bkZqxNUPPp6Th+hHaJ3Oo0z5amyofzvDQeyY0+4K8trF3z1WuQBPaFukzOfTiXbgO9U+9Uw/4Jv9P5H2Z4x5rPZ8oj1z/Du2HOZ0T4s7tWAUe1HcEjF2t+9zj/8Q8z3FWrO7aKyPOZ/o34B3u536uPdszvU1R5Ld4m2+nbHFpVn6WBZFF4ZgfRCLD6P9ewswc+AnM7rDvXu1cN+E87RvauRTI6JYt8rNCf+1m+i7nDb0pfGeRrT38LHOMBtB09asJz4R8L4HfWfMT5PwB8vVA+Q==
+   eJxjYBgFowA7EAZiETS6A4g7oWx0eWQ5ISSMLI6sTgCIBaFqBND46GYtRxKD2QlSy4/mhlEwCkgFz/DInWdmYLjATJ65QdwQTKxdILCRkYFhGiOmeCErA0MRK4LPAlQzFYg3YVH7Fujed2huNuTAbh+6udjczILFjkRuCAaBzUD5LVA1uVB7koBy/UBzJ7BC2DAMU4sshoxdgNgVyvbnwK4Gm7nEYJib0cW7gfYAAI8sK0Q=
   </data>
  </layer>
  <layer name="Kachelebene 2" width="45" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2D4AH80bMjAcIAYbADEyOYA+Qk+QDEgdvCBqjECsvHZ7QtRf8AbySyQOYZYxEFqsbkRaMcCKgUFVcFDLggN9EOCPxXMA4YLyN8MRlQwixgACu+PXITV4XOXEY60gsM+ULyDaJoDPwZIOgogUj2ucDCExi0Ie1OQDomJU1LCEh+A5S9C7gaKMwDzIM74AACeSDBA
+   eJzVU0sOgjAQnWXjhs8l/KyEE7jxk4DiEUj8LPRS7rgGV/EI3sA3KSRDpVAiLpzkpcN03pvptPhEVABhtXqADwSVz/G5Iloo7UuY+aHgSH8K7kw1eaaOyQ0NHVmjhtlnIHK3qLdT+ruOeQOwBncj+AU1tWQv0m/bt83pBtyF/gX1rupzT3LreGBoMP8E7lnZ67TFunr8R8sMRESlC5aA1MF3niIGrNIqJ4bfVXuv88tEaLFO1BLn3LYeUeMx0ihGtedErzhDno2gh7nwuSkeQcvFeN6vSX9eV1+x5a1Y6vG98/pzO5B+R0fHfNscoupuGckX79DlTofMssvq/6uvb8QJ/6D1Pt4CIEX1
   </data>
  </layer>
  <layer name="Kachelebene 4" width="45" height="10">
@@ -33,11 +33,11 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="1" name="Spawnpoint6" x="31" y="225" width="31" height="29"/>
-  <object id="2" name="Spawnpoint8" x="1376" y="192" width="31" height="32"/>
+  <object id="1" name="spde3" x="31" y="225" width="31" height="29"/>
+  <object id="2" name="spdd" x="1376" y="192" width="31" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="3" name="Exitpoint6" x="0" y="123" width="30" height="196"/>
-  <object id="9" name="Exitpoint8" x="1407" y="128" width="31" height="191"/>
+  <object id="3" name="exde3" x="-8" y="120" width="30" height="196"/>
+  <object id="9" name="exdd" x="1416" y="128" width="31" height="191"/>
  </objectgroup>
 </map>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="2">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="32" nextobjectid="18">
  <tileset firstgid="1" name="SchoolHouse_zpse3dc36f7" tilewidth="32" tileheight="32" tilecount="256" columns="16">
-  <image source="SchoolHouse_zpse3dc36f7.png" width="512" height="512"/>
+  <image source="../Downloads/hyptosis tiles/SchoolHouse_zpse3dc36f7.png" width="512" height="512"/>
  </tileset>
  <tileset firstgid="257" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
   <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
@@ -9,19 +9,25 @@
  <tileset firstgid="1157" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
   <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
  </tileset>
- <layer name="Collision" width="100" height="100">
+ <tileset firstgid="2057" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2957" name="DoppelTür" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../Downloads/hyptosis tiles/DoppelTuer.png" width="64" height="64"/>
+ </tileset>
+ <layer name="Collision" width="100" height="100" opacity="0.97">
   <data encoding="base64" compression="zlib">
-   eJzt100OwiAQBlBceAnu6TG9kysTTURQ+RnpewlJNw3T+QqBlAAAAAAAAAAAAAAAAACO6XIaP2gnjzhympNHXv2hf2JWn+RRl1OfPj3uSaVnedTJI5ZeebTORd2s9THjzLDD2UEe/V3P3787q/Yj5fHrHWI38ohFHrFEyCO6PGiU5lhp9fwt56sRNb7KI4LVdcjjWc81P7JG6u59Kv3XLVatjx3JIxb7VSzWRyzyiMV+FUuPu3Ckc/VO3vXt07uX/o8V9S4MAAAAAAAAAAAAAAAAAAAAUd0At3mMlw==
+   eJzt2GFqgzAAhmHL6A7hDXbAHXI/dqf9KrOgM44kfqbPAwEpWG3eRtRpAgAAAAAAAAAAAAAAAHhNn7f2g3JH51SPduapT4/5tF94Lb3mSY9981RnnpbrZ2tbj316ZKnVo/RY7Ou1PnrcU49w76BHfd/3/+/b69xfqceRZ4i1MRo9suiRJaFHurnR2DrGmc4+fsn9VYtzXOuR4Ozz0ONZzTXf8hzZ95inrf91ibPWx4j0yOJ6lcX6yKJHFterLDWehZPuq0fy17wdffYy/22lPgsDAAAAAAAAkOH+9js436ODHm193MrGssfyc+oq7bG1T09f789jRFfrsbY9ihrz2bOJHn2+o9SIDZb0yKJHFj2yXK3H6PTIokcWPbLokaX0XcmRdykAAFzHD9mJoU0=
   </data>
  </layer>
  <layer name="Kachelebene 1" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt22tqwkAUBtAg2YOom+keCl1Pl14LpU2HedyYMUZzDlysRn84X+7MpJhhAAAAAAAAAAAAAAAAANin98Pwdu969Hd8JsfD/Yu46/m7uI6N48SdxmE4j3+Pl0bl3pN+Nn1O3Gn8X+fJmEayKr0+/QxxaR7TDFrH0uxK2RJX64/aeKeZ5d4rj/lqGeTmrtKY12qNPfWr7K2jPZFbryM99H1sjT31q+yta2Pb6pXIXPfTH6vVFizp7zSPVj/MmdNK+UT3DK39wlbXqiX9ncsjXROi1yi18SyNf2S/HM1iK3ks6e/cuZ8b01bv5PogzenWcz66b9hKHpHvVvuutRxa4xLZA+zNnHkgMse08oiu9XvNYzr2tXWyNhe05v5oHrnzgLjSWtu6JmnlsbU19lnk5qoeeex5vlpibh7R95qvbnNLHtE9rP6YLx2/pXmkewt5zBO5pmj9b9181U/0erG01zVfPcZ0jHk8eWyLPAAAAAAAAAAA2KqPQ6wu4/B5vtbpWtPX6St6L+Q0j63dA/1Kor9nLR2nr9LvtHO/Ic4dp6/I/ZD6Yz3TdSFyz7D+uK8kj9+/c88zRWe5PEoZpY/y6K+Wx0Ueq0vzSKvWJ/LoL5dBq+RxP4E123oOAAAr+AIWcNsz
+   eJzt3NltAjEUhWELDbxQAAKayUsqSEM0kKWHVJIWkrynlcxIkBjLy/Esnu3/pKtABhTw4domYjAGAAAAAAAAAAAAAAAAAAAAAAAAANbpaWMehq6xn+OcHDZaPe+Nednrt7cLuvr1K9VrncXb3n/skLgvdMfKmFP1//OcKN9t3Pu616E7Vvd1ssZUySr0e/s+0Ll52BmkjrnZhbKFLtYfsfF2M/PdljzyxTLwzV2hMY9ViT31UvbWak/41mulh5pjbfbIbWvuYmOb6hVlrrv2R7Gagi797eaR6oecOS2Uj7pnSO0XprpWdelvXx7umqC+R4mNZ2j8lf2ymsVU8ujS377Xvm9MU73j6wM3p7aveXXfMJU8lOcWe66xHFLjouwB1iZnHlDmmFQe6lq/1jzssY+tk7G5IDX3q3n4XgfQhdba1HuSVB5TW2PnwjdX9ZHHmuerLnLzUG/LfNVOmzzUPSz9kc8dv655uHsL8sijvKdI/W+d+ao/6vvF0F6X+Woc9hhjfOQxLeQBAAAAAAAAAAAAAAhZ0nmdS9Cc73X7jhUMJ+N8SPs7VuiVgajnQp4rcznVdaxrrHOgP3fGfF+rvnwp+9fLUM+FtPMY6xzoJo/bd1MtNQ/186yh4yU1edy+m6rJw+6XnPralX3cOUKf0/Z9hth3vKTH7X0tNY/cGqs/+szjfVv2savsdUE5Z3hK/dGlPuaRx99l33VPFdVnHj8zyiOUkfuzdB5rEMvjTB7FuXm4FesT8uifL4NUkcdwhDV7Mus5AAAAsGS/9OQlig==
   </data>
  </layer>
  <layer name="Kachelebene 3" width="100" height="100">
   <data encoding="base64" compression="zlib">
-   eJzt1z9KxUAQB+CozzOI2ll6BG3EUsFCb6Cn0VoLLX3NO4KtJ/EIXsEVElBUsu9PsvPW74MfbBHIMMMOSdMAAAAAAAAAAAAAAAAAALBODtoQw7zzuE956DmTL/X+pJvB1+R6Tpn2nMl3+kdYT/ZVLPYVtdrZLF0B1Otiq3QFMU23S1dQxu6kafZS9ielK/nuteA8cr53DzeGebd5/JTzvfvf5hHdUPOoTdenZf6rS+6r2nR9Wua/uuS+qs1YfTKPPPZVLPZVLPZVLJ99GisAAAAAAAAAAACMb9aGGF7aAL87Sjle8MzqnaWcL3hm9dyPWNyPWNyPWNyPuC5TrlJuU+4K10LTXKfcpDymPPU8+zZ8OczhvXQBAABQkQ9WiFPZ
+   eJzt2DFKxEAUBuCoa+EJRO0sPYI2YqlgobWNHsMTaK2FW7qNR7D1JB7BKzhCAsquZLKbZGaT74MfhrDLPt5jHmGLAgAAAAAAAAAAAAAAAACAdXJYhjw0ncdTyHPNmXih96fVDH4n1mvIrOZMvLN/wnpqsq9udua/3/azsWuyr+4X9K/tZxAj5n7vbvZTC+73GF1upa4gT7Pt1BWksTcpiv2Qg0nqSv76SDiPmPfdo41ufts85sW8745tHrnrah5DU/Vplf8BU+6roan6tMr/gCn31dD01SfziGNf5cW+yot9lZefPvUVAAAAAAAAAAAA+vdWhjy8lwEWOw45WfJM+85DLpY80z73Iy/uR17cj7y4H/m6CrkOeQh5TFwLRXEbchfyEjKt+exn9+XQwFfqAgAAYEC+ARYeWj8=
   </data>
  </layer>
  <layer name="Kachelebene 4" width="100" height="100">
@@ -30,6 +36,21 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="1" name="spawnpoint1" x="824" y="1368" width="40" height="40"/>
+  <object id="9" name="spcaif" x="864" y="1888" width="32" height="24"/>
+  <object id="10" name="spcake" x="64" y="1536" width="32" height="32"/>
+  <object id="11" name="spkeca" x="576" y="2800" width="32" height="32"/>
+  <object id="12" name="sproca" x="2176" y="2592" width="32" height="32"/>
+  <object id="13" name="spcaro" x="2048" y="1568" width="32" height="24"/>
+  <object id="15" name="spca" x="848" y="1184" width="32" height="32"/>
+  <object id="16" name="spke" x="48" y="2720" width="32" height="32"/>
+  <object id="17" name="exke" x="32" y="2688" width="64" height="24"/>
+ </objectgroup>
+ <objectgroup name="Exitpoints">
+  <object id="1" name="excake" x="32" y="1504" width="16" height="96"/>
+  <object id="4" name="exkeca" x="624" y="2752" width="16" height="96"/>
+  <object id="5" name="exroca" x="2168" y="2560" width="48" height="24"/>
+  <object id="6" name="excaro" x="2016" y="1600" width="96" height="16"/>
+  <object id="7" name="exca" x="832" y="1152" width="64" height="24"/>
+  <object id="8" name="excaif" x="832" y="1920" width="96" height="24"/>
  </objectgroup>
 </map>

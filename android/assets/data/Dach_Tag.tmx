@@ -41,7 +41,7 @@
  </layer>
  <layer name="Treppe" width="70" height="50">
   <data encoding="base64" compression="zlib">
-   eJzt2kEKgzAURdEMBLfVpbm0uhKhy3DUKogVnnRUDeQc+PPvxWSUUoBvY1eGqSuPu/eozdJlmbv3qM2kSzT36zka7t6jVq/ufFqnS6ZLpkumS6YLwLXcu5kumS6ZLpkumS4A13LvZrpkumS6ZLpkugBcy72b6ZLpkumS6ZLpspv79U3mc2z0+89sTXQ52procrQ1+fw365lK06JfTVrtAv/2BniEpsw=
+   eJzt2kEKgzAQQNGBBtz1TD2aR9OTCB7DVWsgtMIXVzWB/AezHz8mq0RI+jWnGJcUr9p7tGbvsk/tPVqz2AVtQz5HY+09WrWm8+mdXZhdmF2YXZhdJOle3rvMLswuzC7MLswuknQv711mF2YXZhdmF2aXiOej9gaSeuK9y+zC7MLswuzC7PK1DflN5jR3+v1nShO7HJUmdjkqTT7/TT5TND26atJrF+nf3rikpt0=
   </data>
  </layer>
  <layer name="Collision" width="70" height="50">
@@ -65,9 +65,9 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="1" x="209.333" y="1385.33" width="32" height="32"/>
+  <object id="1" name="spdach" x="208" y="1344" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="2" x="193.333" y="1344" width="61.3333" height="18.6667"/>
+  <object id="2" name="exdach" x="192" y="1312" width="61.3333" height="18.6667"/>
  </objectgroup>
 </map>

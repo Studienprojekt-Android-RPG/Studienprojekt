@@ -40,7 +40,7 @@
  </layer>
  <layer name="Wiese hell" width="80" height="60">
   <data encoding="base64" compression="zlib">
-   eJztm21uwyAMhnOn7iI7ydqDTGvPsY9ecaANyWM22GCM2Xgl/6iaNM4TG7BJj0Oml2CPwU7AnoW/8Z+1+fVp8+sTxu812MdMpxi6B3trMO37wvjFz15jMHF7P778lJr2fa3CL+d2Elrip51b3vlh8SZlB/lpM/TOL/lHsYPfPQU7M4/Vur9bsEt2Pa/8MB6JWbTr9znYPY3iB32E1/EyB2P5AdldBedZ8vMSgxQHil1pntn8+HFnNf5RPnriJ5nbPPDzNIf08LNaR/8lfnDuxSzN11T+t/qIxbuHOVjKLyoyPBOmyQ36SI0Xsxli/Gb7BBXne6o2gvXOiN4F1zfMp9ljC9XHqNWNFhw5a7gZ/GDPDOv/1OrunKNmT63kmyW/Uu+w1DPj9i44PCU9S04/z5IfZ+0jYcdl2MqX0we15Mdh0Wo9DFvNon6AGsnPmqVV/QVlxW/0M6gdu/n1cd78+mJ0FD+s5rscdF6MyrdV+WG6Hb97ElrcRjIsXcu6/sgZanIbwbf2WzPqNy5D63VJy/Vn9Q84DDF/4T5hPhZoMuSeP7P/Ahly7iHfr4nnj+RYO6e0f2SlEkPus74hx2px9Bp7UKW+M/dZp1jkGCdeva1dSqrt7WvvF+SsKZ41hivws/AR8sxZtown1qL4zRifsTmJYuidn8e1wSr8PPhXY+hl/9IrvyjqPRZPMeiZH4xB6KOnGIz8Ho75cwcl6t1dLwwxfh5iLwl7lyrPFcleNOc/I1L/PPPLc5hT5/XulUrknV9UbV2o3XOTaAV+SZFjKZe1TKKV+EVhsajNUaLV+CVh42KtD7H5/VTey9EyiVbm50EYv9lr0pWE8fNSv60gjN/OYb4ofjuHeaL47RyuK/03gOK3Y7Cs1Nug+O0YLGvz69Pmh+sTmfYtww==
+   eJztm21uwyAMhiPt/y7TXWQnWXuQac059nXFBW1IHrPBBmNMxyv5R9WkcZ7YgE26bTK9HPZ42AnYs/A3/rMWvzYtfm3C+L0e9jHSKYY+D3urMO37wviFz15jMHJ73779lJr2fc3CL+V2Elrkp51b3vlh8SZlB/lpM/TOL/pHsYPfPR12Zh6rdX/7YZfkel75YTwis2DXn3Owe+rFD/oIr+NlDsbyA7K7Cs6z5OclBikOFLvcPLP48ePOavyjfPTETzK3eeDnaQ5p4We1jr4lfnDuxSzO11T+1/qIxbuHOVjKLygwPBOmyQ36SI0XKcP7uw4OFHwr+TRSYb6naiNY7/ToXXB9w3waPbZQfYxS3WjBkbOGG8EP9syw/k+p7k45avbUcr5Z8sv1DnM9M27vgsNT0rPk9PMs+XHWPhJ2XIa1fDl9UEt+HBa11sKw1izqB6ie/KxZWtVfUFb8ej+D0rGLXxvnxa8tRnvxw2q+y0bnRa98m5Ufpn3725PQ4taTYe5a1vVHylCTWw++pd8aUb9xGVqvS2quP6p/wGGI+Qv3CdOxQJMh9/yR/RfIkHMP6X5NOL8nx9I5uf0jK+UYcp/1jhyrxdFr7EHl+s7cZx1jkWOcePW2dsmptLevvV+QsqZ4lhjOwM/CR8gzZVkznliL4jdifMbmJIqhd34e1waz8PPgX4mhl/1Lr/yCqPdYPMWgZ34wBqGPnmIw8HvYxs8dlKh3d70wxPjF2LN+TwMT9i5VmiuSvWjOf0ak/lH8PCjNYU6d17pXKpF3fkGldaF2z02iGfhFBY65XNYyiWbiF4TFIsYxjN2LHy1sXCz1IRa/30p7OVom0cz8OOq9BsP4jV6TziSMn5f6bQZh/G4th3uK4rdymCeK38rhsuJ/Ayh+Kwbzir0Nit+KwbwWvzYtfri+AFv6LdQ=
   </data>
  </layer>
  <layer name="Weg" width="80" height="60">
@@ -59,15 +59,20 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="5" x="54.5455" y="760.606" width="32" height="32"/>
-  <object id="6" x="451.515" y="1851.52" width="32" height="32"/>
-  <object id="7" x="463.636" y="57.5758" width="32" height="32"/>
-  <object id="8" x="2472.73" y="1466.67" width="32" height="32"/>
+  <object id="5" name="spweg" x="24" y="752" width="32" height="32"/>
+  <object id="6" name="sphof" x="464" y="1872" width="32" height="32"/>
+  <object id="7" name="spap" x="465" y="24" width="32" height="32"/>
+  <object id="8" name="splich" x="2512" y="1488" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="1" x="384.848" y="0" width="209.091" height="27.2727"/>
-  <object id="2" x="6.06061" y="669.697" width="27.2727" height="218.182"/>
-  <object id="3" x="321.212" y="1890.91" width="303.03" height="24.2424"/>
-  <object id="4" x="2527.27" y="1375.76" width="27.2727" height="218.182"/>
+  <object id="1" name="exap" x="373" y="-16" width="209.091" height="27.2727"/>
+  <object id="2" name="exweg" x="-16" y="672" width="27.2727" height="218.182"/>
+  <object id="3" name="exhof" x="320" y="1912" width="303.03" height="24.2424"/>
+  <object id="4" name="exlich" x="2552" y="1376" width="27.2727" height="218.182"/>
  </objectgroup>
+ <layer name="jesus" width="80" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztzkEJAAAIBLAD//aPawc/ImwJlgAAAAAAH3VdDwAAAAAAAAAAAAAAAABgZwD0jgAS
+  </data>
+ </layer>
 </map>

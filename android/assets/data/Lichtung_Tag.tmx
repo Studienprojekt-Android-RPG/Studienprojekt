@@ -25,7 +25,7 @@
  </layer>
  <layer name="Steine und Sträuche" width="40" height="40">
   <data encoding="base64" compression="zlib">
-   eJzt1j0OgCAMBWAGHDwQJ5HT6OWNA4Ng+SuhgO9LXIixjwKqUhBjtXSCeaF3fCP3sDSbqZhLj/kf+p2ttGbJ/Zw6LVA1rXAun8uwZ+RdHdWDXH6vuM/jkKzN8af9trpZ9yDkMTq8HOm1p/6Bav6NWktlkMyYW1sqI/KFqLP2NY7+8Y18flMZ/HHJ93Ts+wF1qPU8N6WurW8WAIDHDZvaDeg=
+   eJzt1jEOgCAMBVASYXDxNp5ET6OXd2IQrRSKFvC/xIUY+ymgGgNPVqudoF3onVzNPUzNNmfM5Yv5L/acLbVmyv2SOiVQNVflXCGfYWTk7R3VA66wV9LnSWjWlvjTfutdq3sQeGZ7vTzttaf+gXL+jUqLZdDMyK2tlRH5rqizdjeO/snVfH5jGcJxzff00/cD8lDruTljdvdtljdNg3YCAOA6ANqHDfk=
   </data>
  </layer>
  <layer name="Collision" width="40" height="40">
@@ -34,11 +34,11 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="4" x="47" y="232" width="32" height="32"/>
-  <object id="6" x="1023" y="65" width="32" height="32"/>
+  <object id="4" name="spha" x="16" y="240" width="32" height="32"/>
+  <object id="6" name="spap" x="1008" y="24" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="1" x="3" y="130.667" width="24" height="218.333"/>
-  <object id="2" x="928" y="4" width="201" height="26"/>
+  <object id="1" name="exha" x="-16" y="136" width="24" height="218.333"/>
+  <object id="2" name="exap" x="928" y="-16" width="201" height="26"/>
  </objectgroup>
 </map>

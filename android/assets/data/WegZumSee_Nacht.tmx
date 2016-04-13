@@ -50,12 +50,12 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="1" x="363.636" y="78.7879" width="32" height="32"/>
-  <object id="3" x="2451.52" y="327.273" width="32" height="32"/>
+  <object id="1" name="spsee" x="368" y="32" width="32" height="32"/>
+  <object id="3" name="spha" x="2504" y="320" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="4" x="230.303" y="3.0303" width="272.727" height="30.303"/>
-  <object id="7" x="2515.15" y="230.303" width="39.3939" height="206.061"/>
+  <object id="4" name="exsee" x="232" y="-16" width="272.727" height="30.303"/>
+  <object id="7" name="exha" x="2544" y="232" width="39.3939" height="206.061"/>
  </objectgroup>
  <layer name="Nacht" width="80" height="60">
   <data encoding="base64" compression="zlib">

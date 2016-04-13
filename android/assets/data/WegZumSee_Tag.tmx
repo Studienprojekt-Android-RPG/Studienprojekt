@@ -38,7 +38,7 @@
  </layer>
  <layer name="Steine" width="80" height="60">
   <data encoding="base64" compression="zlib">
-   eJzt2MENwjAMBdBOwCawAew/FidEBT1Q7LRJ/N69UuXY/mmXBajgfjn7DahOD8K4buaXgGuwf6LPw0MP7ZY1d5VqLys5wno2fV/1r9IOzDTL3U8ucKRe58YczEvG1eCcx9ZrNvxDntCLVntxpnn91edcv2qwVeOt+tgLtLTuOfehb5Ga+J+Zo2JuRJnlNxkK47LL+uAc4BzZs+dOxB76hVll7lZ3JBiLbKMFfZVLtgIA1T0BLY0LgQ==
+   eJzt2E0OgkAMBlAS99xEb6D3P5YrI1EWjlOYn763JyGdtt/AsgAZ3NfWb0B2ehDGdTO/VLhW9k/t8/DQQ8Wi5i5T7WUlZ9jOpu+r/mXagZFmufvJBc7U69yYg3nJuByc89h6zYZ/yBN6cdRenGlef/U5168a7NV4rz72wjjWS+s3KLftOfehbzU18T8zRsbcqGWW32QojMsu64NzgDaiZ8+diBL6hVlF7lZ3JBiLbOMI+iqWbAUAsnsCmRgLkg==
   </data>
  </layer>
  <layer name="Collision" width="80" height="60">
@@ -47,11 +47,11 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="1" x="363.636" y="78.7879" width="32" height="32"/>
-  <object id="3" x="2451.52" y="327.273" width="32" height="32"/>
+  <object id="1" name="spsee" x="360" y="16" width="32" height="32"/>
+  <object id="3" name="spha" x="2512" y="320" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="4" x="230.303" y="3.0303" width="272.727" height="30.303"/>
-  <object id="7" x="2515.15" y="230.303" width="39.3939" height="206.061"/>
+  <object id="4" name="exsee" x="232" y="-24" width="272.727" height="30.303"/>
+  <object id="7" name="exha" x="2552" y="224" width="39.3939" height="206.061"/>
  </objectgroup>
 </map>

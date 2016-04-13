@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="100" height="120" tilewidth="32" tileheight="32" nextobjectid="34">
+ <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2701" name="225838_hyptosis_tile-art-batch-4" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225838_hyptosis_tile-art-batch-4.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="3601" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="4501" name="carpets iso tileset" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
+  <image source="../Downloads/hyptosis tiles/carpets iso tileset.png" width="1024" height="1024"/>
+ </tileset>
+ <layer name="Collision" width="100" height="120">
+  <data encoding="base64" compression="zlib">
+   eJztnb9u2zAQhx3nj5u6S5EhLZA9ySt06ZKla5G9QIHuKbp07JAHaV4kL5GtU7f2FdwszcE++HI+kieLEinr9wGHWBTJyPeJlOyYzv2ryeT+KSTvjpZlMq73N8uoHpUTcn9Jro58USucP51nD1a9Uk50rq2cy321eonlLuQl5qtvFx4PVhurbQ0M2UdTD1Z73U9pKH/vX+Tp66mfH337sB731b4LcuevLx+5z+laxoh1PZcRahOq26cP63GpfnIxxPlKn8s5fZR2MsTx0WXOavFRa38WOme5xkfbvnLA81WO8dHnfBXbLtVXDoY6PrrKWy0+hnT9IF7Onm+3ff3Bfdbiw/ueVQhuP3QfNRB7D1GXx+r1+V4i5c7KX5P3rzz9lSKUR6+PEi523YfnGuKt1xXSRSyHsffbU33WjOWjJJYPK48eH96+amJIPry5zNFHKWry4cljLKep+scDcFKLj6YudE49dY+Fk8syTzNJDT44X5ctfJxMfPUvVk7IB0dN1ODj+946X3OVv1ieT0QfJyI8c9a52K6JWnxQzJUPzu189jzfMu8Mn/uWw4vZ5rWDgn9vTdTkg8eJzPexcnQp8q59yPlO5v9cjYvz2fPfCZ6jfejrL+dybvhhOM8Xq7AcyHkKPuLI/Fh+zmfr+exS5JrR+ZcO9XiACx+LQM4e1fWenej5So6DlAe4SHM6nUzeGPH2Kb6q+PgUN9N125upHbE+AQAAAAAAAAAAAAAAAAAAAAAAAAAAAMOAPuv1LxKP+HxWLyxWufb4WMBL53COQ5+Tk5+X21Ufvw42oxSn6rOJX9T6D7mt6+aCnj+tK2+bh8Mtji3U5u+83bFsw4E6Fs49/eSQ5cxtxjU7n1YOeJ3/tjnldvJxqk3s943Vh37eOc5xr4+Yuxp8ENqDdkF07YOCxovMmQ69X/cRa8/7mhxXH4R8xLaJLn0wPH89BH6mvg9I7qc2D0f2vqbH1SWWDw99+ChNKR8cHsgDRy5K3lvGKHlc0ot2Ix3k9MDw89b3/3R+9hXWa49az5Ouqe3513Y8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACGxWK1Hu7b/jIWgfVxXPYo6j/u6LqtkpxO2/nA98/nR65h9Pjg+uSi1v8PtyvweAn5YAe1/78+5sPe5Hdkn1kWilsVfUD5tdaPnk5tF0P0IXOsy7306cPK8ZAcSGI+rHIv1/stDqoBqXwP3UfIBe+TxNaedu2D85xa47cLPow6G56ujLWq0ovHh3cNuIU3z7vqQ6N9WGWfI7mWHrZ1souE5ivpwPJhnf+WI6on4+xo/VjXsfaNjdD9bi4fmrPIfB/bNxZS4yN0bQ+dw+SEoyl/9pcxZlL3V7F73NS80sbLWPHOV945y0KOmZSfMbsgPD6sbabptdfywfPU2F0QnvsrvU/y+nD5s8lY0cDFmiY+eL+EfFB471NDdeg1CJz456tUOaNfb+j887a+t8VrjyUxH23f42XoOz441/x9H/BhE/v7x2r/xrbXiXTATmLfy4n5Kj0+vOUaPV95vif158G67Vjx+NB/B2yCdT3xxFjxzFfaSwwrr/Dhp4kPD968Wtdz2X6spHx0RcjH3cEyxkopHxr2MGYXRO75alvG7oEhH9b9U+pvIF5HTc55OAl/3scq036ssaPzH/Mh5yjMVUuaXj9CrlIerLzf4fVfNWAsDJv/of/D0g==
+  </data>
+ </layer>
+ <layer name="Kachelebene 1" width="100" height="120">
+  <data encoding="base64" compression="zlib">
+   eJztnU1yG0UYhtvCrqlEBAXkFHACy4VNEU6gpTcQCsgVtHJCCBdgoV0oKpzAZW4AexvdINnAyhJV2bIkSRWwoTvqr/Sq3T2e0fz1eN6n6iv9zLg1+h693TNaWEotOe+H60TXkadOnIqNw0TNDhI1NqXvj5s+nqyc2L4fgYMf3766XB+xOBEP7yRKYbXFC/owNbWV5mISyEqThDy0zYvp41n/co+PAk4m4G8C81lTPrJ6aIsX8SG5EBenHicT+/wZ+Jg06MO4yOvBrdiciI9z8IG3U+tgCnUGDjBXdXOroAtTg6T+405DfJhaeNaRiVO41oiPkwZ8lJGNGDPiruduLtyawD5N5qOMbMSYEfSxgF7LOiEe5gEfmJW6KDMbsWXEvf4I5QPX7lPY3oSPMrMhpcf8vr53ECbtGly8nFsXc+j9tL+elzp9fFSBj8NI5iy8vhYPczjnknPcU48r9FHn+jFQ5WdkUN/hpyLzVSgjeP7r1sT5uzr4RF1/H24+MCchR77vF6vGuLinlr0rc846tD4+rf4tZAKdyHeKvu9wpc4cD3W6EB9lZWRgXfxgx47RSeg79VBVjbj43N4OVXkZkWwc63qg64vq306rwVwc28KMGCcHG3g4ABfv2bGGKq6MxIhkAp2Yz/Gurbxe0IO4GKqVC1MPFZ2EwEyYeqBWXkzf5LN9lRfXg+RhaMcUzw/tNjrxI73DXh3D/VDh2uLmQQqdYk5kfedacpkh1BO17BP2fRe2m/uYl1tw/oQu8O/lMeYDXZF17io10/PGWNfMlwucy/Czbkp8uA58PtCB8S6OyTpf9Za35jzL7SvO/9Peug+D+BDMPtL7J2qVt6Fan7OM/6/1vvd71b63tvJX742PsfRNXEhuzP2fe+suzDbxYfbRORvfhTFwfpJrGnTxVNdP9JGKOJG+yfO/6b7NdH1m+y7bMB+yj/jDwrEM4uK/rRreVMv4QPflH90X85n9Ute3Tpk5Za5roetP5/OMPnAfzMsj/dit+9bFh8yHl/d1Xx57XJj6LqVn7vrh8tjj4pEdky7SeRroT9ocf5WPTcYkhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIe3H/Z9fvrquxPRes3io+ljLGvubt4q/Pn2UM3aRMegjfAx1jhHj3Bybj1iqKWI41qZ7H5OPPD1p8rW75gOp+7hebNfzOlmJ7XhqZ6fpA3CI7XgIIYQQQgghhBBCCCGEEEIIIYQQQgghhFwL5HexYvrN9i4zsr8VRx/1cTOl18bHKInn98G7gPHRT5a3rpuR3TZK/H/zy5ZSv7bgd31ebZdfVSH97ttCJB8jp/d79rln+vFz+iiVG7qv+zYb2PebyboP6b1s34dtsZO318Od6iuE+azvJav+St9Hyfp85XrZg+2xU9RHHkdZ9w1henoDcuF62Hec/K5f74/t1eO084FY2NTHhe7HXNdia/XcrlNl56Nv8+HmIlR/6+N9ub1ytn9NfVxYB/9u+fuZx8VrcCzjd5ki85XrQ7YXyQZ9FPMRWhPEyevAdvrwU9THRcqc5csJ+gnlqMts6sPcRx+b5ID5uExV1x93dvLtj067TJuuB7tAXh95nLhryCKw1tDHiiIu8uaFPq6mjGwUvd6gjxVFffieSzvXCrnDcbpMFWuH8fGuyubE567LVLWWf6zHHqjNctJlqvJxqNTMODE5GUDddh67dbuRLsRDldcfxomuN1nJU12m6utB6yRXNd2TJinLRxZXWb/j6jJFfJT5HSKO12Wqnq82qS5T1Mcd+igV5iMu6CMu6IPk5X/YxWmf
+  </data>
+ </layer>
+ <layer name="Kachelebene 2" width="100" height="120" opacity="0.9">
+  <data encoding="base64" compression="zlib">
+   eJzt3ctvG1UUx/HrsdNUArWKQDhu+SNSkHh0Q/YpohLlD6DdsOChtv+AV2xJF63aHW1Z8hC0yrINLIBd2cCqD1QBC1C7gY0TQJxbz4mvr++MZyYT+zL5fqSjsSfO1D2/3DsTxzM2ZqibGLNcsT5oG9NLDGrysGPM20vGnF56suzbdZ8+nf89oa/b7aAGC+HVWZlkZpWxHdTH7/20cYPde+1g/tc1g2lZyHb6tTwhIDK6P3frzNLuH4vyps1XJbbTr2dLYHwAYXa+qmN8MF+hqdh/AOW9s5h/H7P14WL+fczeradGhfkjj7iQR1zIIy7kERfyiEsMeXzB+1d2xJDHqaSeTK6V2MZbkf4MxJDH79KbPyLtD+rzORkDAAAAAAAAAAAAAAAAAADsuUHLmC2ntlvzfkbzNZhzH/w85H5/Ps9k0jzO9x7U0IfdbMO/tqncr/w86jaP8727NfShSh6DyOcmHQvfHjLmO6nvpU49O9trIvhzR5GyPe2m79u3mRbZxvYwu6jmJp+OhV8kh1+lfjs0vn4WquTh97TINuz3dCObm0LsWEgOG9OW6hye/fVCqlyn2u9pkW3EnoPieiEAAAAAAAAAAAAAAAAAAAAAACAWHx8w5qrUNanrUp8cmPcz2t9uSf9vS21KfS31TQPzeMOrF4xZtesvd4w5u2DMuYXhbetKp1gNRufdlT6vbCvn3Mm70v97UvelHkj93PA8bBaawYb09SNZrqe3NZMi9iqPLen/ttTfUv9I/dvgPNZkGrD3NQPfRgR5LC8a05M6InVU6vkGnidnsziZ3v5SevFVoB86Zlz2s/beTMKff7dXebwk/X9Z6hWpV6WONzSPlXRs3JFe/OD0Q3Pwx4zNYj3N4YIsz3q52HNX9yKP/UCzsPxxkDV3rSejXp9L8zjvjZNuUi6PIwl5+LT/uu8OzVOW+7OflYdV5TzxZT77cILuu7PGR9E88jzsDEvdactc2a7+nJvoR+nPT53J275uYL5yq9Bn3C6klXokWTwmjzF/Sv//6kzeDtE87L7krizvtyrm4rlS4rh6vygyTrrJzjVXdq5JZHO5l5FNkXzIIqzoOHGPa/XaRJ8lo2z8XPL2MWQxScdCaExkHWtpJprH+fbotj9mLjA+StGxEBoTWcdals2kl4TzcMdM3nXWyCJbaCzkHW8p/X2jl4Qz8vNYkzpR6zNvJh0Lbi7Tjrdc2ufXzTAXzaOXjD/GeV15bD3C/Dkq6/VGtSJ1zAx7/K4xfaknmdg8bBbaezcLNxNdj3Hu3OSOEf/1RpfNQnt70llvM3mvRL1f73+lEdy5KTR3hUgeq/7P+zQv8vt4Ke44yTu+Un4mMv/0sx77TLoveY7XDwsrsw9XfibHKhTqZTOxf4uXffnmibTsfT+rUOn7KTAbeZmsOX8bw6Rpx7dVZBzrrpLF0EXp96XWaOmuyzq+LfreH/93es1C9hGbWuQw7ob0+2ZrtLzk3LYuO+9zs+xyI+M1RzdTyz8eWHHGgf9YjFwM5KDrNpwc3Nf8tNd2nf/9/uvEunQzcP8tjAv1pki/NB//sf7rxLrUx/nZ4v/lP+hvDU4=
+  </data>
+ </layer>
+ <layer name="Kachelebene 7" width="100" height="120">
+  <data encoding="base64" compression="zlib">
+   eJzt2z9OwzAYh2GL/pHKwBLBxtIrMLLkEBwC2OAETMAGKwMDCBB7u7FwA5AQqJeABQ6AU9VSSNPExE39OXkfyUrbOMjNz3xOWlWpecN+zosO/XzIG5vk8RaJM+MeR+pkFE23hf0kMOc8b2zmtVBzMeN+1Hm8RdPtn9clspkjEueRjXhBHhLfj80cuV6fP2ajU8946pTNQyKbOfKUyUPivLKRyiP2PRbIz8NlPZO8Fi4iPQ+XuhNizZKeR9tIz4N6JQv1Cj6FkEeVuiO5VhWNzSYP3++tSt2RXKuKxmaTh5T3ZjMvfM8dVyHUK6PJnycaIeVhNOn7j6wQ8yj6/iN0IeRxN1DxvW4PuiWPq/YJgfQ80ufZbKv0CYX0PE71uT3T7Ty1rdInFNLz2Nfn9kC3w9S2Sp9QSM8jcTNQ6lY3XYemj6v2CUEIebTJOFLPI53FmDwAAAAAAAAAAAAAAAAAAAAAAGiV7Yb89rQpdskDsFZWv1z2Uxv/z9SvyYJtWX1L70+OmfTz9wEAAAAAAAAAAAAAAAAAAAAAAAAAAPi0t+Z7BHAV6Qw3Z22LPL0Zzn5DnOSxM2smjyG/L165uOCcF+0DACDrqKfUcc/3KJrhvavUR9ftb1zoLC7JYym+dRY/jnnAv+y9RvL8paPUa8fPeNokr6Zl7zWS5586iy/drvh/q5WpaWXrTJIDWdQje17z1plo9jmJ+byELNB0Zk2ueh3Mmr5cZk0uuw7Ou75KH4/Vyru+Sizj/hLuTJ3i/lIG7j3kYS2XwawZrOUysGbIxNoRjl/aBLF3
+  </data>
+ </layer>
+ <layer width="100" height="120">
+  <data encoding="base64" compression="zlib">
+   eJzt07ENg0AMBVAX17BVxgEGgQwC2YgsAgPgjg4hcRKJ9J705cbVtxwBAAAAAAAA8F+mJl5z5pO5s0MdQ3Y8Zt4nXV/ZoY42O+4y/UnXV3aow3/8Fv8BAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADUtpSIbzkmz1rzBls5JgAAAAD37PFjHvE=
+  </data>
+ </layer>
+ <objectgroup name="Spawnpoints">
+  <object id="1" name="spdd" x="1936" y="2960" width="32" height="32"/>
+  <object id="4" name="spka2" x="2864" y="3136" width="32" height="24"/>
+  <object id="5" name="spka1" x="320" y="736" width="32" height="32"/>
+  <object id="8" name="spka4" x="544" y="48" width="32" height="32"/>
+  <object id="9" name="spka3" x="320" y="3024" width="32" height="32"/>
+  <object id="10" name="spka5" x="320" y="2856" width="32" height="32"/>
+  <object id="17" name="spka6" x="1808" y="832" width="32" height="32"/>
+  <object id="23" name="spkd1" x="32" y="96" width="32" height="32"/>
+  <object id="24" name="spkd2" x="608" y="96" width="32" height="32"/>
+  <object id="25" name="spku1" x="32" y="1936" width="32" height="32"/>
+  <object id="27" name="spku2" x="1184" y="1936" width="32" height="32"/>
+  <object id="31" name="spka7" x="608" y="1840" width="32" height="32"/>
+  <object id="32" name="spka8" x="2368" y="1904" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Exitpoints">
+  <object id="2" name="exdd" x="1888" y="2912" width="200" height="24"/>
+  <object id="3" name="exka1" x="2848" y="3088" width="64" height="32"/>
+  <object id="6" name="exka2" x="288" y="784" width="96" height="32"/>
+  <object id="7" name="exka3" x="544" y="0" width="32" height="32"/>
+  <object id="15" name="exka6" x="288" y="2816" width="96" height="24"/>
+  <object id="16" name="exka5" x="1792" y="880" width="64" height="32"/>
+  <object id="19" name="exka4" x="176" y="3072" width="296" height="32"/>
+  <object id="21" name="exku2" x="608" y="32" width="32" height="32"/>
+  <object id="22" name="exku1" x="32" y="32" width="32" height="32"/>
+  <object id="28" name="exkd1" x="32" y="1984" width="32" height="48"/>
+  <object id="29" name="exkd2" x="1184" y="1984" width="32" height="48"/>
+  <object id="30" name="exka8" x="608" y="1792" width="32" height="32"/>
+  <object id="33" name="exka7" x="2336" y="1952" width="96" height="32"/>
+ </objectgroup>
+</map>

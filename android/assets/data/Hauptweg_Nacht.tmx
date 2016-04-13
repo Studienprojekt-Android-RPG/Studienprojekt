@@ -59,16 +59,16 @@
   </data>
  </layer>
  <objectgroup name="Spawnpoints">
-  <object id="5" x="54.5455" y="760.606" width="32" height="32"/>
-  <object id="6" x="451.515" y="1851.52" width="32" height="32"/>
-  <object id="7" x="463.636" y="57.5758" width="32" height="32"/>
-  <object id="8" x="2472.73" y="1466.67" width="32" height="32"/>
+  <object id="5" name="spweg" x="24" y="752" width="32" height="32"/>
+  <object id="6" name="sphof" x="464" y="1872" width="32" height="32"/>
+  <object id="7" name="spap" x="464" y="24" width="32" height="32"/>
+  <object id="8" name="splich" x="2504" y="1488" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Exitpoints">
-  <object id="1" x="384.848" y="0" width="209.091" height="27.2727"/>
-  <object id="2" x="6.06061" y="669.697" width="27.2727" height="218.182"/>
-  <object id="3" x="321.212" y="1890.91" width="303.03" height="24.2424"/>
-  <object id="4" x="2527.27" y="1375.76" width="27.2727" height="218.182"/>
+  <object id="1" name="exap" x="384" y="-16" width="209.091" height="27.2727"/>
+  <object id="2" name="exweg" x="-16" y="672" width="27.2727" height="218.182"/>
+  <object id="3" name="exhof" x="320" y="1912" width="303.03" height="24.2424"/>
+  <object id="4" name="exlich" x="2544" y="1376" width="27.2727" height="218.182"/>
  </objectgroup>
  <layer name="Nacht" width="80" height="60">
   <data encoding="base64" compression="zlib">
