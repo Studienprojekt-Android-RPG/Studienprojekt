@@ -1,7 +1,6 @@
 package de.test.game;
 
 import java.io.IOException;
-import java.io.Serializable;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -13,10 +12,8 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
-public class Player implements Serializable {
+public class Player extends Fighter {
 
-	
-	private static final long serialVersionUID = 1L;
 	Vector2 position;
 	String textureLoc;
 	static Preferences prefs = Gdx.app.getPreferences("haw");
@@ -28,11 +25,14 @@ public class Player implements Serializable {
 	int SPD;
 	int curPKT;
 	int maxPKT;
-	int curHP;
-	int maxHP;
+	int curHP = 20;
+	int maxHP = 200;
 	int EXP;
+	int level;
 	
 	boolean allowMov = true;
+	boolean isMoving = false;
+	boolean isBattlearea = false;
 	private TextureAtlas leon;
 	Animation down, left, right, up;
 	Texture playerTexture;
@@ -41,9 +41,10 @@ public class Player implements Serializable {
 	float stateTime;
 	Rectangle bounds;
 	String movement;
-	float speed = 10f;
+	float speed = 3f;
 	boolean menu = true;
-	public Player(Vector2 position, String textureLoc){
+	public Player(Vector2 position, String textureLoc, int atk, int def, int hp, int lvl, int sp, String name){
+		super(atk, def, hp, lvl, sp, name);
 		this.position = position;
 		movement = "";
 		
@@ -61,6 +62,7 @@ public class Player implements Serializable {
 	}
 	
 	public void update(){
+		isMoving = false;
 		
 		bounds.set(position.x, position.y,currentFrame.getRegionWidth()-5, currentFrame.getRegionHeight()/2);
 		
@@ -76,42 +78,50 @@ public class Player implements Serializable {
 			position.y += speed;
 			movement = "up";
 			currentFrame = up.getKeyFrame(stateTime);
+			isMoving = true;
 		}
 		if(Gamescreen.down.isPressed()){
 			position.y -= speed;
 			movement = "down";
 			currentFrame = down.getKeyFrame(stateTime);
+			isMoving = true;
 		}
 		if(Gamescreen.left.isPressed()){
 			position.x -= speed;
 			movement = "left";
 			currentFrame = left.getKeyFrame(stateTime);
+			isMoving = true;
 		}
 		if(Gamescreen.right.isPressed()){
 			position.x += speed;
 			movement = "right";
 			currentFrame = right.getKeyFrame(stateTime);
+			isMoving = true;
 		}
 		
 		if(Gdx.input.isKeyPressed(Keys.W)){
 			position.y += speed;
 			movement = "up";
 			currentFrame = up.getKeyFrame(stateTime);
+			isMoving = true;
 		}
 		else if(Gdx.input.isKeyPressed(Keys.S)){
 			position.y -= speed;
 			movement = "down";
 			currentFrame = down.getKeyFrame(stateTime);
+			isMoving = true;
 		}
 		else if(Gdx.input.isKeyPressed(Keys.A)){
 			position.x -= speed;
 			movement = "left";
 			currentFrame = left.getKeyFrame(stateTime);
+			isMoving = true;
 		}
 		else if(Gdx.input.isKeyPressed(Keys.D)){
 			position.x += speed;
 			movement = "right";
 			currentFrame = right.getKeyFrame(stateTime);
+			isMoving = true;
 		}
 		else if(Gdx.input.isKeyPressed(Keys.M)){
 			if(Gamescreen.gamenu.isVisible() == false){
@@ -141,6 +151,7 @@ public class Player implements Serializable {
 		Gamescreen.right.setPosition((this.position.x - 800/2) + 150, (this.position.y - 480/2) + 96);
 		Gamescreen.gammenu.setPosition((this.position.x + 800/2) - 50, (this.position.y + 480/2) - 50);
 		Gamescreen.gamenu.setPosition((this.position.x + 800/2) - 200, (this.position.y + 480/2) - Gamescreen.gamenu.getHeight());
+		Gamescreen.warn.setPosition((this.position.x + 800/2) - 150, (this.position.y + 480/2) - 35);
 	}
 	
 	public void reAdjust(){

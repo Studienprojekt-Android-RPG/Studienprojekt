@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="40" height="40" tilewidth="32" tileheight="32" nextobjectid="7">
+ <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2701" name="225838_hyptosis_tile-art-batch-4" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225838_hyptosis_tile-art-batch-4.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="3601" name="225839_hyptosis_tile-art-batch-5" tilewidth="32" tileheight="32" tilecount="722" columns="19">
+  <image source="../Downloads/hyptosis tiles/225839_hyptosis_tile-art-batch-5.png" width="636" height="1219"/>
+ </tileset>
+ <tileset firstgid="4323" name="225842_hyptosis_sprites-and-tiles-for-you" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225842_hyptosis_sprites-and-tiles-for-you.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="5223" name="Nachtfilter" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../Downloads/hyptosis tiles/Nachtfilter.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="5227" name="test" tilewidth="32" tileheight="32" tilecount="240" columns="20">
+  <image source="../Downloads/hyptosis tiles/verdunkeln.png" width="640" height="400"/>
+ </tileset>
+ <layer name="Gras" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztmEtOwzAQhmeXLkFItKq4BaWkvUUFlAL3oO0luoSDlIsgDsJ7jy3F6nQ0Hs+4Jl3A4lcSP+JP/8T2OCsAWLWseQUwcNezRiOnidPClS+r9nkkvrrh82xHHYD3PfOt3fhfDV+N/PN8n053e+bzbAtDfG/d81NLCmyehfoX41tU7WoCGz6Nf32nLrpi0Traps/c92DDIOmezI/A90L4gsdYNSqvyTNtQ9udIN4+c99FbBr/8Ps5zhgzbWstx2WSfxcZmjL3MwUnrefmB+WzfNMpzQS+GPMY9efi+1bJOujYGKnXKV9HhI/6l9Kz0UOq84SXlM+6/+7KR+fqvv07hs16kmIbk75t+DcQeALTtBHt68f5VuYIa2bPlBRbe6mGifdoYzw3rC8pJgufNgecK9g4v1L7pec73dE7DV/qO4vJ789h/lC2Q0P+/Ft8lDV3bUnx4fwoFkvNXpxzNrpx7T4UbCWUwyd5V5KtNF+MTZuvcPmjlFtZ+AbCuJJS7H6O9Ar4p52vEn+sbgi2vc3KZ833Ob6cvU3is8aZ9sX9MZ8mxrH5MSvEExRymctCfLEYa9djXDdGXNb8T1r/cj2kvlG2UnwWRs/BnU9jbD4/eCzAdwXb598pbJ+Fw/U60p9js/z7s+SmsfEs0vrG8VnlfUidqaksbF6vxvcHPWSM9a+/rR8Neoq7
+  </data>
+ </layer>
+ <layer name="Steine und Sträuche" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzt1j0OgCAMBWAGHDwQJ5HT6OWNA4Ng+SuhgO9LXIixjwKqUhBjtXSCeaF3fCP3sDSbqZhLj/kf+p2ttGbJ/Zw6LVA1rXAun8uwZ+RdHdWDXH6vuM/jkKzN8af9trpZ9yDkMTq8HOm1p/6Bav6NWktlkMyYW1sqI/KFqLP2NY7+8Y18flMZ/HHJ93Ts+wF1qPU8N6WurW8WAIDHDZvaDeg=
+  </data>
+ </layer>
+ <layer name="Collision" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJzNWElrFEEULpiYmCgEjBeP6tGTnjWjvyDRs1Ew8WQyLldF0JtOXK4xA65RcDsJLuAa/4IrUYi/QTGgol/R/eDz+V719KTJ+MFHzXS9qnr9qt5SHUIIG2shbAI3gw/BR+Bj8AkoYBlGauwb8C34DnwPjoMTajxD+vVadbQ7wV3GnAKWYRSN/Yr2W/77FNrTCf2kX681hnYfuF/Nye/LMt5zrU+jP4R1PSEM9RTbjsFzxjmOoz0BNvuzfplT3qdJMvyeDfV8mvTxbJPC0qqs5Tk1RMduoh1by7uURafjGO3Yuuo125nr5Jqs9WJFt9HK9fNixf8CHRPagdh+JZDy3wjrjLRWSD/xXSuXyLMYY7wzeqU3hKvgNfA6eKO3Wv3Ed61cwn7tndFn0Oc5+AJ8Cb6qSD8+P2wbPouXwFmwVbPPqOz7J+j0mfSar8DP4vmR+dk2chZ17ZE6oz+g20/wV8V7K7Bso2uPbuY5tg3vqdQeRbpVlU8Oo444Ah4Fj+U1hV6b99SrPVLYPhjCDnAYrA+23z+Ndc6B58EL4MV8XV0b8J6m8t5M/kzH6RGsOQruBvcY+nn9t6HPHfAueA+8n+unawOuJ3VMsWKdjtMHsOY4OAEeNPQr6mdYdRXvqfabsrFuxrB7GYjtrJwRYcUUHesi5vpCuNnXuR5DGLveGC++4eUM9mWBFevmMffrZei3FWO3qfEc4627jnevtLCIub8k9JuLsSC+Qy2jxgj6RhPjrbtOmfj8O8692u77gLEfwQXwKbWMKYxvGPrxWbPqF/ZlhmUDD98hu0TykwOZPRcK5phRZ82qXzqJz0XYsDbTj21YFNOnae90TKk6724Z+Nd2VszmuM/6eblY4OUNDw8G/v5/uZbZj2HF7JZT/wmK/LdsfR/9d7HDeG3Vxt53oRSKzlE7GEYtVFf1kHd/8/zXQ1FtoGHl873QbUzpx2eO95r99xDaSXAKbDg+XSb3R5TJ5+ILvNccH89Ap7Ng09BtOXdhK59Hf+W12Rd4rzk+3jL0krq507twzLHe3YXXZl/QNUsjjz1WrLFgyek7dmo+lknlsrLfoGMc13Kylr5jazmex7tz61yW+o4s6+q4pOWs+tKS8+7+qe9Cqe/Isq7I8J5YMclan+W8b9l81nStr8+hVSuIDO+JJWfZgeWs+k5Dnv8BbcxMHA==
+  </data>
+ </layer>
+ <objectgroup name="Spawnpoints">
+  <object id="4" name="sphawe" x="16" y="240" width="32" height="32"/>
+  <object id="6" name="exwo" x="1008" y="16" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Exitpoints">
+  <object id="1" name="exhawe" x="-16" y="128" width="24" height="218.333"/>
+  <object id="2" name="exwo" x="928" y="-16" width="201" height="26"/>
+ </objectgroup>
+ <layer name="Nacht" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztwwEJAAAMA6CVeIz1r7ceR8FeUlVVVVVV1UcHPRickA==
+  </data>
+ </layer>
+ <layer name="Battle" width="40" height="40">
+  <data encoding="base64" compression="zlib">
+   eJztwQENAAAAwqD3T20PBxQAAAAAAMCXARkAAAE=
+  </data>
+ </layer>
+</map>

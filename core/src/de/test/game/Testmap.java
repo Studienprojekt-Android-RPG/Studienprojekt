@@ -1,20 +1,24 @@
 package de.test.game;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Screen;
+
 
 public class Testmap extends Game {
+	static Game game;
+	static Testmap gameT;
 	
-	Game game;
-	Screen startMenu;
+	Gamescreen gamescreen;
+//	Battlescreen battlescreen;
 	
 	@Override
 	public void create() {
+		gamescreen = new Gamescreen(this);
+//		battlescreen = new Battlescreen(this);
+		gameT = new Testmap();
 		
-		System.out.println("Game starting!");
-		
-		setScreen(new Gamescreen(game));
-		//setScreen(startMenu);
+		//setScreen(new Gamescreen(game));
+		setScreen(gamescreen);
+		//setScreen(new Battlescreen(game));
 
 	}
 

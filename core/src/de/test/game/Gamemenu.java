@@ -16,6 +16,7 @@ public class Gamemenu extends Window {
 	TextButton save;
 	TextButton resume;
 	TextButton exit;
+	InventoryScreen inventoryscreen = new InventoryScreen(Testmap.gameT);
 	
 	public Gamemenu(Skin skin) {
 		super("Menu", skin);
@@ -45,6 +46,7 @@ public class Gamemenu extends Window {
 		 inv.addListener(new ClickListener() {
 		        public void clicked(InputEvent e, float x, float y) {
 		            System.out.println("Inventar geöffnet");
+		            Gamescreen.game.setScreen(inventoryscreen);
 		        }
 		    });
 		 

@@ -5,63 +5,70 @@ filter: Nearest,Nearest
 repeat: none
 digidown
   rotate: false
-  xy: 1, 1
+  xy: 1, 33
   size: 88, 88
   orig: 88, 88
   offset: 0, 0
   index: -1
 digileft
   rotate: false
-  xy: 91, 1
+  xy: 91, 33
   size: 88, 88
   orig: 88, 88
   offset: 0, 0
   index: -1
 digiright
   rotate: false
-  xy: 181, 1
+  xy: 181, 33
   size: 88, 88
   orig: 88, 88
   offset: 0, 0
   index: -1
 digiup
   rotate: false
-  xy: 271, 1
+  xy: 271, 33
   size: 88, 88
   orig: 88, 88
   offset: 0, 0
   index: -1
 Action
   rotate: false
-  xy: 361, 9
+  xy: 361, 41
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 Sbutton
   rotate: false
-  xy: 443, 9
+  xy: 443, 41
+  size: 80, 80
+  orig: 80, 80
+  offset: 0, 0
+  index: -1
+xbutt
+  rotate: false
+  xy: 525, 41
   size: 80, 80
   orig: 80, 80
   offset: 0, 0
   index: -1
 testbutton
   rotate: false
-  xy: 525, 49
+  xy: 607, 81
   size: 90, 40
   orig: 90, 40
   offset: 0, 0
   index: -1
 testbutton2
   rotate: false
-  xy: 617, 49
+  xy: 699, 81
   size: 90, 40
   orig: 90, 40
   offset: 0, 0
   index: -1
 default-window
   rotate: false
-  xy: 709, 25
+  xy: 791, 57
   size: 64, 64
   split: 0, 0, 0, 1
   orig: 64, 64
@@ -69,8 +76,15 @@ default-window
   index: -1
 menubutton
   rotate: false
-  xy: 775, 39
+  xy: 857, 71
   size: 50, 50
   orig: 50, 50
+  offset: 0, 0
+  index: -1
+warning
+  rotate: false
+  xy: 1, 1
+  size: 31, 30
+  orig: 31, 30
   offset: 0, 0
   index: -1

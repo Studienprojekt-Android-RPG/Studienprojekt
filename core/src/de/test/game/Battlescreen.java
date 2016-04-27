@@ -3,30 +3,35 @@ package de.test.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Window.WindowStyle;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class Battlescreen implements Screen {
 	
+	enum Battlestate{firstStrike, LeonTurn, EnemyTurn};
+	static Battlestate battlestate;
+	static Goblin gobi = new Goblin(7, 50, 50, 15, 7, "Gobi");
+	
 	SpriteBatch batch;
 	TextureAtlas enemies;
-	Sprite enemy1 = new Sprite();
+	Texture test;
+	Sprite enemy1;
 	Sprite enemy2 = new Sprite();
 	Sprite enemy3 = new Sprite();
 	Player player = Gamescreen.player;
@@ -47,7 +52,8 @@ public class Battlescreen implements Screen {
 	
 	Battlemenu battlemenu;
 	
-	static Music battletheme = Gdx.audio.newMusic(Gdx.files.internal("Battle Theme.mp3"));
+//	static Music battletheme = Gdx.audio.newMusic(Gdx.files.internal("Battle Theme.mp3"));
+//	static Music finalbattle = Gdx.audio.newMusic(Gdx.files.internal("Final Battle.mp3"));
 	
 	OrthographicCamera cam;
 	Viewport viewport;
@@ -58,7 +64,7 @@ public class Battlescreen implements Screen {
 	public Battlescreen(Game battle){
 		
 		this.battle = battle;
-		
+
 	}
 	
 	@Override
@@ -85,7 +91,8 @@ public class Battlescreen implements Screen {
 		battlemenu = new Battlemenu(skin);
 		
 		cam = new OrthographicCamera();
-		viewport = new FitViewport(800, 480, cam);
+		viewport = new ExtendViewport(800, 480, cam);
+		cam.setToOrtho(false);
 		
 		battlemenu.setVisible(true);
 		battlemenu.setKeepWithinStage(false);
@@ -95,7 +102,6 @@ public class Battlescreen implements Screen {
 		sel.setVisible(true);
 		
 		batch = new SpriteBatch();
-//		batchTouch = new SpriteBatch();
 		
 		stage = new Stage(viewport);
 		stage.addActor(ang);
@@ -105,29 +111,71 @@ public class Battlescreen implements Screen {
 		
 		ang.setPosition(140, 40);
 		sel.setPosition(15, 40);
-		battlemenu.setPosition(0, Gdx.graphics.getHeight() - battlemenu.getHeight());
+		battlemenu.setPosition(0, 480 - battlemenu.getHeight());
+//		battletheme.play();
+//		finalbattle.play();
+		
+		test = new Texture(Gdx.files.internal("DivineShinael.png"));
+		enemy1 = new Sprite(test);
+		
+		
 	}
 
 	@Override
 	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 1, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-		
-		cam.position.set(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2, 0);
+
 		batch.setProjectionMatrix(cam.combined);
 	    cam.update();
 		batch.begin();
 		batch.draw(player.getCurrentFrame(), player.getPosition().x, player.getPosition().y);
+		batch.draw(test, 250, 150, 300, 300);
 		batch.end();
 		stage.act();
 		stage.draw();
-		battletheme.play();
+		
+		
+		switch (battlestate){
+			
+			case firstStrike:
+				if(Fighter.turnSpeed(gobi) < Fighter.turnSpeed(Gamescreen.player)){
+					battlestate = Battlestate.LeonTurn;
+				}
+				else{
+					battlestate = Battlestate.EnemyTurn;
+				}
+		
+			case LeonTurn:
+//				System.out.println(player.getName() + " ist dran");
+				
+				battlemenu.setTouchable(Touchable.enabled);
+				
+				if(Battlemenu.hasClicked){
+					Battlemenu.hasClicked = false;			
+					battlestate = Battlestate.EnemyTurn;
+				}
+				
+			break;
+			
+			case EnemyTurn:
+				System.out.println(gobi.getName() + " ist dran");
+				battlemenu.setTouchable(Touchable.disabled);
+				for (int i = 0; i < 200000; i++){
+//					System.out.println(i);
+				}
+				System.out.println(gobi.getName() + " greift an!");
+				battlestate = Battlestate.LeonTurn;
+			break;
+			
+		}
+				
 	}
 
 	@Override
 	public void resize(int width, int height) {
 		viewport.update(width, height);
-		
+		cam.update();
 	}
 
 	@Override
@@ -150,8 +198,12 @@ public class Battlescreen implements Screen {
 
 	@Override
 	public void dispose() {
-		// TODO Auto-generated method stub
-		
+		stage.dispose();
+		batch.dispose();
+		font.dispose();
+		skin.dispose();
+		butwin.dispose();
+//		battletheme.dispose();
 	}
-
+	
 }

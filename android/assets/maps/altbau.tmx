@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="150" tilewidth="32" tileheight="32" nextobjectid="34">
+ <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900">
+  <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2701" name="225838_hyptosis_tile-art-batch-4" tilewidth="32" tileheight="32" tilecount="900">
+  <image source="../Downloads/hyptosis tiles/225838_hyptosis_tile-art-batch-4.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="3601" name="unspecified" tilewidth="32" tileheight="32" tilecount="256">
+  <image source="../Downloads/hyptosis tiles/SchoolHouse_zpse3dc36f7.png" trans="ffffff" width="512" height="512"/>
+ </tileset>
+ <layer name="Kachelebene 1" width="150" height="150">
+  <data encoding="base64" compression="zlib">
+   eJzt3dtto0AAhlHe14VtJVtN3ENeEz+kklSSJtaR1lrH4ITL/MNgzpFGkUUkLv5EAEHoOgD25nTonp/+jbWXhcehq77X87Y4BsdTeFzW4/TNtDRd9Z023tWY5mpsw9a6umz/teb/oqvFdJV13q6f6xM39D2+6OoLXU3X2vdYe3lKH7vUWOYlzucAn+scp6t9dFX7+EZXukpouata66+r8nS1j65qW6Ore+2scZ0jcc0xtawta+0ala4eQwtdfcdx+zbpqj8/XS2nq/78dFVey+eDteanq/Ja7uqn8ftX113Gkvnpqrwtd/Xn3NNlzFX6nrliG2LjttxViWND+6uMlrsa8zs1ll0z0+mKhLl/d2qMKctcb4sxxha7on26AgBg794O/5/XuvcTpnq/6ud409NRV8z0oStCToevQ1ckOL4iQVck6IoEXVHK0HWroXNEmGKooaG+YIrvrrfbXzGXrkjQFQm6IkFXJOiKNNdFSdAVCboiQVck6IoE94uSYH9FwvU97jXeq8R+1HpXFwAAAAAAAAAAAABtG3rW3rP3LDWmqzdtMdGYrt51xURjuvrQFRPddgUl6IoEXTHHbTc/fWa+06F7PobH2ut4oat6dKWrBF3pKmHPXZGjKxJedUVAuild7ZOuSNAVCboiwfkgCboiwXWG/nT9LWd/1Z+uq+V01Z+uq+X23NW9z7piCl2RoCsSdMWadEWCrki499yzxphr6LhLVyylKxJ0RYKuSNAVCboiQVck6AoAAAAAAAAAAADgMR3dC0qArijJ++FIWLOrGv+Ds8aot8W2Q1e6StCVrh5NjXcy6AoAAAAAAAAAALj2F8zH2uk=
+  </data>
+ </layer>
+ <layer name="Kachelebene 2" width="150" height="150">
+  <data encoding="base64" compression="zlib">
+   eJzt3T2O00AYBmBLi4REsjkCEh2H4AJoT8ANgrQ9bSp+amouQAfdLhdIxRlYiq2Q4Ah4pawURfHY8U8+j/080lSJlLHzJZ68M54UBQxnuyiKr5m2+0X1cew/xvmty/P/OtN2fVl9HG/V1aw1qR8A8lQ3Jj7UdIxKvZtVdA+G8/HEcUPquZ/UVdL9Xh3dTrimHrwva+Eq0T4s2j2XcXN9YQhyDpqqGiuTr+0I3seq/Hg/myUvD+/p86WMtK2fT6N7MF6vltE9YGpePInuQR6+++yd5I3z1ckf18Gjfl1E9+A0p67xIcZdWVd35e+u35n89mqyRqOvfMt3EdG+qUE6kCvAuOyPKyLX2DNdkWvsmbfouvi7LIp/cjgAAHqUuo/IvBZtpe6ttz4SAAAA8vPlWezrP2ZYVWRZefoRXFfrmvl+exAAMAfuIwJgrlwDAQAAAAAAAAAAAAAAAAAAmLvUf1XY44+2Uv9VYY8/AACAfKVyBPpVl9l0bWPKfFI5Av2qy2y6NpkPXVzt6md1EdsPAAAAAAAg1rG50jHNb5KnY3Ol5jeBsThcf/VyFdcXpsP6KwDm4sbYiYHcqi169vh91aa2ZKQMQUYKAAAAAEzZ52V0D5iid+oKAAAAAAAAAAAAQmwP7o23BwN9WB/U0fXl+V57t//yJudWHsPmfGeMJnb7L29ybmt1BQAAAAAAAAAAAAAAvfoPrMRQng==
+  </data>
+ </layer>
+ <layer name="Collision" width="150" height="150">
+  <data encoding="base64" compression="zlib">
+   eJzt3T9v5EQYx3FLIIp4472G90AZiiBRHlR31CmONECVwDuAfvcQRYq7vIV7ARQRHRJV+pQ06IoU6XYLGprzw3qUyWN7PP4z9uz6+5FGvqy9iW/983g8tmeTBAjj6+Op1wCHiFz192nq/nmOJFer/HP4Zk/LOi9XRdH/DzMvNHJVb1nUW9vFbvqqmB7nr2cd67TtUZLcHfVftyZXFfkx602uEMJcc3VvrcPtxOsjddWzA2tvzTVXl9Y6XEywPtK+Wqb9i+wTeh+5t9o+Qxdb1Wviy8Vh5urMakv+mCXJT1l5urbWYeVYzrRDzyLYFzTJlewTeh+5LDI3tLpc+WQwBJ2j0McdOwM/59n4JStPtablYs3VKi3vI+sRczUlnavXI+Yq5t/Z1//HQbWPyM9S5pCre/X3zTFqHWi95pSrLvO60ttx6lxd6uNg9lhCtLVMBsx5lkxN/1Df3xkTyc7zonyflx/Sp/OGprfjWG2ouv5jV70UKlfmvP3NYtf3KD9veuTrLMK2e9O5Yl+mL11UbcexctWlXgiVq/PFY9+vZOq6yNfbAequuTC5kc9O14f2/JAkH19UnGe5nAY+Dkqe3hTHQvu6yDW58tKUm7Fy5SquZYdmH6/suslkq0t9FeNxMDSdG31NYOp2+5T9V1rXNvzcMiV0bvTnFluu6L/aDz7Xcaakc+V739G643GSXIURY6582/SvVF1LruIRY66+6rgOfXP1Uq4dZ+Wp1rQcuSrnaOr7i6T//7uJcvVtno3zrDzVmpYjV+VcTXF/kU33//v0RdjLtmX6BJpK1+XnSudq6vvzdf9/VVaqXgvVbyp0rtBs6vZUk7pc6WcF5P7/GO4txc6+5qrN8RHj28dcIX5Xjn0/lgIA2F8PqfvcXc6rH6jrMTC5xkWuEAK5QgjkCm35ZIZcoa2HtFyalgHa0s+BCvveFHKFLn6tyM1rcoUO7D6squd5V/RloYOH1P95NHIFX66s6Of3yBV8ubKyUeNFkiv4cmVlqY6N5Aq+XFnR99OSK/hqkxVyBV/kCiH4ZuX9MbmCP64PIrS6XAF9kCuEQK4QArlCCOQKIZArhECuEILuo6LPCgAAAAAAAAAAAAAAAACA/fDnx83fMylj/MlygC/Ji4yNpcdes8k8coU2TF5cuQLaoh5CCOQKIVR9h4BkraoAvi5rcgW4NPUjVH2HALnq5iT/LP/InhZX/42rZB/Vb6+TCJ4FNRm5O0qSbV5ujvzfg3Zke99mT4vYFJ+9nndXbIubinl/Z4+/V8+LKVdi45Ep/R74G2t7x5arkO8BuQrxHpS397us39T370yhKiN1/Qj0KfSjt/dN1m/q+3emUJcrDI/6avz1mCPqK8Tq3zxj71XOyBX6+mRZfo1czdsQ7av/KrYVuZoXzgfLr72IYF33nWxvu36Z8/mguS4tuKe9n7nXV7fWet0X10o/y8rXN8lVO3O/jnNhrZfcf7WtuR5NrtqZe65Wqfv+K9d7UW/uuRrjvXN0ko5XpkauEAK5Qgh9snEbQX2LOPncayXlt4oMXZAr9CC5+qsiQ+a8kT5SdCGZ+aciV9tFknyeJcmScT/QgWTmOM9OVjP2x3P63tGBZEbqJamfqsjr5AptNWWGXKELn7HVyBXaMrlqWgZoQzJzXtO2spcB2pDMXOe5eluTLRmfglyhLZOr31WubopxUDbkCh34XusBAAAAAAAAAAAAAAAAAOyY70plHAYMyXxXKuMwYAin6W7sBTNWn/n3KflCD5If+7l5GX9B7mMfI1cnqft7gfeluMbPnKuq/GxGyhUOV11+yBX6IFcI4TStL8A+GnMs6kMf6xoAAAAAAAAAAAAAAOBQfQAmTQ+E
+  </data>
+ </layer>
+ <layer name="Kachelebene 4" width="150" height="150">
+  <data encoding="base64" compression="zlib">
+   eJzt201OwkAYBuAvcaGB0p2J91Fv4wVceAjjBdy5dUNEFl7AhSy4hT+AJ7CNkCCKKBamyPMkE6Bd9E36dZjMTCMASOGsGfGQRfSK9pKlTkNpNOc+DIrjww26R8/jrJuWm/q620mdAAAA6q2Tf/49ewxY3uSZ8lxV57AZcdRMnWK9Tlpprz9v7hGWYe63OtvYH/6EGmNV1Bar0CrGeXnisR4ALHKcR1zl758AAEC99RupEwAAAAAAAADA/3PunSKW4H00AAAAAAAAAAAAAAAAAAAAAAAAAAAAVuFpN3UCAFivnv8+2Dj9RkQn/9imzZ67z+efA2A511+MocwpAABAfRifb6bTPC5TZwAAoB7KtcyD3Pom1SrX2qFqr+O66hZ91K1+iopM11L5XX3xG48L5kYnNVXqqisggXYWsV+0G30QFSprqj1uAAAAMK2xlzoBAMB2sDeLv7qwzgMAAAAAAAAAAAAAfGOQRQzH+45HmX3sAAAAAAAAAAAAAABAWm9DjkMl
+  </data>
+ </layer>
+ <layer name="Kachelebene 5" width="150" height="150">
+  <data encoding="base64" compression="zlib">
+   eJzt3LENwjAQBdDUEDIpKzBAJkJmAUooWIMkiAUIEoURIIoEGVvvlScXv/i661xVAAAAQG66+nV2fDO7Oz/mm+Xz/PDhPcCcdk3qBJQmRJ2K+xV0jYmCPgEAAAAAAAAAAAAAAAAAAAAws6v/vgD4U/14owZ3CgAAAAAAAAAAAAAAAAAAAAAAAAAAirNepU5A7k6L1AkAAAAAAAAAAAAA+JV9kzoBwHfbaFe19hZQsEudOgG56sfuDPoDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAk90ACM4SUQ==
+  </data>
+ </layer>
+ <objectgroup name="Spawnpoints">
+  <object id="8" name="spif2" x="120" y="160" width="32" height="32"/>
+  <object id="9" name="spalt2" x="2688" y="88" width="32" height="32"/>
+  <object id="11" name="spalt1" x="3856" y="672" width="32" height="24"/>
+  <object id="12" name="spalt5" x="4160" y="432" width="32" height="32"/>
+  <object id="13" name="spalt6" x="3853" y="192" width="41" height="32"/>
+  <object id="14" name="spalt3" x="1640" y="4232" width="32" height="32"/>
+  <object id="21" name="spalt8" x="240" y="1040" width="32" height="32"/>
+  <object id="22" name="spalt7" x="928" y="2400" width="32" height="32"/>
+  <object id="23" name="spalt9" x="736" y="3024" width="32" height="32"/>
+  <object id="24" name="spalt0" x="672" y="4128" width="32" height="32"/>
+  <object id="30" name="spalt11" x="3120" y="4240" width="32" height="32"/>
+  <object id="33" name="spalt10" x="3400" y="2800" width="32" height="32"/>
+  <object id="18" name="spalt4" x="400" y="1712" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Exitpoints">
+  <object id="1" name="exif2" x="64" y="128" width="32" height="96"/>
+  <object id="2" name="exalt1" x="2656" y="48" width="96" height="32"/>
+  <object id="4" name="exalt2" x="3840" y="720" width="64" height="32"/>
+  <object id="6" name="exalt3" x="4208" y="416" width="32" height="64"/>
+  <object id="7" name="exalt4" x="3840" y="144" width="64" height="32"/>
+  <object id="16" name="exalt5" x="1584" y="4192" width="32" height="128"/>
+  <object id="17" name="exalt6" x="384" y="1760" width="64" height="32"/>
+  <object id="20" name="exalt7" x="192" y="1024" width="32" height="64"/>
+  <object id="25" name="exalt0" x="736" y="2968" width="32" height="24"/>
+  <object id="26" name="exalt9" x="672" y="4080" width="32" height="32"/>
+  <object id="27" name="exalt8" x="992" y="2368" width="32" height="96"/>
+  <object id="31" name="exalt10" x="3184" y="4192" width="40" height="128"/>
+  <object id="32" name="exalt11" x="3336" y="2720" width="32" height="192"/>
+ </objectgroup>
+ <layer name="Battle" width="150" height="150">
+  <data encoding="base64" compression="zlib">
+   eJzt3c0KgmAQhlG79m68RYsggtLm9Zumc+DbCOJiHkTEn20DAOAM18vrbXvXN/seOQ69pTvQ1X9a3Ymu4E7nJOiKBF2R0K0r16YzdJuVrmboNitdzdBtVrqaodusdDVDt1npaoZus9LVDN1mpasZzAoAAOB8e58vTS9mWN2RrmZa3ZGuAAAAAGAm9/5I0BUJuiJBVyToigRNkaArEnRFgq5I0BUJuiJBVwAAAAAAAAAAAAAAAAAAAPDg/Xuq+a4DlXyTlGqaopqmSNAVCboiQVdUeO5IVxz1riVNcYR2SNAVCboiQVck6IoEXZGgKxJ0RYKuqOaeOgm6IkFXpOiKBOcskjwfQ4quAAAAAAAAAAAAAAAAAAAAAAAAAOp8+r/NLovfsLoTXc20uhNdzbS6E10BAAAAAAAAAMB/uAGBalkE
+  </data>
+ </layer>
+</map>

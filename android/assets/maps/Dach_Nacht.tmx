@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="70" height="50" tilewidth="32" tileheight="32" nextobjectid="3">
+ <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="1801" name="225837_hyptosis_tile-art-batch-3" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225837_hyptosis_tile-art-batch-3.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="2701" name="225838_hyptosis_tile-art-batch-4" tilewidth="32" tileheight="32" tilecount="900" columns="30">
+  <image source="../Downloads/hyptosis tiles/225838_hyptosis_tile-art-batch-4.png" width="960" height="960"/>
+ </tileset>
+ <tileset firstgid="3601" name="town" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../Downloads/hyptosis tiles/town.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="3857" name="trees_plants_rocks" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../Downloads/hyptosis tiles/trees_plants_rocks.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="4113" name="DoppelTür" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../Downloads/hyptosis tiles/DoppelTuer.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="4117" name="Nachtfilter" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../Downloads/hyptosis tiles/Nachtfilter.png" width="64" height="64"/>
+ </tileset>
+ <layer name="Boden" width="70" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAMA6De82+kDitiLyT0kqqqqqqqqqqqqqqqqqrq8wDN2f0s
+  </data>
+ </layer>
+ <layer name="Mauer" width="70" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt0LENABAUBNBvJpMwBgr7VwwgofdecrnmqosAAAAAAAAAAAAAAAAAeFNSRP0sOd1/aXvTd8ZHPQ+/LMdRLkU=
+  </data>
+ </layer>
+ <layer name="Pflaster" width="70" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt0MEJwCAABEFf+dh/v3YQgiAuYQ72f8wY9nXP/FdMztnd/selFRcuXLhw4VKICxcuXLhwKcSFCxcuXLgU4sKFCxcuXApx4cKFCxcuhbhw4cKFC5dCXLhw4cKFSyEuey5mb1uA9MDZ
+  </data>
+ </layer>
+ <layer name="Treppe" width="70" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2kEKgzAURdEMBLfVpbm0uhKhy3DUKogVnnRUDeQc+PPvxWSUUoBvY1eGqSuPu/eozdJlmbv3qM2kSzT36zka7t6jVq/ufFqnS6ZLpkumS6YLwLXcu5kumS6ZLpkumS4A13LvZrpkumS6ZLpkugBcy72b6ZLpkumS6ZLpspv79U3mc2z0+89sTXQ52procrQ1+fw365lK06JfTVrtAv/2BniEpsw=
+  </data>
+ </layer>
+ <layer name="Collision" width="70" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2kEKgkAYhuEfAmnlIVp3CNctqhOU97TuUdQ9ql1NIGl80WjTwt/3hcHNCM2DMyFoRrFVU7PdiMZ+GudyjJw3tA4f1nXq6DJrzJ85tQp1dSka84uBulQRv7uri4fCWj7tn7ox7qNL42xNdb542Ed19dqVzRj3UR0uOlx0uOhw0eGiw0WHiw4XHS46XHS46HDR4aLDRYeLDhcdLjpcdLjocNHhosPFbJ61ryFczBZZ+xpK5XKevMbQ+ufzMmQXnpf4OF90KVzCNwBXZ+OWwMVzfV2WudnK6Vjn/V02j3u3TkeZ6zXjgktqF4//0Sm+O/To8i1cdLg8Dcr38W2fhTy7/PL9rsd3gNh3BKK+3QEvf5kI
+  </data>
+ </layer>
+ <layer name="Dachziegel 2" width="70" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt2jEKAjEUQMGtPJsn2XN4dLWVt2tQQUjmtSGQP0VIkW3TSNfLv0/w+x4z3b7cv+0Tuox0Zrcv7LJzybh0K7u8uUPO1qZ2ec5+ZLO6y9H8XLi8xqXj0nHpuHRcOi4dl45Lx6Xj0nHpuHRcOi4dl45Lx6Xj0nHpuHRcOi4dl45Lx6Xj0nHpvnGZvU9cVo5Lx6U7c5nxT/Noq9+7R3HpuHRcOi4dl877Zaw7SbKImw==
+  </data>
+ </layer>
+ <layer name="Dachziegel 1" width="70" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt10ENACAMA8C90IE7lOADqaAByBLIXVIB66uLAAAAAAAAAAAAANjTS4yWn5qRdVt9qJO0Xk66AQDgfT//AHbwHRMQzo6/
+  </data>
+ </layer>
+ <layer name="Tür und Fenster" width="70" height="50">
+  <data encoding="base64" compression="zlib">
+   eJzt0CEOwCAQBMCTyCv0e7yEzxdXiUC0ITNqN1m1EQAAAAAAAAAAAADwnV7OyTuujKj59lHOyTva/OTO9Q4AgH94AHFrD/M=
+  </data>
+ </layer>
+ <objectgroup name="Spawnpoints">
+  <object id="1" name="spdach" x="208" y="1344" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Exitpoints">
+  <object id="2" name="exdach" x="192" y="1312" width="61.3333" height="18.6667"/>
+ </objectgroup>
+ <layer name="Nacht" width="70" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAMA6BK2FP/VitiLyT0kqqqqqqqqqqqqqqqqqrq8wCSGvns
+  </data>
+ </layer>
+ <layer name="Battle" width="70" height="50">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20IX6AAAAAAAAAAAAAAAAAA4Dc2sAAB
+  </data>
+ </layer>
+</map>

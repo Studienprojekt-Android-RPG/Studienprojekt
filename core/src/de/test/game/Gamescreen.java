@@ -20,7 +20,6 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -29,15 +28,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Window.WindowStyle;
-import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 
 public class Gamescreen implements Screen {
-	static String map = "data/demondus1.tmx";
-	String mapchange = "data/demondus2.tmx";
+	static String map = "maps/IF2.tmx";
+	String mapchange = "maps/IF2.tmx";
 	SpriteBatch batch;
-	SpriteBatch batchTouch;
 	Texture menbut;
 	static Sprite gamemenu = new Sprite();
 	static Player player;
@@ -62,10 +60,12 @@ public class Gamescreen implements Screen {
 	ImageButtonStyle digidown = new ImageButtonStyle();
 	ImageButtonStyle digileft = new ImageButtonStyle();
 	ImageButtonStyle digiright = new ImageButtonStyle();
+	ImageButtonStyle warning = new ImageButtonStyle();
 	static ImageButton up;
 	static ImageButton down;
 	static ImageButton left;
 	static ImageButton right;
+	static ImageButton warn;
 	
 	mapManager mapmanager;
 	
@@ -79,11 +79,10 @@ public class Gamescreen implements Screen {
 	
 	Stage stage;
 	static Game game;
-
 	
 	public Gamescreen(Game game){
 		
-		this.game = game;
+		Gamescreen.game = game;
 		
 	}
 	
@@ -107,23 +106,27 @@ public class Gamescreen implements Screen {
 		digidown.up = skin.getDrawable("digidown");
 		digileft.up = skin.getDrawable("digileft");
 		digiright.up = skin.getDrawable("digiright");
+		warning.up = skin.getDrawable("warning");
 		digiup.down = skin.getDrawable("digiup");
 		digidown.down = skin.getDrawable("digidown");
 		digileft.down = skin.getDrawable("digileft");
 		digiright.down = skin.getDrawable("digiright");
+		warning.down = skin.getDrawable("warning");
 		skin.add("up", digiup);
 		skin.add("down", digidown);
 		skin.add("left", digileft);
 		skin.add("right", digiright);
+		skin.add("warn", warning);
 		gammenu = new ImageButton(skin, "menbut");
 		up = new ImageButton(skin, "up");
 		down = new ImageButton(skin, "down");
 		left = new ImageButton(skin, "left");
 		right = new ImageButton(skin, "right");
 		gamenu = new Gamemenu(skin);
+		warn = new ImageButton(skin, "warn");
 		
 		cam = new OrthographicCamera();
-		viewport = new FitViewport(800, 480, cam);
+		viewport = new ExtendViewport(800, 480, cam);
 		
 		gamenu.setVisible(false);
 		gamenu.setKeepWithinStage(false);
@@ -135,18 +138,19 @@ public class Gamescreen implements Screen {
 		down.setVisible(true);
 		left.setVisible(true);
 		right.setVisible(true);
+		warn.setVisible(false);
 		
 		batch = new SpriteBatch();
-		batchTouch = new SpriteBatch();
 		sr = new ShapeRenderer();
 		if(Gdx.app.getType() == ApplicationType.Desktop){
 			test = new File("C:/Users/" + userName + "/.prefs/haw");
 		}
 		else{
 			test = new File("/data/data/de.test.game/shared_prefs/haw.xml");
+//			test = new File("/storage/emulated/0/Android/data/de.test.game/shared_prefs/haw.xml");
 		}
 		if(test.exists()){
-			player = new Player(new Vector2(playerx, playery), "badlogic.jpg");
+			player = new Player(new Vector2(playerx, playery), "leon.png", 55, 10, 50, 20, 10, "Leon");
 			try {
 				player.readPlayer(player);
 			} catch (ClassNotFoundException e) {
@@ -154,13 +158,14 @@ public class Gamescreen implements Screen {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
+			System.out.println("Player Exists, Reading File");
 			tiledMap = new TmxMapLoader().load(map);
-			System.out.println("Player Exists, Reading File");		
+
 		}else{
-			player = new Player(new Vector2(playerx, playery), "badlogic.jpg");
+			player = new Player(new Vector2(playerx, playery), "leon.png", 55, 10, 50, 20, 10, "Leon");
 			tiledMap = new TmxMapLoader().load(map);
 			layer = tiledMap.getLayers().get("Spawnpoints");
-			rect = (RectangleMapObject) layer.getObjects().get("spawnpoint1");
+			rect = (RectangleMapObject) layer.getObjects().get("spwa");
 		 	player.position.x = (float) rect.getRectangle().x;
 		 	player.position.y = (float) rect.getRectangle().y;
 			try {
@@ -177,10 +182,7 @@ public class Gamescreen implements Screen {
 		mapmanager.setCollision();
 		mapmanager.getSpawnpoints();
 		mapmanager.getExitpoints();
-   
-		MapLayer battlelayer = tiledMap.getLayers().get("Battlepoints");
-		RectangleMapObject battlerect = (RectangleMapObject) battlelayer.getObjects().get("fight");
-		battlestart = battlerect.getRectangle();
+		mapmanager.setBattle();		
 		
     stage = new Stage(viewport);
 	stage.addActor(up);
@@ -189,12 +191,19 @@ public class Gamescreen implements Screen {
 	stage.addActor(right);
 	stage.addActor(gammenu);
 	stage.addActor(gamenu);
+	stage.addActor(warn);
 	Gdx.input.setInputProcessor(stage);
 	}
 	
 	@Override
 	public void dispose(){
-		
+		stage.dispose();
+		tiledMap.dispose();
+		renderer.dispose();
+		batch.dispose();
+		font.dispose();
+		skin.dispose();
+		butwin.dispose();
 	}
 
 	@Override
@@ -215,17 +224,8 @@ public class Gamescreen implements Screen {
 		batch.end();
 		stage.act();
 		stage.draw();
-	
-		if(Intersector.overlaps(battlestart, player.getBounds())){
-			this.dispose();
-			//Testmap.game.setScreen(battlescreen);
-			//gameT = Testmap.gameT;
-			player.setPosition(Battlemenu.vec);
-			player.movement = "left";
-			gamescreen = this;
-			mapmanager.Demtheme.pause();
-			game.setScreen(new Battlescreen(Testmap.gameT));
-		}
+		warn.setVisible(false);
+		
 	}
 	
 
