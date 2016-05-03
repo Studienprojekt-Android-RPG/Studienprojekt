@@ -38,6 +38,7 @@ public class InventoryScreen implements Screen {
 	
 	@Override
 	public void show() {
+		
 		viewport = new ExtendViewport(800, 480);
 		
 		stage = new Stage(viewport);
@@ -52,6 +53,7 @@ public class InventoryScreen implements Screen {
 		Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
 		DragAndDrop dragAndDrop = new DragAndDrop();
 		inventoryActor = new InventoryActor(new Inventory(), dragAndDrop, skin);
+		inventoryActor.setMovable(false);
 		stage.addActor(inventoryActor);
 		
 		xbutt = new ImageButton(butwi, "xbu");

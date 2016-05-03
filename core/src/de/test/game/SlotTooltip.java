@@ -11,7 +11,7 @@ public class SlotTooltip extends Window implements SlotListener {
 	private Slot slot;
 
 	public SlotTooltip(Slot slot, Skin skin) {
-		super("Item", skin);
+		super(slot.toString(), skin);
 		this.slot = slot;
 		this.skin = skin;
 		hasChanged(slot);
@@ -25,11 +25,11 @@ public class SlotTooltip extends Window implements SlotListener {
 			setVisible(false);
 			return;
 		}
-
+		
 		// title displays the amount
 		setName(slot.getAmount() + "x " + slot.getItem());
 		clear();
-		Label label = new Label(slot.getItem() + ": " + slot.getAmount() + "x", skin);
+		Label label = new Label("Anzahl: " + slot.getAmount(), skin);
 		add(label);
 		pack();
 	}

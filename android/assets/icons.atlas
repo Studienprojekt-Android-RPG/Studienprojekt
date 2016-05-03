@@ -52,7 +52,7 @@ droidbase
   orig: 48, 48
   offset: 0, 0
   index: 48
-dropperbase
+schwert1
   rotate: false
   xy: 1, 51
   size: 48, 48
@@ -87,7 +87,7 @@ healthpot
   orig: 48, 48
   offset: 0, 0
   index: 48
-launcherbase
+schwert2
   rotate: false
   xy: 51, 51
   size: 48, 48
@@ -115,14 +115,14 @@ palladium
   orig: 48, 48
   offset: 0, 0
   index: 48
-raybase
+reichtumselixier
   rotate: false
   xy: 51, 1
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-redcrystal
+knife
   rotate: false
   xy: 101, 51
   size: 48, 48
@@ -143,14 +143,14 @@ titanium
   orig: 48, 48
   offset: 0, 0
   index: 48
-violetcrystal
+manapotion
   rotate: false
   xy: 101, 1
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-yellowcrystal
+armor
   rotate: false
   xy: 151, 51
   size: 48, 48

@@ -81,6 +81,6 @@ public class Slot {
 
 	@Override
 	public String toString() {
-		return "Slot[" + item + ":" + amount + "]";
+		return item + "";
 	}
 }

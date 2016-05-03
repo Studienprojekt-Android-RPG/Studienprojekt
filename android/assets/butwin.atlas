@@ -88,3 +88,10 @@ warning
   orig: 31, 30
   offset: 0, 0
   index: -1
+start
+  rotate: false
+  xy: 920, 1
+  size: 50, 50
+  orig: 31, 30
+  offset: 0, 0
+  index: -1

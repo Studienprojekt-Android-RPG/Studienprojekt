@@ -2,9 +2,11 @@ package de.test.game;
 
 public enum Item {
 
-	CRYSTAL_RED("redcrystal"), CRYSTAL_BLUE("bluecrystal"), CRYSTAL_GREEN("greencrystal"), CRYSTAL_YELLOW("yellowcrystal"), CRYSTAL_MAGENTA("magentacrystal"), CRYSTAL_CYAN(
-			"cyancrystal"), CRYSTAL_ORANGE("orangecrystal"), CRYSTAL_VIOLET("violetcrystal"), TITANIUM("titanium"), PALLADIUM("palladium"), HEILTRANK("healthpot"), RHODIUM("rhodium"), HULL(
-			"hullbase"), CANNON("cannonbase"), RAY("raybase"), LAUNCHER("launcherbase"), DROID("droidbase"), MINE("dropperbase"), BATTERY("batterybase");
+	MESSER("knife"), CRYSTAL_BLUE("bluecrystal"), CRYSTAL_GREEN("greencrystal"), BRUSTPANZER("armor"), 
+	CRYSTAL_MAGENTA("magentacrystal"), CRYSTAL_CYAN("cyancrystal"), CRYSTAL_ORANGE("orangecrystal"), MANATRANK("manapotion"), 
+	TITANIUM("titanium"), PALLADIUM("palladium"), HEILTRANK("healthpot"), RHODIUM("rhodium"), HULL("hullbase"), 
+	CANNON("cannonbase"), REICHTUMSELIXIER("reichtumselixier"), LANGSCHWERT("schwert1"), DROID("droidbase"), 
+	KURZSCHWERT("schwert2"), BATTERY("batterybase");
 
 	private String textureRegion;
 

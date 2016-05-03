@@ -144,6 +144,7 @@ public class Gamescreen implements Screen {
 		sr = new ShapeRenderer();
 		if(Gdx.app.getType() == ApplicationType.Desktop){
 			test = new File("C:/Users/" + userName + "/.prefs/haw");
+			System.out.println(System.getProperty("user.name"));
 		}
 		else{
 			test = new File("/data/data/de.test.game/shared_prefs/haw.xml");
@@ -225,7 +226,6 @@ public class Gamescreen implements Screen {
 		stage.act();
 		stage.draw();
 		warn.setVisible(false);
-		
 	}
 	
 

@@ -6,7 +6,7 @@ import com.badlogic.gdx.utils.Array;
 
 public class Inventory{
 
-	private int slotAmount = 88;
+	private int slotAmount = 64;
 	private Array<Slot> slots;
 
 	public Inventory() {
@@ -17,7 +17,8 @@ public class Inventory{
 
 		// create some random items
 		for (Slot slot : slots) {
-			slot.add(Item.values()[MathUtils.random(0, Item.values().length - 1)], 1);
+			slot.add(Item.REICHTUMSELIXIER, 1);
+			//slot.add(Item.values()[MathUtils.random(0, Item.values().length - 1)], 1);
 		}
 
 		// create a few random empty slots

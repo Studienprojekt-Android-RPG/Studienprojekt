@@ -8,17 +8,16 @@ public class Testmap extends Game {
 	static Testmap gameT;
 	
 	Gamescreen gamescreen;
-//	Battlescreen battlescreen;
+	StartMenu startMenu;
 	
 	@Override
 	public void create() {
+		startMenu = new StartMenu(this);
 		gamescreen = new Gamescreen(this);
-//		battlescreen = new Battlescreen(this);
+
 		gameT = new Testmap();
-		
-		//setScreen(new Gamescreen(game));
-		setScreen(gamescreen);
-		//setScreen(new Battlescreen(game));
+
+		setScreen(startMenu);
 
 	}
 
