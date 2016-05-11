@@ -8,6 +8,7 @@ public abstract class Fighter {
 	int level;
 	int speed;
 	String name;
+	boolean guard;
 	
 	public Fighter(int atk, int def, int hp, int lvl, int sp, String name) {
 		
@@ -18,6 +19,7 @@ public abstract class Fighter {
 		this.level = lvl;
 		this.speed = sp;
 		this.name = name;
+		this.guard = false;
 		
 	}
 	
@@ -33,15 +35,15 @@ public abstract class Fighter {
 		
 	}
 	
-	public int getCurrentHP(Fighter fighter){
+	public int getCurrentHP(){
 		
-		return fighter.curHP;
+		return this.curHP;
 		
 	}
 	
-	public int getMaxHP(Fighter fighter){
+	public int getMaxHP(){
 		
-		return fighter.maxHP;
+		return this.maxHP;
 		
 	}
 	
@@ -74,6 +76,11 @@ public abstract class Fighter {
 		double attackDamage = getAttack(attacker)*Fighter.getLevel(attacker)*2 - 
 				getDefense(defender)*Fighter.getLevel(defender)/1.5;
 		
+		if(defender.guard){
+			attackDamage /= 2;
+			defender.guard = false;
+		}
+		
 		if(attackDamage >= 9999){
 			attackDamage = 9999;
 		}
@@ -82,7 +89,7 @@ public abstract class Fighter {
 		
 	}
 	
-public static double techDamage(Fighter attacker, Fighter defender){
+	public static double techDamage(Fighter attacker, Fighter defender){
 		
 		double techDamage = getAttack(attacker)*Fighter.getLevel(attacker)*2 - 
 				getDefense(defender)*Fighter.getLevel(defender)/1.5;
@@ -96,19 +103,23 @@ public static double techDamage(Fighter attacker, Fighter defender){
 	}
 	
 	public static void attack(Fighter attacker, Fighter defender){
-		double damage = physicalDamage(attacker, defender);
-		defender.curHP -= Math.round(damage);
-		System.out.println(attacker.getName() + " fügt " + defender.getName() + " " + Math.round(damage) + " Schadenspunkte zu!");
+		double damage = Math.round(physicalDamage(attacker, defender));
+		defender.curHP -= damage;
+		System.out.println(attacker.getName() + " fügt " + defender.getName() + " " + damage + " Schadenspunkte zu!");
 		
 	}
 	
 	public static void techAttack(Fighter attacker, Fighter defender){
-		double damage = techDamage(attacker, defender);
-		defender.curHP -= Math.round(damage);
-		System.out.println(attacker.getName() + " fügt " + defender.getName() + " " + Math.round(damage) + " Schadenspunkte zu!");
+		double damage = Math.round(techDamage(attacker, defender));
+		defender.curHP -= damage;
+		System.out.println(attacker.getName() + " fügt " + defender.getName() + " " + damage + " Schadenspunkte zu!");
 		
 	}
 	
+	public static void guard(Fighter defender){
+		defender.guard = true;
+		System.out.println(defender.getName() + " verteidigt sich!");
+	}
 	
 }
 

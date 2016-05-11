@@ -2,20 +2,18 @@ package de.test.game;
 
 public enum Item {
 
-	MESSER("knife"), CRYSTAL_BLUE("bluecrystal"), CRYSTAL_GREEN("greencrystal"), BRUSTPANZER("armor"), 
-	CRYSTAL_MAGENTA("magentacrystal"), CRYSTAL_CYAN("cyancrystal"), CRYSTAL_ORANGE("orangecrystal"), MANATRANK("manapotion"), 
-	TITANIUM("titanium"), PALLADIUM("palladium"), HEILTRANK("healthpot"), RHODIUM("rhodium"), HULL("hullbase"), 
-	CANNON("cannonbase"), REICHTUMSELIXIER("reichtumselixier"), LANGSCHWERT("schwert1"), DROID("droidbase"), 
-	KURZSCHWERT("schwert2"), BATTERY("batterybase");
-
+	MESSER("knife"), SCHWERT3("schwert3"), SCHUHE("schuhe"), BRUSTPANZER("armor"), DONUT("donut"), SCHWERT4("schwert4"), 
+	WASSERFLASCHE("wasserflasche"), MANATRANK("manapotion"), ERSTEHILFESET("erstehilfeset"), PIZZA("PIZZA"), 
+	HEILTRANK("healthpot"), FLAMMENSCHWERT("schwert5"), LEDERARMBAND("lederarmband"), PAPIER("papier"), REICHTUMSELIXIER("reichtumselixier"), 
+	LANGSCHWERT("schwert1"), RUNENARMBAND("runenarmband"), KURZSCHWERT("schwert2"), LEBERKASSEMMEL("leberkassemmel");
+	
 	private String textureRegion;
 
 	private Item(String textureRegion) {
 		this.textureRegion = textureRegion;
 	}
-
+	
 	public String getTextureRegion() {
 		return textureRegion;
 	}
-
 }

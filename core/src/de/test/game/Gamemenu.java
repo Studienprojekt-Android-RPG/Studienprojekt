@@ -2,7 +2,6 @@ package de.test.game;
 
 import java.io.IOException;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -10,16 +9,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 
+import de.test.game.Testmap.ScreenType;
+
 public class Gamemenu extends Window {
-	TextButton inv;
-	TextButton stats;
-	TextButton save;
-	TextButton resume;
-	TextButton exit;
-	InventoryScreen inventoryscreen = new InventoryScreen(Testmap.gameT);
+	TextButton inv, stats, save, resume, exit;
+	Testmap game = Gamescreen.game;
 	
 	public Gamemenu(Skin skin) {
-		super("Menu", skin);
+		super("Menü", skin);
 		
 		inv = new TextButton("Inventar", skin, "Button");
 		stats = new TextButton("Status", skin, "Button");
@@ -46,7 +43,7 @@ public class Gamemenu extends Window {
 		 inv.addListener(new ClickListener() {
 		        public void clicked(InputEvent e, float x, float y) {
 		            System.out.println("Inventar geöffnet");
-		            Gamescreen.game.setScreen(inventoryscreen);
+		            game.setScreen(game.getScreenType(ScreenType.Inventory));
 		        }
 		    });
 		 
@@ -59,6 +56,7 @@ public class Gamemenu extends Window {
 		        		Gamescreen.player.speed = 3f;
 		        	}
 		            System.out.println("Du bist schwach!");
+		            game.setScreen(game.getScreenType(ScreenType.Statusscreen));
 		        }
 		    });
 		 
@@ -83,7 +81,9 @@ public class Gamemenu extends Window {
 		 
 		 exit.addListener(new ClickListener() {
 		        public void clicked(InputEvent e, float x, float y) {
-		            Gdx.app.exit();
+		        	Gamescreen.tiledMap.dispose();
+		        	Gamescreen.renderer.getMap().dispose();
+		        	game.setScreen(game.getScreenType(ScreenType.StartMenu));
 		        }
 		    });
 	}

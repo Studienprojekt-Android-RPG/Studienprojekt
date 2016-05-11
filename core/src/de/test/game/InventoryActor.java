@@ -6,9 +6,13 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.DragAndDrop;
 
 public class InventoryActor extends Window {
+	
+	Inventory inv;
 
 	public InventoryActor(Inventory inventory, DragAndDrop dragAndDrop, Skin skin) {
 		super("Inventar", skin);
+		
+		inv = inventory;
 
 		/*TextButton closeButton = new TextButton("X", skin);
 		closeButton.addListener(new HidingClickListener(this));

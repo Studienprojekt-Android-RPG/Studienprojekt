@@ -3,79 +3,72 @@ icons.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-batterybase
+knife
   rotate: false
-  xy: 1, 201
+  xy: 101, 51
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-bluecrystal
+schwert3
   rotate: false
   xy: 1, 151
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-browncrystal
-  rotate: false
-  xy: 51, 201
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: 48
-orangecrystal
-  rotate: false
-  xy: 51, 201
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: 48
-cannonbase
-  rotate: false
-  xy: 1, 101
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: 48
-cyancrystal
-  rotate: false
-  xy: 51, 151
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: 48
-droidbase
-  rotate: false
-  xy: 101, 201
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: 48
-schwert1
-  rotate: false
-  xy: 1, 51
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: 48
-gravityt1
-  rotate: false
-  xy: 51, 101
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: 48
-greencrystal
+schuhe
   rotate: false
   xy: 101, 151
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-hullbase
+armor
   rotate: false
-  xy: 151, 201
+  xy: 151, 51
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 48
+donut
+  rotate: false
+  xy: 101, 101
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 48
+schwert4
+  rotate: false
+  xy: 51, 151
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 48
+wasserflasche
+  rotate: false
+  xy: 51, 201
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 48  
+manapotion
+  rotate: false
+  xy: 101, 1
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 48
+erstehilfeset
+  rotate: false
+  xy: 201, 151
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 48
+pizza
+  rotate: false
+  xy: 201, 201
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
@@ -87,30 +80,23 @@ healthpot
   orig: 48, 48
   offset: 0, 0
   index: 48
-schwert2
+schwert5
   rotate: false
-  xy: 51, 51
+  xy: 151, 101
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-magentacrystal
+lederarmband
   rotate: false
-  xy: 101, 101
+  xy: 151, 201
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-nothing
+papier
   rotate: false
-  xy: 151, 151
-  size: 48, 48
-  orig: 48, 48
-  offset: 0, 0
-  index: 48
-palladium
-  rotate: false
-  xy: 201, 201
+  xy: 1, 101
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
@@ -122,37 +108,51 @@ reichtumselixier
   orig: 48, 48
   offset: 0, 0
   index: 48
-knife
+schwert1
   rotate: false
-  xy: 101, 51
+  xy: 1, 51
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-rhodium
+runenarmband
   rotate: false
-  xy: 151, 101
+  xy: 101, 201
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-titanium
+schwert2
   rotate: false
-  xy: 201, 151
+  xy: 51, 51
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 48              
+leberkassemmel
+  rotate: false
+  xy: 1, 201
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-manapotion
+browncrystal
   rotate: false
-  xy: 101, 1
+  xy: 51, 201
   size: 48, 48
   orig: 48, 48
   offset: 0, 0
   index: 48
-armor
+gravityt1
   rotate: false
-  xy: 151, 51
+  xy: 51, 101
+  size: 48, 48
+  orig: 48, 48
+  offset: 0, 0
+  index: 48
+nothing
+  rotate: false
+  xy: 151, 151
   size: 48, 48
   orig: 48, 48
   offset: 0, 0

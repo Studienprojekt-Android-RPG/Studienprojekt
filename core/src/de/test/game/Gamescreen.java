@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.IOException;
 
 import com.badlogic.gdx.Application.ApplicationType;
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -31,10 +30,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window.WindowStyle;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import de.test.game.Testmap.ScreenType;
+
 
 public class Gamescreen implements Screen {
-	static String map = "maps/IF2.tmx";
-	String mapchange = "maps/IF2.tmx";
+	static String map = "maps/altbau.tmx";
+	String mapchange = "maps/altbau.tmx";
 	SpriteBatch batch;
 	Texture menbut;
 	static Sprite gamemenu = new Sprite();
@@ -78,16 +79,19 @@ public class Gamescreen implements Screen {
 	Rectangle battlestart;
 	
 	Stage stage;
-	static Game game;
+	static Testmap game;
 	
-	public Gamescreen(Game game){
+	static int screen = 1;
+	
+	public Gamescreen(Testmap game){
 		
-		Gamescreen.game = game;
+		this.game = game;
 		
 	}
 	
 	@Override
 	public void show () {
+		Testmap.setHorst("gs");
 		skin = new Skin();
 		font = new BitmapFont(Gdx.files.internal("default.fnt"));
 		butwin = new TextureAtlas("butwin.atlas");
@@ -144,14 +148,13 @@ public class Gamescreen implements Screen {
 		sr = new ShapeRenderer();
 		if(Gdx.app.getType() == ApplicationType.Desktop){
 			test = new File("C:/Users/" + userName + "/.prefs/haw");
-			System.out.println(System.getProperty("user.name"));
 		}
 		else{
 			test = new File("/data/data/de.test.game/shared_prefs/haw.xml");
 //			test = new File("/storage/emulated/0/Android/data/de.test.game/shared_prefs/haw.xml");
 		}
 		if(test.exists()){
-			player = new Player(new Vector2(playerx, playery), "leon.png", 55, 10, 50, 20, 10, "Leon");
+			player = new Player(new Vector2(playerx, playery), "leon.png", 55, 10, 200, 20, 10, "Leon");
 			try {
 				player.readPlayer(player);
 			} catch (ClassNotFoundException e) {
@@ -163,17 +166,12 @@ public class Gamescreen implements Screen {
 			tiledMap = new TmxMapLoader().load(map);
 
 		}else{
-			player = new Player(new Vector2(playerx, playery), "leon.png", 55, 10, 50, 20, 10, "Leon");
+			player = new Player(new Vector2(playerx, playery), "leon.png", 55, 10, 200, 20, 10, "Leon");
 			tiledMap = new TmxMapLoader().load(map);
 			layer = tiledMap.getLayers().get("Spawnpoints");
-			rect = (RectangleMapObject) layer.getObjects().get("spwa");
+			rect = (RectangleMapObject) layer.getObjects().get("spif2");
 		 	player.position.x = (float) rect.getRectangle().x;
 		 	player.position.y = (float) rect.getRectangle().y;
-			try {
-				player.savePlayer(player);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
 			System.out.println("Player Does Not Exist, Creating Player and Saving Player");
 		}
 		
@@ -194,6 +192,15 @@ public class Gamescreen implements Screen {
 	stage.addActor(gamenu);
 	stage.addActor(warn);
 	Gdx.input.setInputProcessor(stage);
+	if(screen == 1){
+		game.setScreen(game.getScreenType(ScreenType.Inventory));
+	}
+	try {
+		player.savePlayer(player);
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 	}
 	
 	@Override
@@ -226,6 +233,7 @@ public class Gamescreen implements Screen {
 		stage.act();
 		stage.draw();
 		warn.setVisible(false);
+		
 	}
 	
 

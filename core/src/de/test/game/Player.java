@@ -1,11 +1,13 @@
 package de.test.game;
 
 import java.io.IOException;
+import java.sql.Timestamp;
+
+import javax.management.AttributeNotFoundException;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Preferences;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -25,7 +27,7 @@ public class Player extends Fighter {
 	int SPD;
 	int curPKT;
 	int maxPKT;
-	int curHP = 20;
+	int curHP = 200;
 	int maxHP = 200;
 	int EXP;
 	int level;
@@ -34,8 +36,7 @@ public class Player extends Fighter {
 	boolean isMoving = false;
 	boolean isBattlearea = false;
 	private TextureAtlas leon;
-	Animation down, left, right, up;
-	Texture playerTexture;
+	Animation down, left, right, up, standard, f1, f2;
 	TextureRegion[] frames;
 	TextureRegion currentFrame;
 	float stateTime;
@@ -48,13 +49,13 @@ public class Player extends Fighter {
 		this.position = position;
 		movement = "";
 		
-		leon = new TextureAtlas(Gdx.files.internal("leon1.atlas"));
-		playerTexture = new Texture(Gdx.files.internal("leon.png"));
+		leon = new TextureAtlas(Gdx.files.internal("leon.atlas"));
 		
 		down = new Animation(0.2f, leon.findRegions("down"));
 		left = new Animation(0.2f, leon.findRegions("left"));
 		right = new Animation(0.2f, leon.findRegions("right"));
 		up = new Animation(0.2f, leon.findRegions("up"));
+		f1 = new Animation(0.2f, leon.findRegions("f1"));
 		
 		stateTime = 0f;
 		currentFrame = down.getKeyFrame(0);
@@ -66,7 +67,7 @@ public class Player extends Fighter {
 		
 		bounds.set(position.x, position.y,currentFrame.getRegionWidth()-5, currentFrame.getRegionHeight()/2);
 		
-		if(stateTime < 0.8){
+		if(stateTime < 0.8f){
 			stateTime += Gdx.graphics.getDeltaTime();
 		}
 		else{
@@ -169,19 +170,81 @@ public class Player extends Fighter {
 		}
 	}
 	
+	public void saveInventory()
+	{
+		int i = 0;
+		for (Slot slot : Gamescreen.game.inventoryscreen.inventoryActor.inv.getSlots())
+		{
+			if(slot.getItem() != null)
+			{
+				prefs.putString("inventorySlot"+i,slot.toString());
+			}
+			i++;
+		}
+	}
+	
+	/**
+	 * @param playerPosition
+	 * @throws IOException
+	 */
 	public void savePlayer(Player playerPosition) throws IOException{
+		//prefs.clear();
+		Timestamp time = new Timestamp(System.currentTimeMillis());
+		prefs.putString("save time", time.toString());
 		prefs.putFloat("player x", playerPosition.position.x);
 		prefs.putFloat("player y",  playerPosition.position.y);
 		prefs.putString("map", mapManager.map);
+		saveInventory();
 		prefs.flush();
 	}
 	
+	/**
+	 * @param playerPosition
+	 * @throws IOException
+	 */
+	public void savePlayer(Player playerPosition, String saveName) throws IOException{
+		prefs = Gdx.app.getPreferences(saveName);
+		//prefs.clear();
+		Timestamp time = new Timestamp(System.currentTimeMillis());
+		prefs.putString("save time", time.toString());
+		prefs.putFloat("player x", playerPosition.position.x);
+		prefs.putFloat("player y",  playerPosition.position.y);
+		prefs.putString("map", mapManager.map);
+		saveInventory();
+		prefs.flush();
+	}
+	
+	public void readInventory()
+	{
+		for (int i = 0; i <= 64; i++) 
+		{
+			String invSlot = prefs.getString("inventorySlot"+i);
+			if(invSlot != "")
+			{
+				String[] input = invSlot.split(":");
+			
+				Item item = Item.valueOf(input[0]);						 
+				int amount = Integer.parseInt(input[1]);
+			
+				if(item != null && amount != 0)
+				{
+					Gamescreen.game.inventoryscreen.inventoryActor.inv.store(item, amount);
+				}
+			}
+			i++;
+		}
+	}
+	
+	/**
+	 * @param player
+	 * @throws IOException
+	 * @throws ClassNotFoundException
+	 */
 	public void readPlayer(Player player) throws IOException, ClassNotFoundException{
 		player.position.x = prefs.getFloat("player x");
 		player.position.y = prefs.getFloat("player y");
 		Gamescreen.map = prefs.getString("map");
 		mapManager.map = prefs.getString("map");
-		prefs.clear();
 	}
 	
 	public Vector2 getPosition(){

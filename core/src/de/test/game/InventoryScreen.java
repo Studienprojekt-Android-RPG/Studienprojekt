@@ -2,7 +2,8 @@ package de.test.game;
 
 import java.io.IOException;
 
-import com.badlogic.gdx.Game;
+import javax.management.AttributeNotFoundException;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
@@ -18,17 +19,18 @@ import com.badlogic.gdx.scenes.scene2d.utils.DragAndDrop;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import de.test.game.Testmap.ScreenType;
+
 public class InventoryScreen implements Screen {
 
-	private InventoryActor inventoryActor;
+	public InventoryActor inventoryActor;
 
 	public static Stage stage;
-	Game inv;
-	Game game = Gamescreen.game;
-	Gamescreen gamescreen;
+	Testmap inv;
+
 	Viewport viewport;
 	
-	public InventoryScreen(Game Inventory){
+	public InventoryScreen(Testmap Inventory){
 		this.inv = Inventory;
 		
 	}
@@ -38,12 +40,10 @@ public class InventoryScreen implements Screen {
 	
 	@Override
 	public void show() {
-		
 		viewport = new ExtendViewport(800, 480);
 		
 		stage = new Stage(viewport);
 		Gdx.input.setInputProcessor(stage);
-		game = Gamescreen.game;
 		butwin = new TextureAtlas("butwin.atlas");
 		Skin butwi = new Skin();
 		butwi.addRegions(butwin);
@@ -53,7 +53,6 @@ public class InventoryScreen implements Screen {
 		Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
 		DragAndDrop dragAndDrop = new DragAndDrop();
 		inventoryActor = new InventoryActor(new Inventory(), dragAndDrop, skin);
-		inventoryActor.setMovable(false);
 		stage.addActor(inventoryActor);
 		
 		xbutt = new ImageButton(butwi, "xbu");
@@ -63,20 +62,26 @@ public class InventoryScreen implements Screen {
 		xbutt.isTouchable();
 		xbutt.setPosition(0, 0);
 		stage.addActor(xbutt);
-		this.render(0);
+//		this.render(0);
 		xbutt.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
 	            System.out.println("Inventar geschlossen");
-	            gamescreen = new Gamescreen(Testmap.gameT);
 	            try {
 					Gamescreen.player.savePlayer(Gamescreen.player);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-	            game.setScreen(new Gamescreen(game));
+	            Gamescreen.player.saveInventory();
+	            inv.setScreen(inv.getScreenType(ScreenType.Gamescreen));
 	        }
 	    });
+		Gamescreen.player.readInventory();
+		if(Gamescreen.screen == 1){
+			Gamescreen.screen = 0;
+			inv.setScreen(inv.getScreenType(ScreenType.Gamescreen));
+			
+		}
 	}
 
 	@Override

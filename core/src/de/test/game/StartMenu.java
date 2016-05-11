@@ -3,12 +3,9 @@
  */
 package de.test.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -23,14 +20,17 @@ import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import de.test.game.Testmap.ScreenType;
+
 /**
  * @author User
  *
  */
 public class StartMenu implements Screen
 {
-	Game game;
-
+	Testmap game;
+	Gamescreen gamescreen;
+	
 	Viewport viewport;
 	public Stage stage;
 	SpriteBatch batch = new SpriteBatch();
@@ -44,7 +44,7 @@ public class StartMenu implements Screen
 	TextButton exitGame;
 	TextButtonStyle button = new TextButtonStyle();
 	
-	public StartMenu(Game game)
+	public StartMenu(Testmap game)
 	{
 		this.game = game;
 	}
@@ -52,7 +52,7 @@ public class StartMenu implements Screen
 	@Override
 	public void show()
 	{
-		
+		Testmap.setHorst("sm");
 		viewport = new ExtendViewport(800, 480);
 		stage = new Stage(viewport);
 		Gdx.input.setInputProcessor(stage);
@@ -72,7 +72,7 @@ public class StartMenu implements Screen
 		options = new TextButton("Optionen", skin, "buttonSkin");
 		exitGame = new TextButton("Spiel verlassen", skin, "buttonSkin");
 		
-		table.setPosition(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/4);
+		table.setPosition(300, 120);
 		
 		table.add(newGame).width(200).align(Align.center);
 		table.row();
@@ -81,20 +81,22 @@ public class StartMenu implements Screen
 		table.add(options);
 		table.row();
 		table.add(exitGame);
+		table.pack();
 		
 		table.debugCellColor.set(0, 0, 0, 0);
 		table.debugTableColor.set(0, 0, 0, 0);
 		table.debugActorColor.set(0, 0, 0, 0);
-		
-		table.pack();
-		table.debug();
+
 		
 		newGame.addListener(new ClickListener()
 		{
 			public void clicked(InputEvent e, float x, float y)
 			{
 				System.out.println("StartGame clicked.");
-				game.setScreen(new Gamescreen(game));
+				game.setScreen(game.getScreenType(ScreenType.Gamescreen));
+				dispose();
+				game.render();
+				
 			}
 		});
 		
@@ -172,6 +174,7 @@ public class StartMenu implements Screen
 	@Override
 	public void dispose()
 	{
+		table.clear();
 		stage.dispose();
 		
 	}

@@ -21,11 +21,11 @@
  <tileset firstgid="4627" name="SchoolHouse_zpse3dc36f7" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="../Downloads/hyptosis tiles/SchoolHouse_zpse3dc36f7.png" width="512" height="512"/>
  </tileset>
- <tileset firstgid="4883" name="library iso tileset" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
-  <image source="../Downloads/hyptosis tiles/library iso tileset_transparent.png" width="1024" height="1024"/>
- </tileset>
- <tileset firstgid="5907" name="EinfacheTür" tilewidth="32" tileheight="32" tilecount="2" columns="1">
+ <tileset firstgid="4883" name="EinfacheTür" tilewidth="32" tileheight="32" tilecount="2" columns="1">
   <image source="../Downloads/hyptosis tiles/EinfacheTuer.png" width="32" height="64"/>
+ </tileset>
+ <tileset firstgid="4885" name="library iso tileset" tilewidth="32" tileheight="32" tilecount="1024" columns="32">
+  <image source="../../../Maps/ThomasLeonardoClemens/library iso tileset.png" width="1024" height="1024"/>
  </tileset>
  <layer name="Kachelebene 1" width="50" height="120">
   <data encoding="base64" compression="zlib">
@@ -39,12 +39,12 @@
  </layer>
  <layer name="Collision" width="50" height="120">
   <data encoding="base64" compression="zlib">
-   eJzt1b1OwzAQwPGDgshcJOABCoiZj7kLDwD0QYC3YIGZh0F0ZYMXATGzcFawdErjxE5JnOH/k06NGic5n32JCDCc7UKWbzsybwodM/fjt4r2MTnMCpGjljgs2sfbMUN7Mb82rHfN76NYPeeOXyciPxrLv99cXC4PU5GTaXjMp87hq2Yeofvl4J773DCHNrZXcvbHuvWbjag/viPXI7Svqj2Tg3vuxm782LH2h392TIjU57mYlBE6P0ZjXo9U1X4IfXcAAAAAAAAArDrVONM417gIjLncjLvXnsa+xsF/JJboSuNa40ZjUXPez6FpLj7/tnr0ydbwXsp8qyGB/1349WyrR9/WraHN/1bjTsp6DC1Uw5S97vN/NNcNra6GMb1vufyfKtcNzedgdd3r9rqhhfZP172eq0dC+6dunapsDfxxzHV9sPsnpbdtL6T2Ux/8PkjNxfZC7m+H4/dBl1xsL/jjXO9duw6pPeprcGyOc7137Tqs26M537sAAAAAAAAAAAAAAAAAAAAAAAAAMFa/T0VvNA==
+   eJzt1TtOw0AQgOGBgHAdJOAAgYiaR52GAwA5CHALGqg5DCItHVwERE3DrJyRRpY39ibY6+L/pBFWMo5nZ3eMCNCf3UIW73syWxWaM7P8naI5J4dJIXLSEMdFc77P6dtrzWfTZZgPre+zKHN9frh+G4n8aiyWf3MJtTyORU7H8ZwvXcN3zTpiv5dDeO7LijU08bOScz427d9kQPPx03I/YueqOjM5hOdu7bfPHep82LPbhEh9nfNRGbHvh2jI+5GqOg/VPQMAAAAAAAAQd6ZxrnGhcRnJudpu91sHGocaR/9RWKJrjRuNW415zfe2hlVrsfqb+tEl38MHKeuthkQ+D2H72dSPrm3aQ1//nca9lP3oW6yHKWfd6n9y9/WtrodtZt8L9T9X7uub1eCte9b9fX2LnZ91z3quGYmdn7p9qvI9sOs293XBn5+U2fazkDpPXbBzkFqLn4Xc/zsCOwfr1OJnwa5zvXf9PqTOqPVg6q5zvXf9Pmw6oznfuwAAAAAAAAAAAAAAAAAAAAAAAAAwVH+m32yO
   </data>
  </layer>
  <layer name="Kachelebene 3" width="50" height="120">
   <data encoding="base64" compression="zlib">
-   eJzt2U1Kw0AYBuDgpqg7DdZ7VF17BP9u4AVU3OtOV/UIutNb6Eb0FnoRxS/UgkRbtWmSITwPvAQyX+EdOkwXzTJo1kWeZZeRs8h5Pnr3sjx5/uvatLmm3Ub3u8h15OZzH29T+hVri73f55r2FN2fI/eRh/xvn1nq1dvpvw5X2m7APD125Ps87cg+AAAAAABIz2vpv6adhWx7nPJMeTYl76Vuq/3RM/bxbaZ4rsWzGFlvolwFeX/y2iCyEdmMbDXUpw67kb3IfuSg5S5VHUWOIydtF6loGLlquwSd8dN9m/rdW+a+rc+sv8cp3bdVzkf5vh3Mq9QMUjwfVaVwPgAAAAAAAAAAAAAAAADGPgCjQSVd
+   eJzt2VtKw0AUBuCxL0V9a7S6j6rPLsHbDtyAiuvQpXQNCq7Dyz4UTyhFibZi0yRD+D74mcCchzNkOHlIStC+6Wi2Puym9Bh53l5c+31vWV2XXuMMb5H3Jf2Ve5vDr+ccbYxTGoz/rtsaNt/Lf1yOuu6AdXrqyfu87ck5AAAAAADIz0vlX9PJIB3PU62p1ubko9JbUczWOMePmnItf2PtRfbbaK6GnWLx3iRyEDmMHLXUTxNOI2eR88hFx73UdRW5jtx03UhNd5H7rpugN36bt7nP3irztjmrfo9zmrd17kd13k7W1dQKcrwfdeVwPwAAAAAAAAAAAAAAAADmPgFk/iFF
   </data>
  </layer>
  <layer name="Kachelebene 4" width="50" height="120">

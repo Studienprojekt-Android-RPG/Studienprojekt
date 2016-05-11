@@ -17,7 +17,7 @@
  </tileset>
  <layer name="Collision" width="100" height="100" opacity="0.98">
   <data encoding="base64" compression="zlib">
-   eJzt2GFqgzAAhmHL6A7hDXbAHXI/dqf9KrOgM44kfqbPAwEpWG3eRtRpAgAAAAAAAAAAAAAAAHhNn7f2g3JH51SPduapT4/5tF94Lb3mSY9981RnnpbrZ2tbj316ZKnVo/RY7Ou1PnrcU49w76BHfd/3/+/b69xfqceRZ4i1MRo9suiRJaFHurnR2DrGmc4+fsn9VYtzXOuR4Ozz0ONZzTXf8hzZ95inrf91ibPWx4j0yOJ6lcX6yKJHFterLDWehZPuq0fy17wdffYy/22lPgsDAAAAAAAAkOH+9js436ODHm193MrGssfyc+oq7bG1T09f789jRFfrsbY9ihrz2bOJHn2+o9SIDZb0yKJHFj2yXK3H6PTIokcWPbLokaX0XcmRdykAAFzHD9mJoU0=
+   eJzt2FtugzAQBVCiKt0D7KAL7CL70T31p1GTChdD/Ricc6SREBLgzI0Tm2kCAAAAAAAAAAAAAAAAeE7vl/pFvr09lUc9y9Qmj6XbJzyXVn2Sx7ZlKtOn+/mTOpbHNnnEUiqP3GexrdX8aLGmHmHtII/yPq/Hr2019mfKY88eYq1GI49Y5BFLhDyiWypV6hk99X5+zvqqxhjX8oig9zjk8ajknK85Rrbd+pT6XufoNT9GJI9Y/F7FYn7EIo9Y/F7FUmIvHGldPZK/+rZ376X/dUXdCwMAAAAAAAAQw/Xlp+jvloM86nq75NV9HvfnKSs3j9Q1LX28PtaIzpbH2vEoSvSzZSbPksf8XUeOe+UxojPPjxGZH7Hs6eWcOC+Pcs42P0Z3tv+P0a31cv5VR+7BMak8cs2Je3DMf3spj7Jy35XseZcCAMB5fAFCPKUD
   </data>
  </layer>
  <layer name="Kachelebene 1" width="100" height="100">

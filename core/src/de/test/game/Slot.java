@@ -41,6 +41,11 @@ public class Slot {
 		return this.item == other.item && this.amount >= other.amount;
 	}
 
+	/**
+	 * @param item
+	 * @param amount
+	 * @return
+	 */
 	public boolean add(Item item, int amount) {
 		if (this.item == item || this.item == null) {
 			this.item = item;
@@ -52,6 +57,10 @@ public class Slot {
 		return false;
 	}
 
+	/**
+	 * @param amount
+	 * @return
+	 */
 	public boolean take(int amount) {
 		if (this.amount >= amount) {
 			this.amount -= amount;
@@ -79,8 +88,19 @@ public class Slot {
 		return amount;
 	}
 
+	/**
+	 * @return [{@code slot.item} : {@code slot.amount}]
+	 *
+	 */
 	@Override
 	public String toString() {
-		return item + "";
+		if(item != null)
+		{
+			return item + ":" + amount;
+		}
+		else
+		{
+			return "null";
+		}
 	}
 }

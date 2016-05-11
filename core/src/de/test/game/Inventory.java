@@ -14,11 +14,10 @@ public class Inventory{
 		for (int i = 0; i < slotAmount; i++) {
 			slots.add(new Slot(null, 0));
 		}
-
 		// create some random items
 		for (Slot slot : slots) {
-			slot.add(Item.REICHTUMSELIXIER, 1);
-			//slot.add(Item.values()[MathUtils.random(0, Item.values().length - 1)], 1);
+			//slot.add(Item.REICHTUMSELIXIER, 1);
+			slot.add(Item.values()[MathUtils.random(0, Item.values().length - 1)], 1);
 		}
 
 		// create a few random empty slots
@@ -26,6 +25,7 @@ public class Inventory{
 			Slot randomSlot = slots.get(MathUtils.random(0, slots.size - 1));
 			randomSlot.take(randomSlot.getAmount());
 		}
+//		this.store(Item.MESSER, 2);
 	}
 
 	public int checkInventory(Item item) {
@@ -72,5 +72,4 @@ public class Inventory{
 
 		return null;
 	}
-
 }

@@ -1,19 +1,19 @@
 package de.test.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 
+import de.test.game.Testmap.ScreenType;
+
 public class LoadScreen implements Screen{
 	
-	static Game game;
+	Testmap game;
 	long timeStart = System.currentTimeMillis();
-	static Battlescreen battlescreen;
 	
-	public LoadScreen(Game game){
+	public LoadScreen(Testmap game){
 		
-		LoadScreen.game = game;
+		this.game = game;
 		
 	}
 	
@@ -29,8 +29,7 @@ public class LoadScreen implements Screen{
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		if (System.currentTimeMillis() > timeStart + 400){
-			battlescreen = new Battlescreen(Testmap.gameT);
-			Gamescreen.game.setScreen(battlescreen);
+			game.setScreen(game.getScreenType(ScreenType.Battlescreen));
 		}
 		
 	}
