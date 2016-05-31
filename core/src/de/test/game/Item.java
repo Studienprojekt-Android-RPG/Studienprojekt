@@ -2,18 +2,58 @@ package de.test.game;
 
 public enum Item {
 
-	MESSER("knife"), SCHWERT3("schwert3"), SCHUHE("schuhe"), BRUSTPANZER("armor"), DONUT("donut"), SCHWERT4("schwert4"), 
-	WASSERFLASCHE("wasserflasche"), MANATRANK("manapotion"), ERSTEHILFESET("erstehilfeset"), PIZZA("PIZZA"), 
-	HEILTRANK("healthpot"), FLAMMENSCHWERT("schwert5"), LEDERARMBAND("lederarmband"), PAPIER("papier"), REICHTUMSELIXIER("reichtumselixier"), 
-	LANGSCHWERT("schwert1"), RUNENARMBAND("runenarmband"), KURZSCHWERT("schwert2"), LEBERKASSEMMEL("leberkassemmel");
+	MESSER("knife", false, 0 ,0), 
+	SCHWERT3("schwert3", false, 0, 0), 
+	SCHUHE("schuhe", false, 0, 0), 
+	BRUSTPANZER("armor", false, 0, 0), 
+	DONUT("donut", true, 40, 0), 
+	SCHWERT4("schwert4", false, 0, 0), 
+	WASSERFLASCHE("wasserflasche", true, 0, 40), 
+	MANATRANK("manapotion", true, 0, 500), 
+	ERSTEHILFESET("erstehilfeset", true, 200, 0), 
+	PIZZA("pizza", true, 100, 50), 
+	HEILTRANK("healthpot", true, 1000, 0), 
+	FLAMMENSCHWERT("schwert5", false, 0, 0), 
+	LEDERARMBAND("lederarmband", false, 0, 0), 
+	PAPIER("papier", false, 0, 0), 
+	REICHTUMSELIXIER("reichtumselixier", true, 0, 0), 
+	LANGSCHWERT("schwert1", false, 0, 0), 
+	RUNENARMBAND("runenarmband", false, 0, 0), 
+	KURZSCHWERT("schwert2", false, 0, 0), 
+	LEBERKASSEMMEL("leberkassemmel", true, 50, 30);
 	
 	private String textureRegion;
+	private boolean consumable;
+	int atk;
+	int def;
+	int HP;
+	int speed;
+	int exp;
+	int SP;
 
-	private Item(String textureRegion) {
+	private Item(String textureRegion, boolean pConsumable, int pHP, int pSP){
 		this.textureRegion = textureRegion;
+		this.consumable = pConsumable;
+		this.HP = pHP;
+		this.SP = pSP;
 	}
 	
 	public String getTextureRegion() {
 		return textureRegion;
+	}
+	
+	public boolean getConsumable()
+	{
+		return consumable;
+	}
+	
+	public int getHP()
+	{
+		return HP;
+	}
+	
+	public int getSP()
+	{
+		return SP;
 	}
 }

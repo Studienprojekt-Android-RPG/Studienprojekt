@@ -1,7 +1,5 @@
 package de.test.game;
 
-import java.util.Random;
-
 public abstract class Fighter {
 	int ATK;
 	int sATK;
@@ -153,13 +151,6 @@ public abstract class Fighter {
 	}
 	
 	public static double maxDamage(){
-		
-		Random gen = new Random();
-		int battleGen = gen.nextInt(10);
-		
-		if(battleGen == 0){
-			attackDamage = attackDamage  * 2;
-		}
 		
 		attackDamage = Math.round(attackDamage);
 		

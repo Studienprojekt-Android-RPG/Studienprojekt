@@ -1,11 +1,7 @@
 package de.test.game;
 
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Random;
-import java.util.Comparator;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
@@ -41,15 +37,14 @@ public class Battlescreen implements Screen {
 	
 	enum Battlestate{firstStrike, LeonTurn, EnemyTurn, BattleOver, GameOver};
 	static Battlestate battlestate;
-	static Monster gegner1, gegner2, gegner3;
-	static List<Fighter> fighterList = new ArrayList<>();
+	static Monster gegner;
 	
 	SpriteBatch batch;
 	TextureAtlas enemies;
-	TextureRegion enemytr1, enemytr2, enemytr3;
+	TextureRegion enemy;
 	Sprite enemy1;
-	Sprite enemy2 ;
-	Sprite enemy3;
+	Sprite enemy2 = new Sprite();
+	Sprite enemy3 = new Sprite();
 	static Player player = Gamescreen.player;
 	Vector2 playerPosition;
 	RectangleMapObject rect1;
@@ -70,14 +65,12 @@ public class Battlescreen implements Screen {
 	static boolean anim = false;
 	float stateTime;
 	ProgressBar barPlayer;
-	ProgressBar barEnemy1, barEnemy2, barEnemy3;
+	ProgressBar barEnemy;
 	ProgressBarStyle barStyle;
 	Drawable textureBar;
-	int i = 0;
 	
 	static Battlemenu battlemenu;
 	static Skills skills;
-	static BattleItem battleitem;
 	
 	OrthographicCamera cam;
 	Viewport viewport;
@@ -86,7 +79,7 @@ public class Battlescreen implements Screen {
 	static Testmap battle;
 	
 	Dialog dialog;
-	Label win, playerHP, enemy1HP, enemy2HP, enemy3HP;
+	Label win;
 	
 	@SuppressWarnings("static-access")
 	public Battlescreen(Testmap battle){
@@ -97,6 +90,7 @@ public class Battlescreen implements Screen {
 	
 	@Override
 	public void show() {
+		gegner = enemySelect();
 		Testmap.setHorst("bs");
 		player.currentFrame = player.f1.getKeyFrame(0);
 		skin = new Skin();
@@ -124,12 +118,10 @@ public class Battlescreen implements Screen {
 		sel = new ImageButton(skin, "sel");
 		battlemenu = new Battlemenu(skin);
 		skills = new Skills(skin);
-		battleitem = new BattleItem(skin);
 		
 		cam = new OrthographicCamera();
 		viewport = new ExtendViewport(800, 480, cam);
 		cam.setToOrtho(false);
-		stage = new Stage(viewport);
 		
 		battlemenu.setVisible(true);
 		battlemenu.setKeepWithinStage(false);
@@ -138,10 +130,6 @@ public class Battlescreen implements Screen {
 		skills.setVisible(false);
 		skills.setKeepWithinStage(false);
 		skills.setMovable(false);
-		
-		battleitem.setVisible(false);
-		battleitem.setKeepWithinStage(false);
-		battleitem.setMovable(false);
 		
 		win = new Label("You WON\n" + "5000k GOLD\n" + "2 EXP", labstyle);
 		
@@ -163,6 +151,13 @@ public class Battlescreen implements Screen {
 		
 		batch = new SpriteBatch();
 		
+		stage = new Stage(viewport);
+		stage.addActor(ang);
+		stage.addActor(sel);
+		stage.addActor(battlemenu);
+		stage.addActor(skills);
+		stage.addActor(dialog);
+		
 		skin2 = new Skin();
 		baratlas = new TextureAtlas("bar.atlas");
 		skin2.addRegions(baratlas);
@@ -171,119 +166,30 @@ public class Battlescreen implements Screen {
 		barStyle = new ProgressBarStyle(skin2.newDrawable("barbackground"), textureBar);
 		barStyle.knobBefore = barStyle.knob;
 		
-		barPlayer = new ProgressBar(0, player.maxHP, 1, false, barStyle);
-	    barPlayer.setSize(100, 11);
-	    barPlayer.setValue(player.curHP);
-	    barPlayer.setPosition(player.getPosition().x, player.getPosition().y - 225);
+		barPlayer = new ProgressBar(0, Gamescreen.player.maxHP, 1, false, barStyle);
+	    barPlayer.setSize(100, 250);
+	    barPlayer.setValue(Gamescreen.player.curHP);
+	    barPlayer.setPosition(690, -50);
+	    
+	    barEnemy = new ProgressBar(0, Battlescreen.gegner.maxHP, 1, false, barStyle);
+	    barEnemy.setSize(100, 250);
+	    barEnemy.setValue(Battlescreen.gegner.curHP);
+	    barEnemy.setPosition(350, -50);
+
+	    stage.addActor(barPlayer);
+	    stage.addActor(barEnemy);
+		Gdx.input.setInputProcessor(stage);
 		
 		ang.setPosition(140, 40);
 		sel.setPosition(15, 40);
 		battlemenu.setPosition(0, 480 - battlemenu.getHeight());
 		skills.setPosition(0, 480 - skills.getHeight());
-		battleitem.setSize(skills.getWidth(), skills.getHeight());
-		battleitem.setPosition(skills.getX(), skills.getY());
 		
-		int anzgeg = (int) (Math.random()*3);
-		
-		for( i = 0; i <= anzgeg; i++){
-			switch(i){
-				case 0:
-					gegner1 = enemySelect();
-					enemytr1 = gegner1.texture;
-					enemy1 = new Sprite(enemytr1);
-					enemy1HP = new Label(gegner1.getCurrentHP() + "/" + gegner1.getMaxHP(), labstyle);
-					stage.addActor(enemy1HP);
-					fighterList.add(player);
-					fighterList.add(gegner1);
-				break;
-				
-				case 1:
-					gegner2 = enemySelect();
-					enemytr2 = gegner2.texture;
-					enemy2 = new Sprite(enemytr2);
-					enemy2HP = new Label(gegner2.getCurrentHP() + "/" + gegner2.getMaxHP(), labstyle);
-					stage.addActor(enemy2HP);
-					fighterList.add(gegner2);
-				break;
-				
-				case 2:
-					gegner3 = enemySelect();
-					enemytr3 = gegner3.texture;
-					enemy3 = new Sprite(enemytr3);
-					enemy3HP = new Label(gegner3.getCurrentHP() + "/" + gegner3.getMaxHP(), labstyle);
-					stage.addActor(enemy3HP);
-					fighterList.add(gegner3);
-				break;
-			}
-		}
-		
-		playerHP = new Label(player.getCurrentHP() + "/" + player.getMaxHP(), labstyle);
-		playerHP.setPosition(barPlayer.getX(), 30);
-		System.out.println("Int: "+ i);
-		if(i == 1){
-			barEnemy1 = new ProgressBar(0, Battlescreen.gegner1.maxHP, 1, false, barStyle);
-			barEnemy1.setSize(100, 11);
-			barEnemy1.setValue(Battlescreen.gegner1.curHP);
-			barEnemy1.setPosition(player.getPosition().x - 400, barPlayer.getY());
-			
-			enemy1HP.setPosition(barEnemy1.getX(), 30);
-		    stage.addActor(barEnemy1);
-		}
-			
-		if(i == 2){
-			barEnemy1 = new ProgressBar(0, Battlescreen.gegner1.maxHP, 1, false, barStyle);
-			barEnemy1.setSize(100, 11);
-			barEnemy1.setValue(Battlescreen.gegner1.curHP);
-			barEnemy1.setPosition(player.getPosition().x - 400, player.getPosition().y - 200);
-			
-			barEnemy2 = new ProgressBar(0, Battlescreen.gegner2.maxHP, 1, false, barStyle);
-			barEnemy2.setSize(100, 11);
-			barEnemy2.setValue(Battlescreen.gegner2.curHP);
-			barEnemy2.setPosition(player.getPosition().x - 400, player.getPosition().y - 250);
-			
-			enemy1HP.setPosition(barEnemy1.getX(), 60);
-			enemy2HP.setPosition(barEnemy2.getX(), 10);
-			stage.addActor(barEnemy1);
-		    stage.addActor(barEnemy2);
-		}
-			
-		if(i == 3){
-			barEnemy1 = new ProgressBar(0, Battlescreen.gegner1.maxHP, 1, false, barStyle);
-			barEnemy1.setSize(100, 11);
-			barEnemy1.setValue(Battlescreen.gegner1.curHP);
-			barEnemy1.setPosition(player.getPosition().x - 400, player.getPosition().y - 200);
-			
-			barEnemy2 = new ProgressBar(0, Battlescreen.gegner2.maxHP, 1, false, barStyle);
-			barEnemy2.setSize(100, 11);
-			barEnemy2.setValue(Battlescreen.gegner2.curHP);
-			barEnemy2.setPosition(player.getPosition().x - 250, barPlayer.getY());
-			
-			barEnemy3 = new ProgressBar(0, Battlescreen.gegner3.maxHP, 1, false, barStyle);
-			barEnemy3.setSize(100, 11);
-			barEnemy3.setValue(Battlescreen.gegner3.curHP);
-			barEnemy3.setPosition(player.getPosition().x - 400, player.getPosition().y - 250);
-			
-			enemy1HP.setPosition(barEnemy1.getX(), 60);
-			enemy2HP.setPosition(barEnemy2.getX(), 30);
-			enemy3HP.setPosition(barEnemy3.getX(), 10);
-
-			stage.addActor(barEnemy1);
-		    stage.addActor(barEnemy2);
-		    stage.addActor(barEnemy3);
-			
-		}
-		
+//		test = new Texture(Gdx.files.internal("DivineShinael.png"));
+		enemy = gegner.texture;
+		enemy1 = new Sprite(enemy);
 		stateTime = 0f;
 		
-		stage.addActor(ang);
-		stage.addActor(sel);
-		stage.addActor(battlemenu);
-		stage.addActor(skills);
-		stage.addActor(dialog);
-		stage.addActor(battleitem);
-	    stage.addActor(barPlayer);
-	    stage.addActor(playerHP);
-		Gdx.input.setInputProcessor(stage);
 	}
 
 	@Override
@@ -295,44 +201,13 @@ public class Battlescreen implements Screen {
 	    cam.update();
 		batch.begin();
 		batch.draw(player.getCurrentFrame(), player.getPosition().x, player.getPosition().y);
-		if(i == 1){
-			batch.draw(enemy1, player.getPosition().x - 400, player.getPosition().y);
-		}
-			
-		if(i == 2){
-			batch.draw(enemy1, player.getPosition().x - 400, player.getPosition().y + 30);
-			batch.draw(enemy2, player.getPosition().x - 400, player.getPosition().y - 150);
-		}
-			
-		if(i == 3){
-			batch.draw(enemy1, player.getPosition().x - 400, player.getPosition().y + 70);
-			batch.draw(enemy2, player.getPosition().x - 240, player.getPosition().y -40);
-			batch.draw(enemy3, player.getPosition().x - 400, player.getPosition().y - 150);
-		}
+		batch.draw(enemy, player.getPosition().x - 400, player.getPosition().y);
 		batch.end();
 		stage.act();
 		stage.draw();
 		
-		playerHP.setText(player.getCurrentHP() + "/" + player.getMaxHP());
 		barPlayer.setValue(player.getCurrentHP());
-		if(i == 1){
-			barEnemy1.setValue(gegner1.getCurrentHP());
-			enemy1HP.setText(gegner1.getCurrentHP() + "/" + gegner1.getMaxHP());
-		}
-		if(i == 2){
-			barEnemy1.setValue(gegner1.getCurrentHP());
-			barEnemy2.setValue(gegner2.getCurrentHP());
-			enemy1HP.setText(gegner1.getCurrentHP() + "/" + gegner1.getMaxHP());
-			enemy2HP.setText(gegner2.getCurrentHP() + "/" + gegner2.getMaxHP());
-		}
-		if(i == 3){
-			barEnemy1.setValue(gegner1.getCurrentHP());
-			barEnemy2.setValue(gegner2.getCurrentHP());
-			barEnemy3.setValue(gegner3.getCurrentHP());
-			enemy1HP.setText(gegner1.getCurrentHP() + "/" + gegner1.getMaxHP());
-			enemy2HP.setText(gegner2.getCurrentHP() + "/" + gegner2.getMaxHP());
-			enemy3HP.setText(gegner3.getCurrentHP() + "/" + gegner3.getMaxHP());
-		}
+		barEnemy.setValue(gegner.getCurrentHP());
 		
 		if(anim){
 			if(stateTime <= 0.8f){
@@ -345,31 +220,29 @@ public class Battlescreen implements Screen {
 				player.currentFrame = player.f1.getKeyFrame(stateTime);
 			}
 			
-		}		
+		}
+		
+		
 		
 		switch (battlestate){
 			
 			case firstStrike:
-				if(Fighter.turnSpeed(gegner1) < Fighter.turnSpeed(Gamescreen.player)){
+				if(Fighter.turnSpeed(gegner) < Fighter.turnSpeed(Gamescreen.player)){
 					battlestate = Battlestate.LeonTurn;
 				}
 				else{
 					battlestate = Battlestate.EnemyTurn;
 				}
-				
-				System.out.println("Vorher");
-				fighterList.sort(Comparator.comparingInt(Fighter -> de.test.game.Fighter.getSpeed(Fighter)));
-				fighterList.forEach(System.out::println);
-				Collections.reverse(fighterList);
-				fighterList.forEach(System.out::println);
 			break;
 		
-			case LeonTurn:				
+			case LeonTurn:
+//				System.out.println(player.getName() + " ist dran");
+				
 				battlemenu.setTouchable(Touchable.enabled);
 				
 				if(Battlemenu.hasClicked){
 					Battlemenu.hasClicked = false;
-					if(gegner1.curHP > 0){
+					if(gegner.curHP > 0){
 						battlestate = Battlestate.EnemyTurn;
 					}
 					else{
@@ -380,11 +253,11 @@ public class Battlescreen implements Screen {
 			break;
 			
 			case EnemyTurn:
-				System.out.println(gegner1.getName() + " ist dran");
+				System.out.println(gegner.getName() + " ist dran");
 				battlemenu.setTouchable(Touchable.disabled);
 				
-				Fighter.attack(gegner1, player);
-				System.out.println(gegner1.getName() + " greift an!");
+				Fighter.attack(gegner, player);
+				System.out.println(gegner.getName() + " greift an!");
 				if(player.curHP <= 0){
 					battlestate = Battlestate.GameOver;
 				}
@@ -399,7 +272,7 @@ public class Battlescreen implements Screen {
 				if(anim == false){
 					dialog.setVisible(true);
 				}
-				fighterList.clear();	
+					
 			break;
 			
 			case GameOver:

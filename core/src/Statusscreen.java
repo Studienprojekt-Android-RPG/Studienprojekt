@@ -121,7 +121,7 @@ public class Statusscreen implements Screen {
 		sdef = new Label("SpezVert: " + Fighter.getSpDefense(Gamescreen.player), labstyle);
 		speed = new Label("Init: " + Fighter.getSpeed(Gamescreen.player), labstyle);
 		
-		gear = new Label("Ausrüstung: ", labstyle);
+		gear = new Label("AusrÃ¼stung: ", labstyle);
 		
 		tablename.add(name).width(200).height(50).align(Align.center).padLeft(25);
 		tablename.row();

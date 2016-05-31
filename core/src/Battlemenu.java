@@ -56,7 +56,7 @@ public class Battlemenu extends Window {
 	        public void clicked(InputEvent e, float x, float y) {
 	        	Battlescreen.anim = true;
 	            System.out.println("Angriff!");
-	            Fighter.attack(Gamescreen.player, Battlescreen.gegner1);
+	            Fighter.attack(Gamescreen.player, Battlescreen.gegner);
 	            Battlescreen.battlestate = Battlestate.firstStrike;
 	            hasClicked = true;
 	        }
@@ -84,8 +84,9 @@ public class Battlemenu extends Window {
 		
 		item.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
-	        	Battlescreen.battlemenu.setVisible(false);
-	        	Battlescreen.battleitem.setVisible(true);
+	            System.out.println("Item eingesetzt!");
+	            Battlescreen.battlestate = Battlestate.firstStrike;
+	            hasClicked = true;
 	        }
 	    });
 		
@@ -96,7 +97,6 @@ public class Battlemenu extends Window {
 	            Battlescreen.player.saveBattle();
 	            hasClicked = true;
 	        	game.setScreen(game.getScreenType(ScreenType.Gamescreen));
-	        	Battlescreen.fighterList.clear();
 	        }
 	    });
 	}

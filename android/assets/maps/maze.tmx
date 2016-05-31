@@ -59,7 +59,7 @@
   <object id="23" name="exla14" x="80" y="2360" width="40" height="696"/>
   <object id="24" name="exla15" x="120" y="3048" width="736" height="48"/>
   <object id="25" name="exla4" x="2288" y="2352" width="40" height="712"/>
-  <object id="28" name="exla7" x="2336" y="2320" width="712" height="56"/>
+  <object id="28" name="exla7" x="2336" y="2320" width="712" height="80"/>
   <object id="29" name="exla9" x="3056" y="2360" width="48" height="688"/>
  </objectgroup>
  <objectgroup name="Spawnpoints">

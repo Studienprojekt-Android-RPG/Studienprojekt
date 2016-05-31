@@ -8,16 +8,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.DragAndDrop;
@@ -34,16 +29,14 @@ public class InventoryScreen implements Screen {
 	Testmap inv;
 
 	Viewport viewport;
-
-	TextureAtlas butwin;
-	ImageButton xbutt;
-	ImageButtonStyle xb = new ImageButtonStyle();
 	
 	public InventoryScreen(Testmap Inventory){
 		this.inv = Inventory;
 		
 	}
-	
+	TextureAtlas butwin;
+	ImageButton xbutt;
+	ImageButtonStyle xb = new ImageButtonStyle();
 	
 	@Override
 	public void show() {
@@ -58,9 +51,10 @@ public class InventoryScreen implements Screen {
 		xb.up = butwi.getDrawable("xbutt");
 		butwi.add("xbu",xb);
 		Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-		inventoryActor = new InventoryActor(new Inventory(), skin);
+		DragAndDrop dragAndDrop = new DragAndDrop();
+		inventoryActor = new InventoryActor(new Inventory(), dragAndDrop, skin);
 		stage.addActor(inventoryActor);
-				
+		
 		xbutt = new ImageButton(butwi, "xbu");
 		xbutt.setWidth(50);
 		xbutt.setHeight(50);
@@ -83,24 +77,11 @@ public class InventoryScreen implements Screen {
 	        }
 	    });
 		Gamescreen.player.readInventory();
-
 		if(Gamescreen.screen == 1){
 			Gamescreen.screen = 0;
 			inv.setScreen(inv.getScreenType(ScreenType.Gamescreen));
 			
 		}
-		
-		/*// create some random items
-				for (Slot slot : inventoryActor.inv.getSlots()) {
-					//slot.add(Item.REICHTUMSELIXIER, 1);
-					slot.add(Item.values()[MathUtils.random(0, Item.values().length - 1)], 1);
-				}
-
-				// create a few random empty slots
-				for (int i = 0; i < 3; i++) {
-					Slot randomSlot = inventoryActor.inv.getSlots().get(MathUtils.random(0, inventoryActor.inv.getSlots().size - 1));
-					randomSlot.take(randomSlot.getAmount());
-				}*/
 	}
 
 	@Override

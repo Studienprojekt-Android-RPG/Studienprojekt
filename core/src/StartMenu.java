@@ -5,7 +5,6 @@ package de.test.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -65,7 +64,7 @@ public class StartMenu implements Screen
 		button.down = skin.getDrawable("start");
 		button.up = skin.getDrawable("start");
 		button.font = font;
-		Color.rgb565(255, 0, 0);
+		button.fontColor.rgb565(255, 0, 0);
 		skin.add("buttonSkin", button);
 		
 		newGame = new TextButton("Neues Spiel", skin, "buttonSkin");
@@ -84,9 +83,9 @@ public class StartMenu implements Screen
 		table.add(exitGame);
 		table.pack();
 		
-		Table.debugCellColor.set(0, 0, 0, 0);
-		Table.debugTableColor.set(0, 0, 0, 0);
-		Table.debugActorColor.set(0, 0, 0, 0);
+		table.debugCellColor.set(0, 0, 0, 0);
+		table.debugTableColor.set(0, 0, 0, 0);
+		table.debugActorColor.set(0, 0, 0, 0);
 
 		
 		newGame.addListener(new ClickListener()

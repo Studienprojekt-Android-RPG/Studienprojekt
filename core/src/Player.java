@@ -259,18 +259,5 @@ public class Player extends Fighter {
 		this.bounds = bounds;
 	}
 	
-	//Spezialangriffe
-	
-	public void windschleier(Fighter defender){
-		Math.round(this.curHP += this.curHP / 2);
-		System.out.println(this.getName() + " heilt sich um "+ Math.round(this.curHP / 2) + " Lebenspunkte!");
-	}
-	
-	public void schockschlag(Fighter defender){
-		attackDamage = (this.sATK * this.level * 2) - (defender.sDEF * defender.level / 1.5);
-		attackDamage = maxDamage();
-		defender.curHP -= attackDamage;
-		System.out.println(this.getName() + " fügt durch Schockschlag" + defender.getName() + " " + attackDamage + " Schadenspunkte zu!");
-	}
 	
 }

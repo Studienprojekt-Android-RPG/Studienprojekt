@@ -1,6 +1,5 @@
 package de.test.game;
 
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
 
 
@@ -71,22 +70,5 @@ public class Inventory{
 		}
 
 		return null;
-	}
-	
-	public void consume(Item item)
-	{
-		if(item.getConsumable())
-		{
-			Battlescreen.player.curHP += item.getHP();
-			Battlescreen.player.curSP += item.getSP();
-			if(Battlescreen.player.curHP > Battlescreen.player.maxHP)
-			{
-				Battlescreen.player.curHP = Battlescreen.player.maxHP;
-			}
-			if(Battlescreen.player.curSP > Battlescreen.player.maxSP)
-			{
-				Battlescreen.player.curSP = Battlescreen.player.maxSP;
-			}
-		}
 	}
 }
