@@ -21,6 +21,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
@@ -99,39 +100,9 @@ public class StartMenu implements Screen
 			public void clicked(InputEvent e, float x, float y)
 			{
 				System.out.println("StartGame clicked.");
+				NewGameDialog dialog = new NewGameDialog();
 				
-				LabelStyle labstyle = new LabelStyle();
-				labstyle.font = font;
-				Label label = new Label("Name of new Game:", labstyle);
-				
-				TextField textfield = new TextField("TextField", skin);
-				
-				Dialog dialog = new Dialog("", skin, "dialog")
-				{
-					public void result(Object obj)
-					{
-						if(obj.equals(true))
-						{
-							
-						}
-					}
-				};
-				
-				dialog.text(label);
-				dialog.addActor(textfield);
-				dialog.button("Use", true);
-				dialog.button("Not use", false);
-				dialog.setPosition(300, 200);
-				dialog.sizeBy(100, 100);
-				dialog.pack();
-				
-				dialog.setVisible(true);
-				stage.addActor(dialog);
-				
-				game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 				dispose();
-				game.render();
-				
 			}
 		});
 		
