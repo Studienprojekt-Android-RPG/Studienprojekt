@@ -23,11 +23,7 @@ public class SlotActor extends ImageButton implements SlotListener {
 	
 	Testmap game;
 	
-	BitmapFont font;
-	LabelStyle labstyle = new LabelStyle();
-	Label label;
-	Skin skinDialog;
-	TextureAtlas butwin;
+	ItemDialog dialog;
 
 	public SlotActor(Skin skin, Slot slot) {
 		super(createStyle(skin, slot));
@@ -41,56 +37,17 @@ public class SlotActor extends ImageButton implements SlotListener {
 		InventoryScreen.stage.addActor(tooltip);
 		addListener(new TooltipListener(tooltip, true));
 		
-		skinDialog = new Skin();
-		butwin = new TextureAtlas("butwin.atlas");
-		skin.addRegions(butwin);
-		skin.add("default", labstyle);
-		font = new BitmapFont(Gdx.files.internal("default.fnt"));
-		labstyle.font = font;
-		label = new Label("Use Item?", labstyle);
-		
-		Dialog dialog = new Dialog("", skin, "dialog")
-		{
-			public void result(Object obj)
-			{
-				if(obj.equals(true))
-				{
-					System.out.println("true");
-					System.out.println(slot.getItem());
-					if(slot.getItem().getConsumable())
-					{
-						slot.take(1);
-						game.inventoryscreen.inventoryActor.inv.consume(slot.getItem());
-					}
-				}
-				else
-				{
-					System.out.println("false");
-				}
-			}
-		};
-		
-		dialog.text(label);
-		dialog.button("Use", true);
-		dialog.button("Not use", false);
-		dialog.setPosition(300, 200);
-		dialog.sizeBy(100, 100);
-		dialog.pack();
-		
 		addListener(new ClickListener()
 		{
 			public void clicked(InputEvent e, float x, float y)
 			{
-				if(slot.isEmpty())
+				if(!slot.isEmpty())
 				{
-					System.out.println("Dialog: Slot empty");
+					if(slot.getItem().getConsumable())
+					{
+						dialog = new ItemDialog(slot, skin);
+					}
 				}
-				else
-				{
-					dialog.setVisible(true);
-					System.out.println(slot.toString() + " clicked");
-				}
-				InventoryScreen.stage.addActor(dialog);
 			}
 		});
 	}

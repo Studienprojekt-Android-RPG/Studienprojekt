@@ -4,6 +4,7 @@
 package de.test.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.TextInputListener;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -12,10 +13,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
@@ -94,6 +99,35 @@ public class StartMenu implements Screen
 			public void clicked(InputEvent e, float x, float y)
 			{
 				System.out.println("StartGame clicked.");
+				
+				LabelStyle labstyle = new LabelStyle();
+				labstyle.font = font;
+				Label label = new Label("Name of new Game:", labstyle);
+				
+				TextField textfield = new TextField("TextField", skin);
+				
+				Dialog dialog = new Dialog("", skin, "dialog")
+				{
+					public void result(Object obj)
+					{
+						if(obj.equals(true))
+						{
+							
+						}
+					}
+				};
+				
+				dialog.text(label);
+				dialog.addActor(textfield);
+				dialog.button("Use", true);
+				dialog.button("Not use", false);
+				dialog.setPosition(300, 200);
+				dialog.sizeBy(100, 100);
+				dialog.pack();
+				
+				dialog.setVisible(true);
+				stage.addActor(dialog);
+				
 				game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 				dispose();
 				game.render();
@@ -179,5 +213,4 @@ public class StartMenu implements Screen
 		stage.dispose();
 		
 	}
-
 }

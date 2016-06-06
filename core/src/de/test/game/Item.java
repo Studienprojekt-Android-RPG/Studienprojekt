@@ -24,12 +24,12 @@ public enum Item {
 	
 	private String textureRegion;
 	private boolean consumable;
-	int atk;
-	int def;
-	int HP;
-	int speed;
-	int exp;
-	int SP;
+	private int atk;
+	private int def;
+	private int HP;
+	private int speed;
+	private int exp;
+	private int SP;
 
 	private Item(String textureRegion, boolean pConsumable, int pHP, int pSP){
 		this.textureRegion = textureRegion;

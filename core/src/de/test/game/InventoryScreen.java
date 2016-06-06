@@ -82,14 +82,14 @@ public class InventoryScreen implements Screen {
 	            inv.setScreen(inv.getScreenType(ScreenType.Gamescreen));
 	        }
 	    });
-		Gamescreen.player.readInventory();
-
+		
 		if(Gamescreen.screen == 1){
 			Gamescreen.screen = 0;
 			inv.setScreen(inv.getScreenType(ScreenType.Gamescreen));
 			
 		}
 		
+		Gamescreen.player.readInventory();
 		/*// create some random items
 				for (Slot slot : inventoryActor.inv.getSlots()) {
 					//slot.add(Item.REICHTUMSELIXIER, 1);

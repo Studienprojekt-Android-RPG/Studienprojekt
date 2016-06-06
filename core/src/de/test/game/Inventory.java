@@ -77,15 +77,17 @@ public class Inventory{
 	{
 		if(item.getConsumable())
 		{
-			Battlescreen.player.curHP += item.getHP();
-			Battlescreen.player.curSP += item.getSP();
-			if(Battlescreen.player.curHP > Battlescreen.player.maxHP)
+			System.out.println(Gamescreen.player.curHP);
+			System.out.println(Gamescreen.player.curSP);
+			Gamescreen.player.curHP += item.getHP();
+			Gamescreen.player.curSP += item.getSP();
+			if(Gamescreen.player.curHP > Gamescreen.player.maxHP)
 			{
-				Battlescreen.player.curHP = Battlescreen.player.maxHP;
+				Gamescreen.player.curHP = Gamescreen.player.maxHP;
 			}
-			if(Battlescreen.player.curSP > Battlescreen.player.maxSP)
+			if(Gamescreen.player.curSP > Gamescreen.player.maxSP)
 			{
-				Battlescreen.player.curSP = Battlescreen.player.maxSP;
+				Gamescreen.player.curSP = Gamescreen.player.maxSP;
 			}
 		}
 	}
