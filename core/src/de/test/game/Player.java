@@ -15,7 +15,7 @@ public class Player extends Fighter {
 
 	Vector2 position;
 	String textureLoc;
-	static Preferences prefs = Gdx.app.getPreferences("haw");
+	Preferences prefs = Gdx.app.getPreferences("haw");
 	
 	boolean allowMov = true;
 	boolean isMoving = false;
@@ -164,7 +164,6 @@ public class Player extends Fighter {
 		prefs.putString("map", mapManager.map);
 		prefs.putInteger("curHP", curHP);
 		prefs.putInteger("maxHP", maxHP);
-		saveInventory();
 		prefs.flush();
 	}
 	
@@ -182,6 +181,16 @@ public class Player extends Fighter {
 		mapManager.map = prefs.getString("map");
 		curHP = prefs.getInteger("curHP");
 		maxHP = prefs.getInteger("maxHP");
+	}
+	
+	public void clearInventorySlots()
+	{
+		int i = 0;
+		for(Slot slot : Gamescreen.game.inventoryscreen.inventoryActor.inv.getSlots())
+		{
+			prefs.remove("inventorySlot" + i);
+			i++;
+		}
 	}
 	
 	public void saveInventory()
@@ -215,7 +224,6 @@ public class Player extends Fighter {
 					Gamescreen.game.inventoryscreen.inventoryActor.inv.store(item, amount);
 				}
 			}
-			i++;
 		}
 	}
 	

@@ -69,6 +69,7 @@ public class Slot {
 				item = null;
 			}
 			notifyListeners();
+			
 			return true;
 		}
 

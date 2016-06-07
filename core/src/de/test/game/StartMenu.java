@@ -100,8 +100,8 @@ public class StartMenu implements Screen
 			public void clicked(InputEvent e, float x, float y)
 			{
 				System.out.println("StartGame clicked.");
-				NewGameDialog dialog = new NewGameDialog();
-				
+				game.setScreen(game.getScreenType(ScreenType.Gamescreen));
+				game.render();
 				dispose();
 			}
 		});

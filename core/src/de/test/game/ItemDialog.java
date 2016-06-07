@@ -8,6 +8,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 
+import de.test.game.Testmap.ScreenType;
+
 public class ItemDialog
 {
 	private Slot slot;
@@ -39,8 +41,10 @@ public class ItemDialog
 			{
 				if(obj.equals(true))
 				{
-					game.inventoryscreen.inventoryActor.inv.consume(slot.getItem());
+					Gamescreen.game.inventoryscreen.inventoryActor.inv.consume(slot.getItem());
 					slot.take(1);
+					Gamescreen.player.clearInventorySlots();
+					Gamescreen.player.saveInventory();
 				}
 			}
 		};

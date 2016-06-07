@@ -47,7 +47,7 @@ public class Gamescreen implements Screen {
 	MapLayer layer;
 	RectangleMapObject rect;
 	String userName = System.getProperty("user.name");
-	File test;
+	File saveFile;
 	
 	static Gamescreen gamescreen;
 	BitmapFont font;
@@ -153,14 +153,16 @@ public class Gamescreen implements Screen {
 				
 		batch = new SpriteBatch();
 		sr = new ShapeRenderer();
-		if(Gdx.app.getType() == ApplicationType.Desktop){
-			test = new File("C:/Users/" + userName + "/.prefs/haw");
+		if(Gdx.app.getType() == ApplicationType.Desktop)
+		{
+			saveFile = new File("C:/Users/" + userName + "/.prefs/haw");
+			System.out.println(saveFile.getName());
 		}
 		else{
-			test = new File("/data/data/de.test.game/shared_prefs/haw.xml");
+			saveFile = new File("/data/data/de.test.game/shared_prefs/haw.xml");
 //			test = new File("/storage/emulated/0/Android/data/de.test.game/shared_prefs/haw.xml");
 		}
-		if(test.exists()){
+		if(saveFile.exists()){
 			player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
 			try {
 				player.readPlayer(player);
@@ -246,7 +248,6 @@ public class Gamescreen implements Screen {
 			player.curHP = player.maxHP;
 			System.out.println("Geheilt!!!");
 		}
-		
 	}
 	
 

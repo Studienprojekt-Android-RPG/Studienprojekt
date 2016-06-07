@@ -68,17 +68,19 @@ public class InventoryScreen implements Screen {
 		xbutt.isTouchable();
 		xbutt.setPosition(0, 0);
 		stage.addActor(xbutt);
-//		this.render(0);
+
+		Gamescreen.player.readInventory();
+		
 		xbutt.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
 	            System.out.println("Inventar geschlossen");
 	            try {
 					Gamescreen.player.savePlayer(Gamescreen.player);
+					Gamescreen.player.saveInventory();
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-	            Gamescreen.player.saveInventory();
 	            inv.setScreen(inv.getScreenType(ScreenType.Gamescreen));
 	        }
 	    });
@@ -89,7 +91,6 @@ public class InventoryScreen implements Screen {
 			
 		}
 		
-		Gamescreen.player.readInventory();
 		/*// create some random items
 				for (Slot slot : inventoryActor.inv.getSlots()) {
 					//slot.add(Item.REICHTUMSELIXIER, 1);
