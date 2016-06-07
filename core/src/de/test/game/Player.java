@@ -15,7 +15,7 @@ public class Player extends Fighter {
 
 	Vector2 position;
 	String textureLoc;
-	Preferences prefs = Gdx.app.getPreferences("haw");
+	Preferences prefs;
 	
 	boolean allowMov = true;
 	boolean isMoving = false;
@@ -31,6 +31,7 @@ public class Player extends Fighter {
 	boolean menu = true;
 	public Player(Vector2 position, String textureLoc, int atk, int satk, int def, int sdef, int hp, int lvl, int spe, int exp, int sp, int money){
 		super(atk, satk, def, sdef, hp, lvl, spe, exp, sp, money);
+		prefs = Gdx.app.getPreferences(Gamescreen.saveFile.getName());
 		name = "Leon";
 		this.position = position;
 		movement = "";
@@ -211,17 +212,20 @@ public class Player extends Fighter {
 	{
 		for (int i = 0; i <= 64; i++) 
 		{
-			String invSlot = prefs.getString("inventorySlot"+i);
-			if(invSlot != "")
+			if(prefs != null)
 			{
-				String[] input = invSlot.split(":");
-			
-				Item item = Item.valueOf(input[0]);						 
-				int amount = Integer.parseInt(input[1]);
-			
-				if(item != null && amount != 0)
+				String invSlot = prefs.getString("inventorySlot"+i);
+				if(invSlot != "")
 				{
-					Gamescreen.game.inventoryscreen.inventoryActor.inv.store(item, amount);
+					String[] input = invSlot.split(":");
+				
+					Item item = Item.valueOf(input[0]);						 
+					int amount = Integer.parseInt(input[1]);
+				
+					if(item != null && amount != 0)
+					{
+						Gamescreen.game.inventoryscreen.inventoryActor.inv.store(item, amount);
+					}
 				}
 			}
 		}

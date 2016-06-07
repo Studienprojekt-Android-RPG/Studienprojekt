@@ -74,22 +74,10 @@ public class InventoryScreen implements Screen {
 		xbutt.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
 	            System.out.println("Inventar geschlossen");
-	            try {
-					Gamescreen.player.savePlayer(Gamescreen.player);
-					Gamescreen.player.saveInventory();
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+	            Gamescreen.player.saveInventory();
 	            inv.setScreen(inv.getScreenType(ScreenType.Gamescreen));
 	        }
 	    });
-		
-		if(Gamescreen.screen == 1){
-			Gamescreen.screen = 0;
-			inv.setScreen(inv.getScreenType(ScreenType.Gamescreen));
-			
-		}
 		
 		/*// create some random items
 				for (Slot slot : inventoryActor.inv.getSlots()) {
