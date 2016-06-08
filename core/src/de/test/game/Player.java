@@ -13,6 +13,8 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Player extends Fighter {
 
+	Testmap game;
+	
 	Vector2 position;
 	String textureLoc;
 	Preferences prefs;
@@ -31,7 +33,7 @@ public class Player extends Fighter {
 	boolean menu = true;
 	public Player(Vector2 position, String textureLoc, int atk, int satk, int def, int sdef, int hp, int lvl, int spe, int exp, int sp, int money){
 		super(atk, satk, def, sdef, hp, lvl, spe, exp, sp, money);
-		prefs = Gdx.app.getPreferences(Gamescreen.saveFile.getName());
+		prefs = Gdx.app.getPreferences(game.startMenu.getNameOfSave());
 		name = "Leon";
 		this.position = position;
 		movement = "";

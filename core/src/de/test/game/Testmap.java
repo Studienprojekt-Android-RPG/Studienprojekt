@@ -48,10 +48,10 @@ public class Testmap extends Game {
 	@Override
 	public void create() {
 		music = new musicManager();
-		battlescreen = new Battlescreen(this);
-		gamescreen = new Gamescreen(this);
 		startMenu = new StartMenu(this);
+		gamescreen = new Gamescreen(this);
 		inventoryscreen = new InventoryScreen(this);
+		battlescreen = new Battlescreen(this);
 		loadscreen = new LoadScreen(this);
 		statusscreen = new Statusscreen(this);
 

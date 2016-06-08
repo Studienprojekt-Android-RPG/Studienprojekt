@@ -46,8 +46,6 @@ public class Gamescreen implements Screen {
 	static TiledMap tiledMap;
 	MapLayer layer;
 	RectangleMapObject rect;
-	String userName = System.getProperty("user.name");
-	public static File saveFile;
 	
 	static Gamescreen gamescreen;
 	BitmapFont font;
@@ -153,61 +151,28 @@ public class Gamescreen implements Screen {
 				
 		batch = new SpriteBatch();
 		sr = new ShapeRenderer();
+				
+		player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
+		tiledMap = new TmxMapLoader().load(map);
+		layer = tiledMap.getLayers().get("Spawnpoints");
+		rect = (RectangleMapObject) layer.getObjects().get("spla1");
+		player.position.x = (float) rect.getRectangle().x;
+		player.position.y = (float) rect.getRectangle().y;
+		System.out.println("Creating Player and Saving Player");
 		
-		int i = 0;
-			if(Gdx.app.getType() == ApplicationType.Desktop)
-			{
-				File folder = new File("C:/Users/" + userName + "/.prefs/");
-				File[] listOfFiles = folder.listFiles();
+		/*if(saveFile.exists()){
+		player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
+		try {
+			player.readPlayer(player);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Player Exists, Reading File");
+		tiledMap = new TmxMapLoader().load(map);*/
 
-				for (File file : listOfFiles) 
-				{
-				    if (file.isFile()) 
-				    {
-				        i = Character.getNumericValue(file.getName().charAt(3));
-				    }
-				}
-				String fileName = new String("C:/Users/" + userName + "/.prefs/haw"+i);
-				System.out.println(fileName);
-				saveFile = new File(fileName);	
-				System.out.println(saveFile.getName());
-			}
-			else
-			{
-				File folder = new File("/data/data/de.test.game/shared_prefs/");
-				File[] listOfFiles = folder.listFiles();
-
-				for (File file : listOfFiles) 
-				{
-				    if (file.isFile()) 
-				    {
-				        i = Character.getNumericValue(file.getName().charAt(3));
-				    }
-				}
-				String fileName = new String("/data/data/de.test.game/shared_prefs/haw"+i+".xml");
-				saveFile = new File(fileName);
-//				test = new File("/storage/emulated/0/Android/data/de.test.game/shared_prefs/haw.xml");
-			}
-			
-			/*if(saveFile.exists()){
-				player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
-				try {
-					player.readPlayer(player);
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				System.out.println("Player Exists, Reading File");
-				tiledMap = new TmxMapLoader().load(map);*/
-
-				player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
-				tiledMap = new TmxMapLoader().load(map);
-				layer = tiledMap.getLayers().get("Spawnpoints");
-				rect = (RectangleMapObject) layer.getObjects().get("spla1");
-				player.position.x = (float) rect.getRectangle().x;
-				player.position.y = (float) rect.getRectangle().y;
-				System.out.println("Player Does Not Exist, Creating Player and Saving Player");
+				
 		
 		renderer = new OrthogonalTiledMapRenderer(tiledMap);
 		
@@ -217,16 +182,16 @@ public class Gamescreen implements Screen {
 		mapmanager.getExitpoints();
 		mapmanager.setBattle();		
 		
-    stage = new Stage(viewport);
-	stage.addActor(up);
-	stage.addActor(down);
-	stage.addActor(left);
-	stage.addActor(right);
-	stage.addActor(gammenu);
-	stage.addActor(gamenu);
-	stage.addActor(warn);
-	stage.addActor(act);
-	Gdx.input.setInputProcessor(stage);
+		stage = new Stage(viewport);
+		stage.addActor(up);
+		stage.addActor(down);
+		stage.addActor(left);
+		stage.addActor(right);
+		stage.addActor(gammenu);
+		stage.addActor(gamenu);
+		stage.addActor(warn);
+		stage.addActor(act);
+		Gdx.input.setInputProcessor(stage);
 }
 	
 	@Override
