@@ -162,17 +162,16 @@ public class Player extends Fighter {
 	}
 	
 	public void savePlayer(Player playerPosition) throws IOException{
-		//prefs = Gdx.app.getPreferences(game.gamescreen.saveFile.toString());
 		prefs.putFloat("player x", playerPosition.position.x);
 		prefs.putFloat("player y",  playerPosition.position.y);
 		prefs.putString("map", mapManager.map);
 		prefs.putInteger("curHP", curHP);
 		prefs.putInteger("maxHP", maxHP);
+		prefs.put
 		prefs.flush();
 	}
 	
 	public void saveBattle(){
-		//prefs = Gdx.app.getPreferences(game.gamescreen.saveFile.toString());
 		prefs.putInteger("curHP", curHP);
 		prefs.putInteger("maxHP", maxHP);
 		saveInventory();
@@ -180,7 +179,6 @@ public class Player extends Fighter {
 	}
 	
 	public void readPlayer(Player player) throws IOException, ClassNotFoundException{
-		//prefs = Gdx.app.getPreferences(game.gamescreen.saveFile.toString());
 		player.position.x = prefs.getFloat("player x");
 		player.position.y = prefs.getFloat("player y");
 		Gamescreen.map = prefs.getString("map");
@@ -191,7 +189,6 @@ public class Player extends Fighter {
 	
 	public void clearInventorySlots()
 	{
-		//prefs = Gdx.app.getPreferences(game.gamescreen.saveFile.toString());
 		int i = 0;
 		for(Slot slot : Gamescreen.game.inventoryscreen.inventoryActor.inv.getSlots())
 		{
@@ -202,7 +199,6 @@ public class Player extends Fighter {
 	
 	public void saveInventory()
 	{
-		//prefs = Gdx.app.getPreferences(game.gamescreen.saveFile.toString());
 		int i = 0;
 		for (Slot slot : Gamescreen.game.inventoryscreen.inventoryActor.inv.getSlots())
 		{
@@ -217,7 +213,6 @@ public class Player extends Fighter {
 
 	public void readInventory()
 	{
-		//prefs = Gdx.app.getPreferences(game.gamescreen.saveFile.toString());
 		for (int i = 0; i <= 64; i++) 
 		{
 			if(prefs != null)

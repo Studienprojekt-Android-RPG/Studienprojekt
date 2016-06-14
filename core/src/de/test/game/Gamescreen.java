@@ -37,8 +37,8 @@ import de.test.game.Testmap.ScreenType;
 
 
 public class Gamescreen implements Screen {
-	static String map = "maps/maze.tmx";
-	String mapchange = "maps/maze.tmx";
+	static String map = "maps/altbau.tmx";
+	String mapchange = "maps/altbau.tmx";
 	SpriteBatch batch;
 	Texture menbut;
 	static Sprite gamemenu = new Sprite();
@@ -73,6 +73,8 @@ public class Gamescreen implements Screen {
 	
 	mapManager mapmanager;
 	
+	//EventManager eventmanager;
+	
 	static Gamemenu gamenu;
 	
 	OrthographicCamera cam;
@@ -90,16 +92,17 @@ public class Gamescreen implements Screen {
 	public Gamescreen(Testmap game){
 		
 		this.game = game;
-		
-		cam = new OrthographicCamera();
-		viewport = new ExtendViewport(800, 480, cam);
-		stage = new Stage(viewport);
 	}
 	
 	@Override
 	public void show () 
 	{
 		Testmap.setHorst("gs");
+		
+		cam = new OrthographicCamera();
+		viewport = new ExtendViewport(800, 480, cam);
+		stage = new Stage(viewport);
+		
 		skin = new Skin();
 		font = new BitmapFont(Gdx.files.internal("default.fnt"));
 		butwin = new TextureAtlas("butwin.atlas");
@@ -160,7 +163,7 @@ public class Gamescreen implements Screen {
 		player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
 		tiledMap = new TmxMapLoader().load(map);
 		layer = tiledMap.getLayers().get("Spawnpoints");
-		rect = (RectangleMapObject) layer.getObjects().get("spla1");
+		rect = (RectangleMapObject) layer.getObjects().get("spalt3");
 		player.position.x = (float) rect.getRectangle().x;
 		player.position.y = (float) rect.getRectangle().y;
 		System.out.println("Creating Player and Saving Player");
@@ -172,6 +175,8 @@ public class Gamescreen implements Screen {
 		mapmanager.getSpawnpoints();
 		mapmanager.getExitpoints();
 		mapmanager.setBattle();		
+		
+		//eventmanager = new EventManager();
 
 		stage.addActor(up);
 		stage.addActor(down);
@@ -225,8 +230,13 @@ public class Gamescreen implements Screen {
 	    batch.setProjectionMatrix(cam.combined);
 	    cam.update();
 	    mapmanager.update();
+	   // eventmanager.abfrage();
 		batch.begin();
 		batch.draw(player.getCurrentFrame(), player.getPosition().x, player.getPosition().y);
+		//if(eventmanager.demo.event == true)
+		//{
+		//	batch.draw(eventmanager.demo.ani.getCurrentFrame(), eventmanager.demo.ani.position.x, eventmanager.demo.ani.position.y);
+		//}
 		batch.end();
 		stage.act();
 		stage.draw();

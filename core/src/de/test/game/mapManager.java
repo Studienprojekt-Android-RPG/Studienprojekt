@@ -17,7 +17,7 @@ import de.test.game.Battlescreen.Battlestate;
 import de.test.game.Testmap.ScreenType;
 
 public class mapManager {
-	static String map = "maps/maze.tmx";
+	static String map = "maps/altbau.tmx";
 	String mapchange;
 	MapLayer layer;
 	MapProperties prop;
@@ -84,10 +84,7 @@ public class mapManager {
 	Rectangle exit25;
 
 	static int safety = 0;
-
-	static Battlescreen battlescreen;
-
-
+	
 	public mapManager() {
 
 	}
@@ -904,7 +901,7 @@ public class mapManager {
 					Battlescreen.battlestate = Battlestate.firstStrike;
 					Battlemenu.hasClicked = false;
 					safety = 0;
-					game.setScreen(game.getScreenType(ScreenType.LoadScreen));
+					game.setScreen(game.getScreenType(ScreenType.Battlescreen));
 				}
 			}
 		}
