@@ -25,7 +25,9 @@ public class Inventory{
 			Slot randomSlot = slots.get(MathUtils.random(0, slots.size - 1));
 			randomSlot.take(randomSlot.getAmount());
 		}*/
-//		this.store(Item.MESSER, 2);
+		//this.store(Item.MESSER, 2);
+		//this.store(Item.DONUT, 5);
+		//this.store(Item.LEBERKASSEMMEL, 5);
 	}
 
 	public int checkInventory(Item item) {

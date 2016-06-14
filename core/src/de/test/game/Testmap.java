@@ -13,16 +13,17 @@ public class Testmap extends Game {
 	Gamescreen gamescreen;
 	StartMenu startMenu;
 	InventoryScreen inventoryscreen;
-	LoadScreen loadscreen;
 	Statusscreen statusscreen;
 	musicManager music;
+	LoadGameScreen loadGameScreen;
 	public static enum ScreenType{
 		StartMenu,
 		Gamescreen,
 		Battlescreen,
 		Inventory,
 		LoadScreen,
-		Statusscreen
+		Statusscreen,
+		LoadGameScreen
 	}
 	
 	public Screen getScreenType(ScreenType screenType){
@@ -35,10 +36,10 @@ public class Testmap extends Game {
 				return battlescreen;
 			case Inventory:
 				return inventoryscreen;
-			case LoadScreen:
-				return loadscreen;
 			case Statusscreen:
 				return statusscreen;
+			case LoadGameScreen:
+				return loadGameScreen;
 			default:
 				return startMenu;
 		}
@@ -52,12 +53,8 @@ public class Testmap extends Game {
 		gamescreen = new Gamescreen(this);
 		inventoryscreen = new InventoryScreen(this);
 		battlescreen = new Battlescreen(this);
-<<<<<<< HEAD
-		gamescreen = new Gamescreen(this);
-=======
->>>>>>> origin/master
-		loadscreen = new LoadScreen(this);
 		statusscreen = new Statusscreen(this);
+		loadGameScreen = new LoadGameScreen(this);
 
 		setScreen(startMenu);
 	}

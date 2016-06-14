@@ -1,33 +1,20 @@
-/**
- * 
- */
 package de.test.game;
 
-import java.io.File;
-
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.TextInputListener;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
@@ -35,17 +22,11 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import de.test.game.Testmap.ScreenType;
 
-/**
- * @author User
- *
- */
-public class StartMenu implements Screen
-{
+public class LoadGameScreen implements Screen {
+	public static Stage stage;
 	Testmap game;
-	Gamescreen gamescreen;
-	
+
 	Viewport viewport;
-	public Stage stage;
 	SpriteBatch batch = new SpriteBatch();
 	
 	TextureAtlas butwin;
@@ -56,19 +37,18 @@ public class StartMenu implements Screen
 	TextButton options;
 	TextButton exitGame;
 	TextButtonStyle button = new TextButtonStyle();
-	
-	String userName = System.getProperty("user.name");
-	public File saveFile;
-	
-	public StartMenu(Testmap game)
-	{
-		this.game = game;
-	}
 
+	ImageButton xbutt;
+	ImageButtonStyle xb = new ImageButtonStyle();
+	
+	public LoadGameScreen(Testmap game){
+		this.game = game;
+		
+	}
+	
+	
 	@Override
-	public void show()
-	{
-		Testmap.setHorst("sm");
+	public void show() {
 		viewport = new ExtendViewport(800, 480);
 		stage = new Stage(viewport);
 		Gdx.input.setInputProcessor(stage);
@@ -88,7 +68,7 @@ public class StartMenu implements Screen
 		options = new TextButton("Optionen", skin, "buttonSkin");
 		exitGame = new TextButton("Spiel verlassen", skin, "buttonSkin");
 		
-		table.setPosition(300, 120);
+		table.setPosition(300, 240);
 		
 		table.add(newGame).width(200).align(Align.center);
 		table.row();
@@ -109,7 +89,6 @@ public class StartMenu implements Screen
 			public void clicked(InputEvent e, float x, float y)
 			{
 				System.out.println("StartGame clicked.");
-				createGame();
 				dispose();
 			}
 		});
@@ -143,141 +122,62 @@ public class StartMenu implements Screen
 		
 		stage.addActor(table);
 		Gdx.input.setInputProcessor(stage);
+		
+		Skin butwi = new Skin();
+		butwi.addRegions(butwin);
+		xb.down = butwi.getDrawable("xbutt");
+		xb.up = butwi.getDrawable("xbutt");
+		butwi.add("xbu",xb);
+				
+		xbutt = new ImageButton(butwi, "xbu");
+		xbutt.setWidth(50);
+		xbutt.setHeight(50);
+		xbutt.setVisible(true);
+		xbutt.isTouchable();
+		xbutt.setPosition(0, 0);
+		stage.addActor(xbutt);
+		
+		xbutt.addListener(new ClickListener() {
+	        public void clicked(InputEvent e, float x, float y) {
+	            System.out.println("LoadGameScreen closed");
+
+	            game.setScreen(game.getScreenType(ScreenType.StartMenu));
+	            dispose();
+	        }
+	    });
 	}
 
 	@Override
-	public void render(float delta)
-	{		
+	public void resume() {
+
+	}
+
+	@Override
+	public void render(float delta) {
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+		
 		stage.act();
 		stage.draw();
 	}
 
 	@Override
-	public void resize(int width, int height)
-	{
-		viewport.update(width, height);
+	public void resize(int width, int height) {
+		viewport.update(width, height, true);
 	}
 
 	@Override
-	public void pause()
-	{
-		// TODO Auto-generated method stub
-		
+	public void pause() {
+
 	}
 
 	@Override
-	public void resume()
-	{
-		// TODO Auto-generated method stub
-		
+	public void hide() {
+		dispose();
 	}
 
 	@Override
-	public void hide()
-	{
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void dispose()
-	{
-		table.clear();
+	public void dispose() {
 		stage.dispose();
-		
-	}
-	
-	public void createGame()
-	{		
-		int i = 0;
-		if(Gdx.app.getType() == ApplicationType.Desktop)
-		{
-			File folder = new File("C:/Users/" + userName + "/.prefs/");
-			File[] listOfFiles = folder.listFiles();
-
-			for (File file : listOfFiles) 
-			{
-			    if (file.isFile()) 
-			    {
-			        i = Character.getNumericValue(file.getName().charAt(3));
-			        i++;
-			    }
-			}
-			
-			if(i <= 9)
-			{
-				Gamescreen.createSave(i);
-				
-				game.setScreen(game.getScreenType(ScreenType.Gamescreen));
-				game.render();
-			}
-			else
-			{
-				maxSavesDialog();
-			}
-		}
-		else
-		{
-			File folder = new File("/data/data/de.test.game/shared_prefs/");
-			File[] listOfFiles = folder.listFiles();
-
-			for (File file : listOfFiles) 
-			{
-			    if (file.isFile()) 
-			    {
-			        i = Character.getNumericValue(file.getName().charAt(3));
-			        i++;
-			    }
-			}
-			
-			if(i <= 9)
-			{
-				Gamescreen.createSave(i);
-				
-				game.setScreen(game.getScreenType(ScreenType.Gamescreen));
-				game.render();
-			}
-			else
-			{
-				maxSavesDialog();
-			}
-		}
-	}
-	
-	public void maxSavesDialog()
-	{
-		Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-		BitmapFont font = new BitmapFont(Gdx.files.internal("default.fnt")); 
-		
-		LabelStyle labstyle = new LabelStyle();
-		labstyle.font = font;
-		Label label = new Label("Number of max. Saves reached\nPlease delete a old game or load another game.", labstyle);
-		
-		Dialog dialog = new Dialog("Warning", skin, "dialog")
-		{
-			public void result(Object obj)
-			{
-				if(obj.equals(true))
-				{
-					//game.setScreen(game.getScreenType(ScreenType.StartMenu));
-				}
-			}
-		};
-		
-		dialog.text(label);
-		dialog.button("OK", true);
-		dialog.setPosition(300, 200);
-		dialog.setSize(200, 200);
-		dialog.pack();
-		dialog.setVisible(true);
-		stage.addActor(dialog);
-	}
-	
-	public String getNameOfSave()
-	{
-		return saveFile.getName();
 	}
 }

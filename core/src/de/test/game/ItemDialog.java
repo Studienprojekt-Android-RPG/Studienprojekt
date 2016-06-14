@@ -51,7 +51,7 @@ public class ItemDialog
 		
 		dialog.text(label);
 		dialog.button("Use", true);
-		dialog.button("Not use", false);
+		dialog.button("Cancel", false);
 		dialog.setPosition(300, 200);
 		dialog.sizeBy(100, 100);
 		dialog.pack();

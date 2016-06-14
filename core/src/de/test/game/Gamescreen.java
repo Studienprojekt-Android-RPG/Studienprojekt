@@ -84,7 +84,8 @@ public class Gamescreen implements Screen {
 	Stage stage;
 	static Testmap game;
 	
-	static int screen = 1;
+	static File saveFile;
+	static String userName = System.getProperty("user.name");
 	
 	public Gamescreen(Testmap game){
 		
@@ -93,8 +94,6 @@ public class Gamescreen implements Screen {
 		cam = new OrthographicCamera();
 		viewport = new ExtendViewport(800, 480, cam);
 		stage = new Stage(viewport);
-		
-		createSave();
 	}
 	
 	@Override
@@ -157,27 +156,6 @@ public class Gamescreen implements Screen {
 				
 		batch = new SpriteBatch();
 		sr = new ShapeRenderer();
-<<<<<<< HEAD
-			
-			/*if(saveFile.exists()){
-				player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
-				try {
-					player.readPlayer(player);
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				System.out.println("Player Exists, Reading File");
-				tiledMap = new TmxMapLoader().load(map);*/
-
-		player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
-		tiledMap = new TmxMapLoader().load(map);
-		layer = tiledMap.getLayers().get("Spawnpoints");
-		rect = (RectangleMapObject) layer.getObjects().get("spla1");
-		player.position.x = (float) rect.getRectangle().x;
-		player.position.y = (float) rect.getRectangle().y;
-=======
 				
 		player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
 		tiledMap = new TmxMapLoader().load(map);
@@ -187,21 +165,6 @@ public class Gamescreen implements Screen {
 		player.position.y = (float) rect.getRectangle().y;
 		System.out.println("Creating Player and Saving Player");
 		
-		/*if(saveFile.exists()){
-		player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
-		try {
-			player.readPlayer(player);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		System.out.println("Player Exists, Reading File");
-		tiledMap = new TmxMapLoader().load(map);*/
-
-				
->>>>>>> origin/master
-		
 		renderer = new OrthogonalTiledMapRenderer(tiledMap);
 		
 	    mapmanager = new mapManager();
@@ -209,12 +172,7 @@ public class Gamescreen implements Screen {
 		mapmanager.getSpawnpoints();
 		mapmanager.getExitpoints();
 		mapmanager.setBattle();		
-		
-<<<<<<< HEAD
-    
-=======
-		stage = new Stage(viewport);
->>>>>>> origin/master
+
 		stage.addActor(up);
 		stage.addActor(down);
 		stage.addActor(left);
@@ -229,99 +187,18 @@ public class Gamescreen implements Screen {
 	/**
 	 * 
 	 */
-	public void createSave() 
+	public static void createSave(int pI) 
 	{
-		int i = 0;
 		if(Gdx.app.getType() == ApplicationType.Desktop)
 		{
-			File folder = new File("C:/Users/" + userName + "/.prefs/");
-			File[] listOfFiles = folder.listFiles();
-
-			for (File file : listOfFiles) 
-			{
-			    if (file.isFile()) 
-			    {
-			        i = Character.getNumericValue(file.getName().charAt(3));
-			        i++;
-			    }
-			}
-			
-			if(i <= 9)
-			{
-				saveFile = new File("C:/Users/" + userName + "/.prefs/haw" + i);
-			}
-			else
-			{
-				Skin dialogSkin = new Skin(Gdx.files.internal("uiskin.json"));
-				BitmapFont font = new BitmapFont(Gdx.files.internal("default.fnt"));
-				LabelStyle labelStyle = new LabelStyle();
-				labelStyle.font = font;
-				Label label =  new Label("You can't have more then 10 saves.\nPlease load a saved Game or delete one.", labelStyle);
-				
-				Dialog dialog = new Dialog("Error", dialogSkin, "dialog")
-				{
-					public void result(Object obj)
-					{
-						if(obj.equals(true))
-						{
-							game.setScreen(game.getScreenType(ScreenType.StartMenu));
-						}
-					}
-				};
-				dialog.text(label);
-				dialog.button("OK", true);
-				dialog.setPosition(300, 200);
-				dialog.sizeBy(100, 100);
-				dialog.pack();
-				dialog.setVisible(true);
-				stage.addActor(dialog);
-			}
+			saveFile = new File("C:/Users/" + userName + "/.prefs/haw" + pI);		
 		}
 		else
 		{
-			File folder = new File("/data/data/de.test.game/shared_prefs/");
-			File[] listOfFiles = folder.listFiles();
-
-			for (File file : listOfFiles) 
-			{
-			    if (file.isFile()) 
-			    {
-			        i = Character.getNumericValue(file.getName().charAt(3));
-			        i++;
-			    }
-			}
-			
-			if(i <= 9)
-			{
-				saveFile = new File("/data/data/de.test.game/shared_prefs/haw" + i + ".xml");
-			}
-			else
-			{
-				Skin dialogSkin = new Skin(Gdx.files.internal("uiskin.json"));
-				BitmapFont font = new BitmapFont(Gdx.files.internal("default.fnt"));
-				LabelStyle labelStyle = new LabelStyle();
-				labelStyle.font = font;
-				Label label =  new Label("You can't have more then 10 saves.\nPlease load a saved Game or delete one.", labelStyle);
-				
-				Dialog dialog = new Dialog("Error", dialogSkin, "dialog")
-				{
-					public void result(Object obj)
-					{
-						if(obj.equals(true))
-						{
-							game.setScreen(game.getScreenType(ScreenType.StartMenu));
-						}
-					}
-				};
-				dialog.text(label);
-				dialog.button("OK", true);
-				dialog.setPosition(300, 200);
-				dialog.sizeBy(100, 100);
-				dialog.pack();
-				dialog.setVisible(true);
-				stage.addActor(dialog);
-			}
+			saveFile = new File("/data/data/de.test.game/shared_prefs/haw" + pI + ".xml");
 		}
+		System.out.println(saveFile.getAbsolutePath());
+		System.out.println(saveFile.getPath());
 	}
 	
 	@Override

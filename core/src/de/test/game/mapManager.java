@@ -86,7 +86,7 @@ public class mapManager {
 	static int safety = 0;
 
 	static Battlescreen battlescreen;
-	static LoadScreen loadscreen;
+
 
 	public mapManager() {
 
