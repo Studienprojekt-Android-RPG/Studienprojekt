@@ -49,9 +49,13 @@ public class Testmap extends Game {
 	public void create() {
 		music = new musicManager();
 		startMenu = new StartMenu(this);
+		gamescreen = new Gamescreen(this);
 		inventoryscreen = new InventoryScreen(this);
 		battlescreen = new Battlescreen(this);
+<<<<<<< HEAD
 		gamescreen = new Gamescreen(this);
+=======
+>>>>>>> origin/master
 		loadscreen = new LoadScreen(this);
 		statusscreen = new Statusscreen(this);
 

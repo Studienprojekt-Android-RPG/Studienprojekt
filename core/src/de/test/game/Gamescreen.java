@@ -49,8 +49,6 @@ public class Gamescreen implements Screen {
 	static TiledMap tiledMap;
 	MapLayer layer;
 	RectangleMapObject rect;
-	String userName = System.getProperty("user.name");
-	public static File saveFile;
 	
 	static Gamescreen gamescreen;
 	BitmapFont font;
@@ -159,6 +157,7 @@ public class Gamescreen implements Screen {
 				
 		batch = new SpriteBatch();
 		sr = new ShapeRenderer();
+<<<<<<< HEAD
 			
 			/*if(saveFile.exists()){
 				player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
@@ -178,6 +177,30 @@ public class Gamescreen implements Screen {
 		rect = (RectangleMapObject) layer.getObjects().get("spla1");
 		player.position.x = (float) rect.getRectangle().x;
 		player.position.y = (float) rect.getRectangle().y;
+=======
+				
+		player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
+		tiledMap = new TmxMapLoader().load(map);
+		layer = tiledMap.getLayers().get("Spawnpoints");
+		rect = (RectangleMapObject) layer.getObjects().get("spla1");
+		player.position.x = (float) rect.getRectangle().x;
+		player.position.y = (float) rect.getRectangle().y;
+		System.out.println("Creating Player and Saving Player");
+		
+		/*if(saveFile.exists()){
+		player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
+		try {
+			player.readPlayer(player);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		System.out.println("Player Exists, Reading File");
+		tiledMap = new TmxMapLoader().load(map);*/
+
+				
+>>>>>>> origin/master
 		
 		renderer = new OrthogonalTiledMapRenderer(tiledMap);
 		
@@ -187,7 +210,11 @@ public class Gamescreen implements Screen {
 		mapmanager.getExitpoints();
 		mapmanager.setBattle();		
 		
+<<<<<<< HEAD
     
+=======
+		stage = new Stage(viewport);
+>>>>>>> origin/master
 		stage.addActor(up);
 		stage.addActor(down);
 		stage.addActor(left);
