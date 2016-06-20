@@ -5,18 +5,14 @@ package de.test.game;
 
 import java.io.File;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.TextInputListener;
-import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.Application.ApplicationType;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.maps.objects.RectangleMapObject;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
@@ -26,8 +22,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField.TextFieldStyle;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
@@ -58,7 +52,6 @@ public class StartMenu implements Screen
 	TextButtonStyle button = new TextButtonStyle();
 	
 	String userName = System.getProperty("user.name");
-	public File saveFile;
 	
 	public StartMenu(Testmap game)
 	{
@@ -209,7 +202,7 @@ public class StartMenu implements Screen
 			
 			if(i <= 9)
 			{
-				Gamescreen.createSave(i);
+				game.setSaveFile(new File("C:/Users/" + userName + "/.prefs/haw" + i));
 				
 				game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 				game.render();
@@ -235,7 +228,7 @@ public class StartMenu implements Screen
 			
 			if(i <= 9)
 			{
-				Gamescreen.createSave(i);
+				game.setSaveFile(new File("/data/data/de.test.game/shared_prefs/haw" + i + ".xml"));
 				
 				game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 				game.render();
@@ -274,10 +267,5 @@ public class StartMenu implements Screen
 		dialog.pack();
 		dialog.setVisible(true);
 		stage.addActor(dialog);
-	}
-	
-	public String getNameOfSave()
-	{
-		return saveFile.getName();
 	}
 }

@@ -1,14 +1,20 @@
 package de.test.game;
 
+import java.io.File;
+
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
-import com.badlogic.gdx.scenes.scene2d.utils.DragAndDrop;
 
 
 public class Testmap extends Game {
+	
 	static String horst;
+	
+	File saveFile;
+	static Preferences prefs;
+	
 	Battlescreen battlescreen;
 	Gamescreen gamescreen;
 	StartMenu startMenu;
@@ -16,6 +22,7 @@ public class Testmap extends Game {
 	Statusscreen statusscreen;
 	musicManager music;
 	LoadGameScreen loadGameScreen;
+	
 	public static enum ScreenType{
 		StartMenu,
 		Gamescreen,
@@ -78,5 +85,16 @@ public class Testmap extends Game {
 	}
 	public String getHorst(){
 		return horst;
+	}
+	
+	public void setSaveFile(File pSaveFile)
+	{
+		saveFile = pSaveFile;
+		setPrefs();
+	}
+	
+	public void setPrefs()
+	{
+		prefs = Gdx.app.getPreferences(saveFile.getName());
 	}
 }

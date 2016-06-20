@@ -885,13 +885,12 @@ public class mapManager {
 				Random gen = new Random();
 				int battleGen = gen.nextInt(7500);
 				safety++;
-				System.out.println("Safe: " + safety);
-				System.out.println("Random: " + battleGen);
+				//System.out.println("Safe: " + safety);
+				//System.out.println("Random: " + battleGen);
 				if (battleGen < 8 || safety == 1500) {
 					try {
 						player.savePlayer(player);
 					} catch (IOException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					player.setPosition(Battlemenu.vec);
@@ -907,7 +906,6 @@ public class mapManager {
 		}
 	}
 
-	@SuppressWarnings("static-access")
 	public void changeMap(String map, String mapchange, Vector2 spawn) {
 		this.map = map;
 		Gamescreen.tiledMap = new TmxMapLoader().load(map); // load the new map

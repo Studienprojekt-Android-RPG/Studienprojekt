@@ -1,10 +1,10 @@
 package de.test.game;
 
 import java.io.IOException;
+import java.time.Instant;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
-import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -13,11 +13,10 @@ import com.badlogic.gdx.math.Vector2;
 
 public class Player extends Fighter {
 
-	Testmap game;
+	static Testmap game;
 	
 	Vector2 position;
-	String textureLoc;
-	Preferences prefs = Gdx.app.getPreferences(Gamescreen.saveFile.getName());
+	String textureLoc;	
 	
 	boolean allowMov = true;
 	boolean isMoving = false;
@@ -162,29 +161,28 @@ public class Player extends Fighter {
 	}
 	
 	public void savePlayer(Player playerPosition) throws IOException{
-		prefs.putFloat("player x", playerPosition.position.x);
-		prefs.putFloat("player y",  playerPosition.position.y);
-		prefs.putString("map", mapManager.map);
-		prefs.putInteger("curHP", curHP);
-		prefs.putInteger("maxHP", maxHP);
-		prefs.put
-		prefs.flush();
+		Testmap.prefs.putFloat("player x", playerPosition.position.x);
+		Testmap.prefs.putFloat("player y",  playerPosition.position.y);
+		Testmap.prefs.putString("map", mapManager.map);
+		Testmap.prefs.putInteger("curHP", curHP);
+		Testmap.prefs.putInteger("maxHP", maxHP);
+		Testmap.prefs.putString("saveTime", Instant.now().toString().replace("T", " ").replace("Z", "").substring(0, 16));
+		Testmap.prefs.flush();
 	}
 	
 	public void saveBattle(){
-		prefs.putInteger("curHP", curHP);
-		prefs.putInteger("maxHP", maxHP);
-		saveInventory();
-		prefs.flush();
+		Testmap.prefs.putInteger("curHP", curHP);
+		Testmap.prefs.putInteger("maxHP", maxHP);
+		Testmap.prefs.flush();
 	}
 	
-	public void readPlayer(Player player) throws IOException, ClassNotFoundException{
-		player.position.x = prefs.getFloat("player x");
-		player.position.y = prefs.getFloat("player y");
-		Gamescreen.map = prefs.getString("map");
-		mapManager.map = prefs.getString("map");
-		curHP = prefs.getInteger("curHP");
-		maxHP = prefs.getInteger("maxHP");
+	public void readPlayer() throws IOException, ClassNotFoundException{
+		position.x = Testmap.prefs.getFloat("player x");
+		position.y = Testmap.prefs.getFloat("player y");
+		Gamescreen.map = Testmap.prefs.getString("map");
+		mapManager.map = Testmap.prefs.getString("map");
+		curHP = Testmap.prefs.getInteger("curHP");
+		maxHP = Testmap.prefs.getInteger("maxHP");
 	}
 	
 	public void clearInventorySlots()
@@ -192,7 +190,7 @@ public class Player extends Fighter {
 		int i = 0;
 		for(Slot slot : Gamescreen.game.inventoryscreen.inventoryActor.inv.getSlots())
 		{
-			prefs.remove("inventorySlot" + i);
+			Testmap.prefs.remove("inventorySlot" + i);
 			i++;
 		}
 	}
@@ -204,7 +202,7 @@ public class Player extends Fighter {
 		{
 			if(slot.getItem() != null)
 			{
-				prefs.putString("inventorySlot"+i,slot.toString());
+				Testmap.prefs.putString("inventorySlot"+i,slot.toString());
 			}
 			i++;
 		}
@@ -215,9 +213,9 @@ public class Player extends Fighter {
 	{
 		for (int i = 0; i <= 64; i++) 
 		{
-			if(prefs != null)
+			if(Testmap.prefs != null)
 			{
-				String invSlot = prefs.getString("inventorySlot"+i);
+				String invSlot = Testmap.prefs.getString("inventorySlot"+i);
 				if(invSlot != "")
 				{
 					String[] input = invSlot.split(":");

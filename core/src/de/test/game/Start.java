@@ -41,7 +41,7 @@ public class Start
 	public void loadGame()
 	{
 		try {
-			player.readPlayer(player);
+			player.readPlayer();
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

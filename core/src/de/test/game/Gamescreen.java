@@ -1,9 +1,7 @@
 package de.test.game;
 
-import java.io.File;
 import java.io.IOException;
 
-import com.badlogic.gdx.Application.ApplicationType;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -22,18 +20,13 @@ import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Window.WindowStyle;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
-import de.test.game.Testmap.ScreenType;
 
 
 public class Gamescreen implements Screen {
@@ -86,9 +79,9 @@ public class Gamescreen implements Screen {
 	Stage stage;
 	static Testmap game;
 	
-	static File saveFile;
 	static String userName = System.getProperty("user.name");
 	
+	@SuppressWarnings("static-access")
 	public Gamescreen(Testmap game){
 		
 		this.game = game;
@@ -159,14 +152,25 @@ public class Gamescreen implements Screen {
 				
 		batch = new SpriteBatch();
 		sr = new ShapeRenderer();
-				
+		
 		player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
 		tiledMap = new TmxMapLoader().load(map);
 		layer = tiledMap.getLayers().get("Spawnpoints");
 		rect = (RectangleMapObject) layer.getObjects().get("spalt3");
 		player.position.x = (float) rect.getRectangle().x;
 		player.position.y = (float) rect.getRectangle().y;
-		System.out.println("Creating Player and Saving Player");
+		System.out.println("Creating Player");
+		
+		try {
+			player.readPlayer();
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		catch (NullPointerException e){
+			e.printStackTrace();
+		}
 		
 		renderer = new OrthogonalTiledMapRenderer(tiledMap);
 		
@@ -187,25 +191,8 @@ public class Gamescreen implements Screen {
 		stage.addActor(warn);
 		stage.addActor(act);
 		Gdx.input.setInputProcessor(stage);
-}
-
-	/**
-	 * 
-	 */
-	public static void createSave(int pI) 
-	{
-		if(Gdx.app.getType() == ApplicationType.Desktop)
-		{
-			saveFile = new File("C:/Users/" + userName + "/.prefs/haw" + pI);		
-		}
-		else
-		{
-			saveFile = new File("/data/data/de.test.game/shared_prefs/haw" + pI + ".xml");
-		}
-		System.out.println(saveFile.getAbsolutePath());
-		System.out.println(saveFile.getPath());
 	}
-	
+
 	@Override
 	public void dispose(){
 		stage.dispose();
@@ -256,20 +243,16 @@ public class Gamescreen implements Screen {
 
 	@Override
 	public void pause() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void resume() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void hide() {
-		// TODO Auto-generated method stub
 		
 	}
 }
-
