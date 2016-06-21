@@ -14,8 +14,11 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
+import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -37,12 +40,14 @@ public class LoadGameScreen implements Screen {
 	TextureAtlas butwin;
 	BitmapFont font;
 	Table table = new Table();
+	Dialog dialog;
 	TextButtonStyle button = new TextButtonStyle();
 
 	ImageButton xButton;
 	ImageButtonStyle xButtonStyle = new ImageButtonStyle();
 	
-	String userName = System.getProperty("user.name");
+	//String userName = System.getProperty("user.name");
+	String userName = "Michel";
 	File folder;
 	File[] listOfFiles;
 	
@@ -78,6 +83,35 @@ public class LoadGameScreen implements Screen {
 			listOfFiles = folder.listFiles();
 		}
 		
+		Skin dialogSkin = new Skin(Gdx.files.internal("uiskin.json"));
+		BitmapFont font = new BitmapFont(Gdx.files.internal("default.fnt")); 
+		
+		LabelStyle labstyle = new LabelStyle();
+		labstyle.font = font;
+		
+		dialog = new Dialog("Options for saved Game", dialogSkin, "dialog")
+		{
+			public void result(Object obj)
+			{
+				if(obj.equals(1))
+				{
+					game.setScreen(game.getScreenType(ScreenType.Gamescreen));
+					game.render();
+				}
+				else if(obj.equals(-1))
+				{
+					
+				}
+			}
+		};
+		
+		dialog.button("Load", 1);
+		dialog.button("Delete", -1);
+		dialog.button("Cancel", 0);
+		dialog.setPosition(150, 200);
+		dialog.setSize(200, 200);
+		dialog.pack();
+		
 		TextButton[] buttons = new TextButton [10];
 		
 		table.setPosition(300, 80);
@@ -98,6 +132,11 @@ public class LoadGameScreen implements Screen {
 				buttons[i].setText("Save" + i + ": empty");
 				buttons[i].setTouchable(Touchable.disabled);
 			}
+			catch (NullPointerException e)
+			{
+				buttons[i].setText("Save" + i + ": empty");
+				buttons[i].setTouchable(Touchable.disabled);
+			}
 			
 			table.add(buttons[i]).width(200).align(Align.center);
 			table.row();
@@ -109,8 +148,10 @@ public class LoadGameScreen implements Screen {
 				{
 					System.out.println(buttons[fI].getName() + " clicked.");
 					game.setSaveFile(listOfFiles[fI]);
-					game.setScreen(game.getScreenType(ScreenType.Gamescreen));
-					game.render();
+					Label label = new Label(buttons[fI].getText(), labstyle);
+					dialog.text(label);
+					dialog.setVisible(true);
+					table.clear();
 				}
 			});
 		}

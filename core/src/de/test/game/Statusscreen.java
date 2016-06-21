@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
@@ -33,7 +34,7 @@ public class Statusscreen implements Screen {
 	static Player player = Gamescreen.player;
 	BitmapFont font;
 	Skin skin;
-	TextureAtlas butwin;
+	TextureAtlas butwin, avatar;
 	TextButtonStyle buttonstyle = new TextButtonStyle();
 	WindowStyle ws = new WindowStyle();
 	OrthographicCamera cam;
@@ -55,7 +56,7 @@ public class Statusscreen implements Screen {
 	
 	Label gear;
 	
-	Texture json;
+	TextureRegion json;
 	
 	ImageButton xbutt;
 	ImageButtonStyle xb = new ImageButtonStyle();
@@ -79,7 +80,9 @@ public class Statusscreen implements Screen {
 		skin = new Skin();
 		font = new BitmapFont(Gdx.files.internal("default.fnt"));
 		butwin = new TextureAtlas("butwin.atlas");
+		avatar = new TextureAtlas("avatare.atlas");
 		skin.addRegions(butwin);
+		skin.addRegions(avatar);
 		ws.background = skin.getDrawable("default-window");
 		ws.titleFont = font;
 		
@@ -105,7 +108,7 @@ public class Statusscreen implements Screen {
 		
 		batch = new SpriteBatch();
 		
-		json = new Texture(Gdx.files.internal("LeonAvatar.png"));
+		json = new TextureRegion(avatar.findRegion("LeonAvatar"));
 		
 		name = new Label(Gamescreen.player.getName(), labstyle);
 		hp = new Label("HP: " + Gamescreen.player.getCurrentHP() + "/" + Gamescreen.player.getMaxHP(), labstyle);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="150" tilewidth="32" tileheight="32" nextobjectid="34">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="150" tilewidth="32" tileheight="32" nextobjectid="36">
  <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
   <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
  </tileset>
@@ -75,4 +75,7 @@
    eJzt3c0KgmAQhlG79m68RYsggtLm9Zumc+DbCOJiHkTEn20DAOAM18vrbXvXN/seOQ69pTvQ1X9a3Ymu4E7nJOiKBF2R0K0r16YzdJuVrmboNitdzdBtVrqaodusdDVDt1npaoZus9LVDN1mpasZzAoAAOB8e58vTS9mWN2RrmZa3ZGuAAAAAGAm9/5I0BUJuiJBVyToigRNkaArEnRFgq5I0BUJuiJBVwAAAAAAAAAAAAAAAAAAAPDg/Xuq+a4DlXyTlGqaopqmSNAVCboiQVdUeO5IVxz1riVNcYR2SNAVCboiQVck6IoEXZGgKxJ0RYKuqOaeOgm6IkFXpOiKBOcskjwfQ4quAAAAAAAAAAAAAAAAAAAAAAAAAOp8+r/NLovfsLoTXc20uhNdzbS6E10BAAAAAAAAAMB/uAGBalkE
   </data>
  </layer>
+ <objectgroup name="Event">
+  <object id="34" name="DemoEvent" x="1824" y="4192" width="32" height="128"/>
+ </objectgroup>
 </map>

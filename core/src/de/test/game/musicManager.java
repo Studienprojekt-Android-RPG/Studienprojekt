@@ -15,10 +15,32 @@ public class musicManager extends Testmap{
 	Music altbau = Gdx.audio.newMusic(Gdx.files.internal("music/Altbau.ogg"));
 	Music cave = Gdx.audio.newMusic(Gdx.files.internal("music/Cave of Trials.ogg"));
 	Music leon = Gdx.audio.newMusic(Gdx.files.internal("music/Leons Theme.ogg"));
+	Music anieres = Gdx.audio.newMusic(Gdx.files.internal("music/Anieres Theme.ogg"));
 	public void update() {
 		
 		switch(super.horst){
+			case "go":
+				battle.stop();
+				break;
+		
+			case "ev":
+				anieres.stop();
+				demtheme.stop();
+				school.stop();
+				forest.stop();
+				home.stop();
+				battle.stop();
+				altbau.stop();
+				cave.stop();
+				leon.stop();
+				switch(super.horsty){
+					case "demo":
+						anieres.play();
+				}
+				
+				break;
 			case "bs":
+				anieres.stop();
 				cave.stop();
 				demtheme.stop();
 				forest.stop();
@@ -27,15 +49,16 @@ public class musicManager extends Testmap{
 				battle.play();
 				break;
 			case "sm":
+				anieres.stop();
 				demtheme.stop();
 				forest.stop();
 				school.stop();
 				altbau.stop();
-				battle.stop();
 				cave.stop();
 				leon.play();
 				break;
 			case"gs":
+				anieres.stop();
 				leon.stop();
 				String map = mapManager.map;
 				switch(map){

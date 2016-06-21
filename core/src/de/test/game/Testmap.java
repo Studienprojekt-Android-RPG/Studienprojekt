@@ -11,6 +11,7 @@ import com.badlogic.gdx.Screen;
 public class Testmap extends Game {
 	
 	static String horst;
+	static String horsty;
 	
 	File saveFile;
 	static Preferences prefs;
@@ -18,6 +19,7 @@ public class Testmap extends Game {
 	Battlescreen battlescreen;
 	Gamescreen gamescreen;
 	StartMenu startMenu;
+	Gameoverscreen gameoverscreen;
 	InventoryScreen inventoryscreen;
 	Statusscreen statusscreen;
 	musicManager music;
@@ -30,6 +32,7 @@ public class Testmap extends Game {
 		Inventory,
 		LoadScreen,
 		Statusscreen,
+		Gameoverscreen,
 		LoadGameScreen
 	}
 	
@@ -45,6 +48,8 @@ public class Testmap extends Game {
 				return inventoryscreen;
 			case Statusscreen:
 				return statusscreen;
+			case Gameoverscreen:
+				return gameoverscreen;
 			case LoadGameScreen:
 				return loadGameScreen;
 			default:
@@ -61,6 +66,7 @@ public class Testmap extends Game {
 		inventoryscreen = new InventoryScreen(this);
 		battlescreen = new Battlescreen(this);
 		statusscreen = new Statusscreen(this);
+		gameoverscreen = new Gameoverscreen(this);
 		loadGameScreen = new LoadGameScreen(this);
 
 		setScreen(startMenu);
@@ -85,6 +91,16 @@ public class Testmap extends Game {
 	}
 	public String getHorst(){
 		return horst;
+	}
+	
+	public static void setHorsty(String string)
+	{
+		horsty = string;
+	}
+	
+	public String getHorsty()
+	{
+		return horsty;
 	}
 	
 	public void setSaveFile(File pSaveFile)

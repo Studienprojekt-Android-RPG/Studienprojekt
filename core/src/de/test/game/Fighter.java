@@ -12,7 +12,7 @@ public abstract class Fighter {
 	int level;
 	int speed;
 	int EXP;
-	int turn;
+    int turn;
 	int coin;//
 	int curSP;
 	int maxSP;
@@ -21,6 +21,7 @@ public abstract class Fighter {
 	String name;
 	boolean guard;
 	static double attackDamage;
+	double damageStorage;
 	
 	public Fighter(int atk, int satk, int def, int sdef, int hp, int lvl, int spe, int exp, int sp, int money) {
 		
@@ -40,7 +41,18 @@ public abstract class Fighter {
 		this.turn = 0;
 		
 	}
+
 	
+	public void moveAI()
+	{
+		
+	}
+	
+	public void counterAI(){
+		
+	}
+	
+
 	public static int getAttack(Fighter fighter){
 		
 		return fighter.ATK;
@@ -181,22 +193,28 @@ public abstract class Fighter {
 	public static void attack(Fighter attacker, Fighter defender){
 		double damage = physicalDamage(attacker, defender);
 		defender.curHP -= damage;
+		attacker.damageStorage = damage;
 		System.out.println(attacker.getName() + " fügt " + defender.getName() + " " + damage + " Schadenspunkte zu!");
 		
 	}
 	
-	public static void techAttack(Fighter attacker, Fighter defender){
-		double damage = techDamage(attacker, defender);
-		defender.curHP -= damage;
-		System.out.println(attacker.getName() + " fügt " + defender.getName() + " " + damage + " Schadenspunkte zu!");
-		
-	}
 	
+
+
 	public static void guard(Fighter defender){
 		defender.guard = true;
 		System.out.println(defender.getName() + " verteidigt sich!");
 	}
-	
+
+
+	public static double getDamageStorage(Fighter fighter) {
+		return fighter.damageStorage;
+	}
+
+
+
+
+
 }
 
 

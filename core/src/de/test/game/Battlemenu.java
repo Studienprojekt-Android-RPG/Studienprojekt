@@ -56,8 +56,30 @@ public class Battlemenu extends Window {
 	        public void clicked(InputEvent e, float x, float y) {
 	        	Battlescreen.anim = true;
 	            System.out.println("Angriff!");
-	            Fighter.attack(Gamescreen.player, Battlescreen.gegner1);
-	            Battlescreen.battlestate = Battlestate.firstStrike;
+	            
+	            if(Battlescreen.selEnemy == 1){
+	            	Fighter.attack(Battlescreen.player, Battlescreen.gegner1);
+	            	if(Battlescreen.gegner1.curHP > 0){
+	            	Battlescreen.gegner1.counterAI();
+	            	}
+	            }
+	            
+	            if(Battlescreen.selEnemy == 2){
+	            	Fighter.attack(Battlescreen.player, Battlescreen.gegner2);
+	            	if(Battlescreen.gegner2.curHP > 0){
+	            	Battlescreen.gegner2.counterAI();
+	            	}
+	            }
+	            
+	            if(Battlescreen.selEnemy == 3){
+	            	Fighter.attack(Battlescreen.player, Battlescreen.gegner3);
+	            	if(Battlescreen.gegner3.curHP > 0){
+	            	Battlescreen.gegner3.counterAI();
+	            	}
+	            }
+	            
+	            
+//	            Battlescreen.battlestate = Battlestate.firstStrike;
 	            hasClicked = true;
 	        }
 	    });
@@ -65,7 +87,7 @@ public class Battlemenu extends Window {
 		def.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
 	            System.out.println("Verteidigung!");
-	            Fighter.guard(Gamescreen.player);
+	            Fighter.guard(Battlescreen.player);
 	            Battlescreen.battlestate = Battlestate.firstStrike;
 	            hasClicked = true;
 	        }

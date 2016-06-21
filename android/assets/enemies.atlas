@@ -10,17 +10,17 @@ Daemonenhund
   orig: 100, 100
   offset: 0, 0
   index: -1
-Saubaer
+Goblin
   rotate: false
   xy: 103, 1
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
-Goblin
+Saubaer
   rotate: false
-  xy: 205, 41
-  size: 60, 60
-  orig: 60, 60
+  xy: 205, 1
+  size: 100, 100
+  orig: 100, 100
   offset: 0, 0
   index: -1

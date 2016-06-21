@@ -1,7 +1,5 @@
 package de.test.game;
 
-import java.io.IOException;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -66,7 +64,7 @@ public class Gamescreen implements Screen {
 	
 	mapManager mapmanager;
 	
-	//EventManager eventmanager;
+	EventManager eventmanager;
 	
 	static Gamemenu gamenu;
 	
@@ -79,9 +77,9 @@ public class Gamescreen implements Screen {
 	Stage stage;
 	static Testmap game;
 	
-	static String userName = System.getProperty("user.name");
+	//static String userName = System.getProperty("user.name");
+	static String userName = "Michel";
 	
-	@SuppressWarnings("static-access")
 	public Gamescreen(Testmap game){
 		
 		this.game = game;
@@ -161,16 +159,7 @@ public class Gamescreen implements Screen {
 		player.position.y = (float) rect.getRectangle().y;
 		System.out.println("Creating Player");
 		
-		try {
-			player.readPlayer();
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		catch (NullPointerException e){
-			e.printStackTrace();
-		}
+		player.readPlayer();
 		
 		renderer = new OrthogonalTiledMapRenderer(tiledMap);
 		
@@ -180,7 +169,7 @@ public class Gamescreen implements Screen {
 		mapmanager.getExitpoints();
 		mapmanager.setBattle();		
 		
-		//eventmanager = new EventManager();
+		eventmanager = new EventManager();
 
 		stage.addActor(up);
 		stage.addActor(down);
@@ -190,6 +179,7 @@ public class Gamescreen implements Screen {
 		stage.addActor(gamenu);
 		stage.addActor(warn);
 		stage.addActor(act);
+		stage.addActor(eventmanager.demo.demoStrings);
 		Gdx.input.setInputProcessor(stage);
 	}
 
@@ -217,13 +207,13 @@ public class Gamescreen implements Screen {
 	    batch.setProjectionMatrix(cam.combined);
 	    cam.update();
 	    mapmanager.update();
-	   // eventmanager.abfrage();
+	    eventmanager.abfrage();
 		batch.begin();
 		batch.draw(player.getCurrentFrame(), player.getPosition().x, player.getPosition().y);
-		//if(eventmanager.demo.event == true)
-		//{
-		//	batch.draw(eventmanager.demo.ani.getCurrentFrame(), eventmanager.demo.ani.position.x, eventmanager.demo.ani.position.y);
-		//}
+		if(eventmanager.demo.event == true)
+		{
+			batch.draw(eventmanager.demo.ani.getCurrentFrame(), eventmanager.demo.ani.position.x, eventmanager.demo.ani.position.y);
+		}
 		batch.end();
 		stage.act();
 		stage.draw();

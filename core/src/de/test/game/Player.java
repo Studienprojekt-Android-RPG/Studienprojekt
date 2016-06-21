@@ -176,13 +176,16 @@ public class Player extends Fighter {
 		Testmap.prefs.flush();
 	}
 	
-	public void readPlayer() throws IOException, ClassNotFoundException{
-		position.x = Testmap.prefs.getFloat("player x");
-		position.y = Testmap.prefs.getFloat("player y");
-		Gamescreen.map = Testmap.prefs.getString("map");
-		mapManager.map = Testmap.prefs.getString("map");
-		curHP = Testmap.prefs.getInteger("curHP");
-		maxHP = Testmap.prefs.getInteger("maxHP");
+	public void readPlayer() {
+		if(Testmap.prefs.getString("map")!="")
+		{
+			position.x = Testmap.prefs.getFloat("player x");
+			position.y = Testmap.prefs.getFloat("player y");
+			Gamescreen.map = Testmap.prefs.getString("map");
+			mapManager.map = Testmap.prefs.getString("map");
+			curHP = Testmap.prefs.getInteger("curHP");
+			maxHP = Testmap.prefs.getInteger("maxHP");
+		}
 	}
 	
 	public void clearInventorySlots()

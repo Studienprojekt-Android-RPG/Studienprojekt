@@ -1,16 +1,16 @@
 package de.test.game;
 
-
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Random;
-import java.util.Comparator;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -18,6 +18,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
@@ -30,6 +31,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.ProgressBar.ProgressBarStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Window.WindowStyle;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
@@ -39,10 +41,11 @@ import de.test.game.Testmap.ScreenType;
 
 public class Battlescreen implements Screen {
 	
-	enum Battlestate{firstStrike, LeonTurn, EnemyTurn, BattleOver, GameOver};
+	enum Battlestate{firstStrike, LeonTurn, EnemyTurn, BattleOver, GameOver, Check};
 	static Battlestate battlestate;
 	static Monster gegner1, gegner2, gegner3;
 	static List<Fighter> fighterList = new ArrayList<>();
+	int index;
 	
 	SpriteBatch batch;
 	TextureAtlas enemies;
@@ -50,8 +53,11 @@ public class Battlescreen implements Screen {
 	Sprite enemy1;
 	Sprite enemy2 ;
 	Sprite enemy3;
+	Sprite background1, background2;
+	TextureRegion background;
 	static Player player = Gamescreen.player;
 	Vector2 playerPosition;
+	Vector2 arrow1, arrow2, arrow3;
 	RectangleMapObject rect1;
 	RectangleMapObject rect2;
 	RectangleMapObject rect3;
@@ -62,11 +68,11 @@ public class Battlescreen implements Screen {
 	TextureAtlas baratlas;
 	TextButtonStyle buttonstyle = new TextButtonStyle();
 	WindowStyle ws = new WindowStyle();
-	ImageButtonStyle angriff = new ImageButtonStyle();
 	ImageButtonStyle select = new ImageButtonStyle();
+	ImageButtonStyle pfeil = new ImageButtonStyle();
 	LabelStyle labstyle = new LabelStyle();
-	ImageButton ang;
 	ImageButton sel;
+	ImageButton pf;
 	static boolean anim = false;
 	float stateTime;
 	ProgressBar barPlayer;
@@ -74,10 +80,15 @@ public class Battlescreen implements Screen {
 	ProgressBarStyle barStyle;
 	Drawable textureBar;
 	int i = 0;
+	static int selEnemy;
+	
 	
 	static Battlemenu battlemenu;
 	static Skills skills;
 	static BattleItem battleitem;
+	
+	
+	Texture bckgr = new Texture(Gdx.files.internal("altbaubackground.png"));
 	
 	OrthographicCamera cam;
 	Viewport viewport;
@@ -98,6 +109,8 @@ public class Battlescreen implements Screen {
 	@Override
 	public void show() {
 		Testmap.setHorst("bs");
+		index = 0;
+		selEnemy = 1;
 		player.currentFrame = player.f1.getKeyFrame(0);
 		skin = new Skin();
 		font = new BitmapFont(Gdx.files.internal("default.fnt"));
@@ -114,17 +127,20 @@ public class Battlescreen implements Screen {
 		skin.add("default", buttonstyle);
 		skin.add("dialog", ws);
 		skin.add("Button", buttonstyle);
-		angriff.down = skin.getDrawable("Action");
-		angriff.up = skin.getDrawable("Action");
 		select.up = skin.getDrawable("Sbutton");
 		select.down = skin.getDrawable("Sbutton");
-		skin.add("ang", angriff);
+		pfeil.down = skin.getDrawable("SPfeil");
+		pfeil.up = skin.getDrawable("SPfeil");
 		skin.add("sel", select);
-		ang = new ImageButton(skin, "ang");
+		skin.add("pf", pfeil);
 		sel = new ImageButton(skin, "sel");
+		pf = new ImageButton(skin, "pf");
 		battlemenu = new Battlemenu(skin);
 		skills = new Skills(skin);
 		battleitem = new BattleItem(skin);
+		background = new TextureRegion(butwin.findRegion("default-window"));
+		background1 = new Sprite(background);
+		background2 = new Sprite(background);
 		
 		cam = new OrthographicCamera();
 		viewport = new ExtendViewport(800, 480, cam);
@@ -158,7 +174,6 @@ public class Battlescreen implements Screen {
 		dialog.setPosition(300, 200);
 		dialog.sizeBy(100, 100);
 
-		ang.setVisible(true);
 		sel.setVisible(true);
 		
 		batch = new SpriteBatch();
@@ -174,10 +189,9 @@ public class Battlescreen implements Screen {
 		barPlayer = new ProgressBar(0, player.maxHP, 1, false, barStyle);
 	    barPlayer.setSize(100, 11);
 	    barPlayer.setValue(player.curHP);
-	    barPlayer.setPosition(player.getPosition().x, player.getPosition().y - 225);
+	    barPlayer.setPosition(player.getPosition().x - 50, player.getPosition().y - 225);
 		
-		ang.setPosition(140, 40);
-		sel.setPosition(15, 40);
+		sel.setPosition(background1.getWidth(), background1.getHeight()/2);
 		battlemenu.setPosition(0, 480 - battlemenu.getHeight());
 		skills.setPosition(0, 480 - skills.getHeight());
 		battleitem.setSize(skills.getWidth(), skills.getHeight());
@@ -275,10 +289,56 @@ public class Battlescreen implements Screen {
 		
 		stateTime = 0f;
 		
-		stage.addActor(ang);
+		arrow1 = new Vector2(player.getPosition().x - 375, player.getPosition().y + 130);
+		arrow2 = new Vector2(player.getPosition().x - 240, player.getPosition().y + 20);
+		arrow3 = new Vector2(player.getPosition().x - 400, player.getPosition().y - 90);
+		
+		pf.setPosition(arrow1.x, arrow1.y);
+		
+		sel.addListener(new ClickListener(){
+			public void clicked(InputEvent e, float x, float y){
+				System.out.println("Select");
+				
+				if(i == 2){
+					if(pf.getX() == arrow1.x && pf.getY() == arrow1.y){
+						pf.setPosition(arrow3.x, arrow3.y);
+						selEnemy = 2;
+					}
+					
+					else if(pf.getX() == arrow3.x && pf.getY() == arrow3.y){
+						pf.setPosition(arrow1.x, arrow1.y);
+						selEnemy = 1;
+					}
+				}
+				
+				if(i == 3){
+					if(pf.getX() == arrow1.x && pf.getY() == arrow1.y){
+						pf.setPosition(arrow2.x, arrow2.y);
+						selEnemy = 2;
+					}
+					
+					else if(pf.getX() == arrow2.x && pf.getY() == arrow2.y){
+						pf.setPosition(arrow3.x, arrow3.y);
+						selEnemy = 3;
+					}
+					
+					else if(pf.getX() == arrow3.x && pf.getY() == arrow3.y){
+						pf.setPosition(arrow1.x, arrow1.y);
+						selEnemy = 1;
+					}
+				}
+				
+			}
+		});
+		
 		stage.addActor(sel);
 		stage.addActor(battlemenu);
 		stage.addActor(skills);
+		
+		if(i > 1){
+	    	stage.addActor(pf);
+	    }
+		
 		stage.addActor(dialog);
 		stage.addActor(battleitem);
 	    stage.addActor(barPlayer);
@@ -294,21 +354,34 @@ public class Battlescreen implements Screen {
 		batch.setProjectionMatrix(cam.combined);
 	    cam.update();
 		batch.begin();
+		batch.draw(bckgr, battlemenu.getWidth(), 480-battlemenu.getHeight(), 920-battlemenu.getWidth(), battlemenu.getHeight());
 		batch.draw(player.getCurrentFrame(), player.getPosition().x, player.getPosition().y);
 		if(i == 1){
 			batch.draw(enemy1, player.getPosition().x - 400, player.getPosition().y);
 		}
 			
 		if(i == 2){
-			batch.draw(enemy1, player.getPosition().x - 400, player.getPosition().y + 30);
-			batch.draw(enemy2, player.getPosition().x - 400, player.getPosition().y - 150);
+			if(gegner1.curHP > 0){
+				batch.draw(enemy1, player.getPosition().x - 400, player.getPosition().y + 30);
+			}
+			if(gegner2.curHP > 0){
+				batch.draw(enemy2, player.getPosition().x - 400, player.getPosition().y - 150);
+			}
 		}
 			
 		if(i == 3){
-			batch.draw(enemy1, player.getPosition().x - 400, player.getPosition().y + 70);
-			batch.draw(enemy2, player.getPosition().x - 240, player.getPosition().y -40);
-			batch.draw(enemy3, player.getPosition().x - 400, player.getPosition().y - 150);
+			if(gegner1.curHP > 0){
+				batch.draw(enemy1, player.getPosition().x - 400, player.getPosition().y + 70);
+			}
+			if(gegner2.curHP > 0){
+				batch.draw(enemy2, player.getPosition().x - 240, player.getPosition().y - 40);
+			}
+			if(gegner3.curHP > 0){
+				batch.draw(enemy3, player.getPosition().x - 400, player.getPosition().y - 150);
+			}
 		}
+		batch.draw(background1, 0, 0, battlemenu.getWidth(), 480 - battlemenu.getHeight());
+		batch.draw(background2, battlemenu.getWidth(), 0, 920 - battlemenu.getWidth(), 480 - battlemenu.getHeight());
 		batch.end();
 		stage.act();
 		stage.draw();
@@ -350,47 +423,128 @@ public class Battlescreen implements Screen {
 		switch (battlestate){
 			
 			case firstStrike:
-				if(Fighter.turnSpeed(gegner1) < Fighter.turnSpeed(Gamescreen.player)){
+				System.out.println("#################STRIKE###################");
+				Collections.sort(fighterList, new Comparator<Fighter>(){
+				 @Override
+			        public int compare(Fighter h1, Fighter h2) {
+			            return Integer.compare(h1.getSpeed(h1), h2.getSpeed(h2));
+			        }
+			    });
+				Collections.reverse(fighterList);
+				if(fighterList.get(index).getClass() == player.getClass()){
 					battlestate = Battlestate.LeonTurn;
 				}
 				else{
 					battlestate = Battlestate.EnemyTurn;
 				}
-				
-				System.out.println("Vorher");
-				fighterList.sort(Comparator.comparingInt(Fighter -> de.test.game.Fighter.getSpeed(Fighter)));
-				fighterList.forEach(System.out::println);
-				Collections.reverse(fighterList);
-				fighterList.forEach(System.out::println);
 			break;
 		
 			case LeonTurn:				
 				battlemenu.setTouchable(Touchable.enabled);
-				
+
 				if(Battlemenu.hasClicked){
 					Battlemenu.hasClicked = false;
-					if(gegner1.curHP > 0){
-						battlestate = Battlestate.EnemyTurn;
-					}
-					else{
-						battlestate = Battlestate.BattleOver;
-					}
+					index++;
+					battlestate = Battlestate.Check;
 				}
+				
 				
 			break;
 			
-			case EnemyTurn:
-				System.out.println(gegner1.getName() + " ist dran");
-				battlemenu.setTouchable(Touchable.disabled);
-				
-				Fighter.attack(gegner1, player);
-				System.out.println(gegner1.getName() + " greift an!");
-				if(player.curHP <= 0){
+			case Check:
+				System.out.println("Check: " + fighterList.size());
+				System.out.println("Index: " + index);
+				if(player.getCurrentHP() <= 0){
+					player.curHP = 0;
 					battlestate = Battlestate.GameOver;
+					break;
+				}
+				if(i == 1){
+					if(gegner1.curHP <= 0){
+						fighterList.remove(gegner1);
+						battlestate = Battlestate.BattleOver;
+						break;
+					}
+				}
+				if(i == 2){
+					if(gegner1.curHP < 0){
+						gegner1.curHP = 0;
+						if(index == fighterList.size()){
+							index--;
+						}
+						fighterList.remove(gegner1);
+					}
+					if(gegner2.curHP < 0){
+						gegner2.curHP = 0;
+						if(index == fighterList.size()){
+							index--;
+						}
+						fighterList.remove(gegner2);
+					}
+					if(gegner1.curHP <= 0 && gegner2.curHP <= 0){
+						battlestate = Battlestate.BattleOver;
+						break;
+					}
+				}
+					
+				if(i == 3){
+					if(gegner1.curHP < 0){
+						gegner1.curHP = 0;
+						if(index == fighterList.size()){
+							index--;
+						}
+						fighterList.remove(gegner1);
+					}
+					if(gegner2.curHP < 0){
+						gegner2.curHP = 0;
+						if(index == fighterList.size()){
+							index--;
+						}
+						fighterList.remove(gegner2);
+					}
+					if(gegner3.curHP < 0){
+						gegner3.curHP = 0;
+						if(index == fighterList.size()){
+							index--;
+						}
+						fighterList.remove(gegner3);
+					}
+					
+					if(gegner1.curHP <= 0 && gegner2.curHP <= 0 && gegner3.curHP <= 0){
+						battlestate = Battlestate.BattleOver;
+						break;
+					}
+				
+				}
+				
+				System.out.println("Größe: " + fighterList.size());
+				System.out.println("Index: " + index);
+				
+				
+				if(index >= fighterList.size()){
+					index = 0;
+					battlestate = Battlestate.firstStrike;
 				}
 				else{
-					battlestate = Battlestate.LeonTurn;
+					if(fighterList.get(index).getClass() == player.getClass()){
+						battlestate = Battlestate.LeonTurn;
+					}
+					else{
+						battlestate = Battlestate.EnemyTurn;
+					}
 				}
+			break;		
+			
+			case EnemyTurn:
+				System.out.println(fighterList.get(index).getName() + " ist dran");
+				battlemenu.setTouchable(Touchable.disabled);
+				
+				fighterList.get(index).moveAI();
+				System.out.println(fighterList.get(index).getName() + " greift an!");
+				if(index != fighterList.size()){
+					index++;
+				}
+				battlestate = Battlestate.Check;
 			break;
 			
 			case BattleOver:
@@ -403,11 +557,12 @@ public class Battlescreen implements Screen {
 			break;
 			
 			case GameOver:
-				
+				Testmap.setHorst("go");
+				battle.setScreen(battle.getScreenType(ScreenType.Gameoverscreen));
 				
 			break;
 		}
-				
+		
 	}
 
 	@Override
@@ -454,7 +609,13 @@ public class Battlescreen implements Screen {
 			break;
 			
 			case 1:
+				int chance = (int) Math.random()*2;
+				if(chance == 0){
 				enemy = new Saubaer();
+				}
+				else{
+				enemy = new Daemonenhund();
+				}
 			break;
 			
 			case 2:

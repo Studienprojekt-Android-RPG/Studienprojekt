@@ -51,7 +51,10 @@ public class StartMenu implements Screen
 	TextButton exitGame;
 	TextButtonStyle button = new TextButtonStyle();
 	
-	String userName = System.getProperty("user.name");
+	//String userName = System.getProperty("user.name");
+	String userName = "Michel";
+	
+	Dialog dialog;
 	
 	public StartMenu(Testmap game)
 	{
@@ -96,14 +99,105 @@ public class StartMenu implements Screen
 		Table.debugTableColor.set(0, 0, 0, 0);
 		Table.debugActorColor.set(0, 0, 0, 0);
 
+		Skin dialogSkin = new Skin(Gdx.files.internal("uiskin.json"));
+		BitmapFont font = new BitmapFont(Gdx.files.internal("default.fnt")); 
+		
+		LabelStyle labstyle = new LabelStyle();
+		labstyle.font = font;
+		Label label = new Label("Number of maximum Saves reached\nPlease delete a old game or load another game.", labstyle);
+		
+		dialog = new Dialog("Warning", dialogSkin, "dialog")
+		{
+			public void result(Object obj)
+			{
+				if(obj.equals(true))
+				{
+					game.setScreen(game.getScreenType(ScreenType.StartMenu));
+				}
+			}
+		};
+		
+		dialog.text(label);
+		dialog.button("OK", true);
+		dialog.setPosition(150, 200);
+		dialog.setSize(200, 200);
+		dialog.pack();
+		dialog.setVisible(false);
 		
 		newGame.addListener(new ClickListener()
 		{
 			public void clicked(InputEvent e, float x, float y)
 			{
 				System.out.println("StartGame clicked.");
-				createGame();
-				dispose();
+				
+				int i = 0;
+				if(Gdx.app.getType() == ApplicationType.Desktop)
+				{
+					File folder = new File("C:/Users/" + userName + "/.prefs/");
+					System.out.println(userName);
+					File[] listOfFiles = folder.listFiles();
+					
+					if(listOfFiles != null)
+					{
+						for (File file : listOfFiles) 
+						{
+						    if (file.isFile()) 
+						    {
+						        i = Character.getNumericValue(file.getName().charAt(3));
+						        i++;
+						    }
+						}
+					}
+					else
+					{
+						i = 0;
+					}
+					
+					if(i <= 9)
+					{
+						game.setSaveFile(new File("C:/Users/" + userName + "/.prefs/haw" + i));
+						game.setScreen(game.getScreenType(ScreenType.Gamescreen));
+						game.render();
+					}
+					else
+					{
+						dialog.setVisible(true);
+						table.clear();
+					}
+				}
+				else
+				{
+					File folder = new File("/data/data/de.test.game/shared_prefs/");
+					File[] listOfFiles = folder.listFiles();
+
+					if(listOfFiles != null)
+					{
+						for (File file : listOfFiles) 
+						{
+						    if (file.isFile()) 
+						    {
+						        i = Character.getNumericValue(file.getName().charAt(3));
+						        i++;
+						    }
+						}
+					}
+					else
+					{
+						i = 0;
+					}
+					
+					if(i <= 9)
+					{
+						game.setSaveFile(new File("/data/data/de.test.game/shared_prefs/haw" + i + ".xml"));	
+						game.setScreen(game.getScreenType(ScreenType.Gamescreen));
+						game.render();
+					}
+					else
+					{
+						dialog.setVisible(true);
+						table.clear();
+					}
+				}
 			}
 		});
 		
@@ -135,6 +229,7 @@ public class StartMenu implements Screen
 		});
 		
 		stage.addActor(table);
+		stage.addActor(dialog);
 		Gdx.input.setInputProcessor(stage);
 	}
 
@@ -181,91 +276,5 @@ public class StartMenu implements Screen
 		table.clear();
 		stage.dispose();
 		
-	}
-	
-	public void createGame()
-	{		
-		int i = 0;
-		if(Gdx.app.getType() == ApplicationType.Desktop)
-		{
-			File folder = new File("C:/Users/" + userName + "/.prefs/");
-			File[] listOfFiles = folder.listFiles();
-
-			for (File file : listOfFiles) 
-			{
-			    if (file.isFile()) 
-			    {
-			        i = Character.getNumericValue(file.getName().charAt(3));
-			        i++;
-			    }
-			}
-			
-			if(i <= 9)
-			{
-				game.setSaveFile(new File("C:/Users/" + userName + "/.prefs/haw" + i));
-				
-				game.setScreen(game.getScreenType(ScreenType.Gamescreen));
-				game.render();
-			}
-			else
-			{
-				maxSavesDialog();
-			}
-		}
-		else
-		{
-			File folder = new File("/data/data/de.test.game/shared_prefs/");
-			File[] listOfFiles = folder.listFiles();
-
-			for (File file : listOfFiles) 
-			{
-			    if (file.isFile()) 
-			    {
-			        i = Character.getNumericValue(file.getName().charAt(3));
-			        i++;
-			    }
-			}
-			
-			if(i <= 9)
-			{
-				game.setSaveFile(new File("/data/data/de.test.game/shared_prefs/haw" + i + ".xml"));
-				
-				game.setScreen(game.getScreenType(ScreenType.Gamescreen));
-				game.render();
-			}
-			else
-			{
-				maxSavesDialog();
-			}
-		}
-	}
-	
-	public void maxSavesDialog()
-	{
-		Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-		BitmapFont font = new BitmapFont(Gdx.files.internal("default.fnt")); 
-		
-		LabelStyle labstyle = new LabelStyle();
-		labstyle.font = font;
-		Label label = new Label("Number of max. Saves reached\nPlease delete a old game or load another game.", labstyle);
-		
-		Dialog dialog = new Dialog("Warning", skin, "dialog")
-		{
-			public void result(Object obj)
-			{
-				if(obj.equals(true))
-				{
-					//game.setScreen(game.getScreenType(ScreenType.StartMenu));
-				}
-			}
-		};
-		
-		dialog.text(label);
-		dialog.button("OK", true);
-		dialog.setPosition(300, 200);
-		dialog.setSize(200, 200);
-		dialog.pack();
-		dialog.setVisible(true);
-		stage.addActor(dialog);
 	}
 }

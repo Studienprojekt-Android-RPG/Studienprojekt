@@ -25,7 +25,7 @@ public class Skills extends Window {
 		skill6 = new TextButton("Lichthieb", skin, "Button");
 		skill7 = new TextButton("Millenium-Streich", skin, "Button");
 		skill8 = new TextButton("Phidaels Ruf", skin, "Button");
-		exit = new TextButton("ZurÃ¼ck", skin, "Button");
+		exit = new TextButton("Zurück", skin, "Button");
 		
 		scroll = new ScrollPane(table);
 		

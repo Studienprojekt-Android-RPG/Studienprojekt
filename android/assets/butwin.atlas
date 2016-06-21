@@ -81,9 +81,16 @@ menubutton
   orig: 50, 50
   offset: 0, 0
   index: -1
-warning
+SPfeil
   rotate: false
   xy: 1, 1
+  size: 31, 30
+  orig: 31, 30
+  offset: 0, 0
+  index: -1
+warning
+  rotate: false
+  xy: 607, 49
   size: 31, 30
   orig: 31, 30
   offset: 0, 0
