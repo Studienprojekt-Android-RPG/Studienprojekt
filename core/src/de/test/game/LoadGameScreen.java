@@ -16,8 +16,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Dialog;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton.ImageButtonStyle;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Label.LabelStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
@@ -46,8 +46,8 @@ public class LoadGameScreen implements Screen {
 	ImageButton xButton;
 	ImageButtonStyle xButtonStyle = new ImageButtonStyle();
 	
-	//String userName = System.getProperty("user.name");
-	String userName = "Michel";
+	String userName = System.getProperty("user.name");
+	//String userName = "Michel";
 	File folder;
 	File[] listOfFiles;
 	
@@ -82,36 +82,6 @@ public class LoadGameScreen implements Screen {
 			folder = new File("/data/data/de.test.game/shared_prefs/");
 			listOfFiles = folder.listFiles();
 		}
-		
-		Skin dialogSkin = new Skin(Gdx.files.internal("uiskin.json"));
-		BitmapFont font = new BitmapFont(Gdx.files.internal("default.fnt")); 
-		
-		LabelStyle labstyle = new LabelStyle();
-		labstyle.font = font;
-		
-		dialog = new Dialog("Options for saved Game", dialogSkin, "dialog")
-		{
-			public void result(Object obj)
-			{
-				if(obj.equals(1))
-				{
-					game.setScreen(game.getScreenType(ScreenType.Gamescreen));
-					game.render();
-				}
-				else if(obj.equals(-1))
-				{
-					
-				}
-			}
-		};
-		
-		dialog.button("Load", 1);
-		dialog.button("Delete", -1);
-		dialog.button("Cancel", 0);
-		dialog.setPosition(150, 200);
-		dialog.setSize(200, 200);
-		dialog.pack();
-		
 		TextButton[] buttons = new TextButton [10];
 		
 		table.setPosition(300, 80);
@@ -148,10 +118,42 @@ public class LoadGameScreen implements Screen {
 				{
 					System.out.println(buttons[fI].getName() + " clicked.");
 					game.setSaveFile(listOfFiles[fI]);
+					
+					Skin dialogSkin = new Skin(Gdx.files.internal("uiskin.json"));
+					BitmapFont font = new BitmapFont(Gdx.files.internal("default.fnt")); 
+					
+					LabelStyle labstyle = new LabelStyle();
+					labstyle.font = font;
 					Label label = new Label(buttons[fI].getText(), labstyle);
+					
+					dialog = new Dialog("Options for saved Game", dialogSkin, "dialog")
+					{
+						public void result(Object obj)
+						{
+							if(obj.equals(1))
+							{
+								game.setScreen(game.getScreenType(ScreenType.Gamescreen));
+								game.render();
+							}
+							else if(obj.equals(-1))
+							{
+								deleteFile(fI);
+								game.setScreen(game.getScreenType(ScreenType.LoadGameScreen));
+							}
+						}
+					};
+					
+					dialog.button("Load", 1);
+					dialog.button("Delete", -1);
+					dialog.button("Cancel", 0);
+					dialog.setSize(300, 300);
+					
 					dialog.text(label);
+					dialog.pack();
+					dialog.setPosition(250, 300);
 					dialog.setVisible(true);
-					table.clear();
+					
+					stage.addActor(dialog);
 				}
 			});
 		}
@@ -220,5 +222,22 @@ public class LoadGameScreen implements Screen {
 	public void dispose() {
 		table.clear();
 		stage.dispose();
+	}
+	
+	void deleteFile(int pI)
+	{
+		File delFile;
+		if(Gdx.app.getType() == ApplicationType.Desktop)
+		{
+			delFile = new File("C:/Users/" + userName + "/.prefs/haw" + pI);
+		}
+		else
+		{
+			delFile = new File("/data/data/de.test.game/shared_prefs/haw" + pI);
+		}
+		if(delFile != null)
+		{
+			delFile.delete();
+		}
 	}
 }

@@ -77,8 +77,8 @@ public class Gamescreen implements Screen {
 	Stage stage;
 	static Testmap game;
 	
-	//static String userName = System.getProperty("user.name");
-	static String userName = "Michel";
+	static String userName = System.getProperty("user.name");
+	//static String userName = "Michel";
 	
 	public Gamescreen(Testmap game){
 		

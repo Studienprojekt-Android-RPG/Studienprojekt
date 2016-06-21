@@ -51,8 +51,8 @@ public class StartMenu implements Screen
 	TextButton exitGame;
 	TextButtonStyle button = new TextButtonStyle();
 	
-	//String userName = System.getProperty("user.name");
-	String userName = "Michel";
+	String userName = System.getProperty("user.name");
+	//String userName = "Michel";
 	
 	Dialog dialog;
 	
@@ -158,6 +158,7 @@ public class StartMenu implements Screen
 						game.setSaveFile(new File("C:/Users/" + userName + "/.prefs/haw" + i));
 						game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 						game.render();
+						table.clear();
 					}
 					else
 					{
@@ -191,6 +192,7 @@ public class StartMenu implements Screen
 						game.setSaveFile(new File("/data/data/de.test.game/shared_prefs/haw" + i + ".xml"));	
 						game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 						game.render();
+						table.clear();
 					}
 					else
 					{

@@ -1,7 +1,5 @@
 package de.test.game;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
