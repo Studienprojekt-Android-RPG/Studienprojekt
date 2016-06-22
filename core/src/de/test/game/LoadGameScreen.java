@@ -51,6 +51,8 @@ public class LoadGameScreen implements Screen {
 	File folder;
 	File[] listOfFiles;
 	
+	TextButton[] buttons = new TextButton [10];
+	
 	public LoadGameScreen(Testmap game)
 	{
 		this.game = game;	
@@ -82,7 +84,6 @@ public class LoadGameScreen implements Screen {
 			folder = new File("/data/data/de.test.game/shared_prefs/");
 			listOfFiles = folder.listFiles();
 		}
-		TextButton[] buttons = new TextButton [10];
 		
 		table.setPosition(300, 80);
 		

@@ -1,7 +1,9 @@
 package de.test.game;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.util.Calendar;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -166,7 +168,9 @@ public class Player extends Fighter {
 		Testmap.prefs.putString("map", mapManager.map);
 		Testmap.prefs.putInteger("curHP", curHP);
 		Testmap.prefs.putInteger("maxHP", maxHP);
-		Testmap.prefs.putString("saveTime", Instant.now().toString().replace("T", " ").replace("Z", "").substring(0, 16));
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+		Testmap.prefs.putString("saveTime", sdf.format(c.getTime()));
 		Testmap.prefs.flush();
 	}
 	
