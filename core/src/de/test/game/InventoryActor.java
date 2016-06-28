@@ -7,18 +7,13 @@ public class InventoryActor extends Window {
 	
 	Inventory inv;
 
-	public InventoryActor(Inventory inventory, Skin skin) {
-		super("Inventar", skin);
+	public InventoryActor(Inventory inventory, String cTitle, Skin skin, int cRow, int cPosX, int cPosY) {
+		super(cTitle, skin);
 		
 		inv = inventory;
 
-		/*TextButton closeButton = new TextButton("X", skin);
-		closeButton.addListener(new HidingClickListener(this));
-		getButtonTable().add(closeButton).height(getPadTop());
-		*/
-		setPosition(500, 500);
+		setPosition(cPosX, cPosY);
 		defaults().space(2);
-		row().fill().expandX();
 
 		int i = 0;
 		for (Slot slot : inventory.getSlots()) {
@@ -26,7 +21,7 @@ public class InventoryActor extends Window {
 			add(slotActor);			
 
 			i++;
-			if (i % 8 == 0) {
+			if (i % cRow == 0) {
 				row();
 			}
 		}
@@ -35,7 +30,7 @@ public class InventoryActor extends Window {
 
 		// it is hidden by default
 		setVisible(true);
-		setMovable(true);
+		setMovable(false);
 	}
 	
 }
