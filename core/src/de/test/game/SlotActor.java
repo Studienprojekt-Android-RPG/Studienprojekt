@@ -36,10 +36,7 @@ public class SlotActor extends ImageButton implements SlotListener {
 			{
 				if(!slot.isEmpty())
 				{
-					if(slot.getItem().getConsumable())
-					{
-						dialog = new ItemDialog(slot, skin);
-					}
+					dialog = new ItemDialog(slot, skin);
 				}
 			}
 		});

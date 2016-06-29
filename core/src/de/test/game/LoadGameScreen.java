@@ -85,8 +85,6 @@ public class LoadGameScreen implements Screen {
 			listOfFiles = folder.listFiles();
 		}
 		
-		table.setPosition(300, 80);
-		
 		for(int i = 0; i<=9; i++)
 		{
 			buttons[i] = new TextButton("", skin, "buttonSkin");
@@ -147,7 +145,7 @@ public class LoadGameScreen implements Screen {
 					dialog.button("Load", 1);
 					dialog.button("Delete", -1);
 					dialog.button("Cancel", 0);
-					dialog.setSize(300, 300);
+					dialog.setSize(300, 400);
 					
 					dialog.text(label);
 					dialog.pack();
@@ -159,6 +157,7 @@ public class LoadGameScreen implements Screen {
 			});
 		}
 		table.pack();
+		table.setPosition(300, 0);
 		
 		Table.debugCellColor.set(0, 0, 0, 0);
 		Table.debugTableColor.set(0, 0, 0, 0);

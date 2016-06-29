@@ -84,6 +84,12 @@ public class InventoryScreen implements Screen {
 					randomSlot.take(randomSlot.getAmount());
 				}*/
 	}
+	
+	public void equipItem(Item pItem) {
+		if(equipment.inv.firstSlotWithItem(null) != null) {
+			equipment.inv.firstSlotWithItem(null).add(pItem, 1);
+		}
+	}
 
 	@Override
 	public void resume() {

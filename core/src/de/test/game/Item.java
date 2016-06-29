@@ -15,7 +15,7 @@ public enum Item {
 	HEILTRANK("healthpot", true, 1000, 0), 
 	FLAMMENSCHWERT("schwert5", false, 0, 0), 
 	LEDERARMBAND("lederarmband", false, 0, 0), 
-	PAPIER("papier", false, 0, 0), 
+	KRAUT("kraut", true, 0, 0), 
 	REICHTUMSELIXIER("reichtumselixier", true, 0, 0), 
 	LANGSCHWERT("schwert1", false, 0, 0), 
 	RUNENARMBAND("runenarmband", false, 0, 0), 
@@ -24,6 +24,7 @@ public enum Item {
 	
 	private String textureRegion;
 	private boolean consumable;
+	private boolean equipable;
 	private int atk;
 	private int def;
 	private int HP;

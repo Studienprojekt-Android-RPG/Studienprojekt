@@ -67,7 +67,7 @@ public class Inventory{
 		return slots;
 	}
 
-	private Slot firstSlotWithItem(Item item) {
+	public Slot firstSlotWithItem(Item item) {
 		for (Slot slot : slots) {
 			if (slot.getItem() == item) {
 				return slot;
