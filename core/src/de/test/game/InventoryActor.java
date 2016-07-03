@@ -10,7 +10,7 @@ public class InventoryActor extends Window {
 	public InventoryActor(Inventory inventory, String cTitle, Skin skin, int cRow, int cPosX, int cPosY, String dialogLabel, String buttonText) {
 		super(cTitle, skin);
 		
-		inv = inventory;
+		inv = inventory; 
 
 		setPosition(cPosX, cPosY);
 		defaults().space(2);

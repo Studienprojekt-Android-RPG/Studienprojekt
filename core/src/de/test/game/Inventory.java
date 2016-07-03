@@ -16,7 +16,7 @@ public class Inventory{
 		for (int i = 0; i < cSlotAmount; i++) {
 			slots.add(new Slot(null, 0));
 		}
-		// create some random items
+		/*// create some random items
 		for (Slot slot : slots) {
 			//slot.add(Item.REICHTUMSELIXIER, 1);
 			slot.add(Item.values()[MathUtils.random(0, Item.values().length - 1)], 1);
@@ -26,7 +26,7 @@ public class Inventory{
 		for (int i = 0; i < 3; i++) {
 			Slot randomSlot = slots.get(MathUtils.random(0, slots.size - 1));
 			randomSlot.take(randomSlot.getAmount());
-		}
+		}*/
 		//this.store(Item.MESSER, 2);
 		//this.store(Item.DONUT, 5);
 		//this.store(Item.LEBERKASSEMMEL, 5);
@@ -50,20 +50,20 @@ public class Inventory{
 		Slot itemSlot = firstSlotWithItem(item);
 		if (itemSlot != null) {
 			itemSlot.add(item, amount);
-			slots.sort(comparator);
+			//sortInventory();
 			return true;
 		} else {
 			// now check for an available empty slot
 			Slot emptySlot = firstSlotWithItem(null);
 			if (emptySlot != null) {
 				emptySlot.add(item, amount);
-				slots.sort(comparator);
+				//sortInventory();
 				return true;
 			}
 		}
 
 		// no slot to add
-		slots.sort(comparator);
+
 		return false;
 	}
 
@@ -98,6 +98,13 @@ public class Inventory{
 				Gamescreen.player.curSP = Gamescreen.player.maxSP;
 			}
 		}
-		slots.sort(comparator);
+		//sortInventory();
+	}
+	
+	public void sortInventory() {
+		Array<Slot> inventory = getSlots();
+		slots.clear();
+		inventory.sort(comparator);
+		slots.addAll(inventory);
 	}
 }
