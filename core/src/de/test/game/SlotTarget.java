@@ -10,7 +10,7 @@ public class SlotTarget extends Target {
 	@SuppressWarnings("unused")
 	private Slot targetSlot;
 
-	public SlotTarget(SlotActor actor) {
+	public SlotTarget(InventorySlotActor actor) {
 		super(actor);
 		targetSlot = actor.getSlot();
 		getActor().setColor(Color.LIGHT_GRAY);

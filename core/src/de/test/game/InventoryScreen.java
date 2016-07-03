@@ -19,7 +19,7 @@ import de.test.game.Testmap.ScreenType;
 public class InventoryScreen implements Screen {
 
 	public InventoryActor inventoryActor;
-	public InventoryActor equipment;
+	public EquipmentActor equipment;
 
 	public static Stage stage;
 	Testmap inv;
@@ -49,8 +49,8 @@ public class InventoryScreen implements Screen {
 		xb.up = butwi.getDrawable("xbutt");
 		butwi.add("xbu",xb);
 		Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
-		inventoryActor = new InventoryActor(new Inventory(64), "Inventar", skin, 8, 500, 500);
-		equipment = new InventoryActor(new Inventory(5), "Equipment", skin, 1, 0, 500);
+		inventoryActor = new InventoryActor(new Inventory(64), "Inventar", skin, 8, 500, 500, "Use Item?", "Use");
+		equipment = new EquipmentActor(new Inventory(5), "Equipment", skin, 1, 0, 500, "Equip Item?", "Equip");
 		stage.addActor(inventoryActor);
 		stage.addActor(equipment);
 				

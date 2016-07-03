@@ -9,7 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
-public class SlotActor extends ImageButton implements SlotListener {
+public class InventorySlotActor extends ImageButton implements SlotListener {
 
 	private Slot slot;
 	private Skin skin;
@@ -18,7 +18,7 @@ public class SlotActor extends ImageButton implements SlotListener {
 	
 	ItemDialog dialog;
 
-	public SlotActor(Skin skin, Slot slot) {
+	public InventorySlotActor(Skin skin, Slot slot, String dialogLabel, String buttonText) {
 		super(createStyle(skin, slot));
 		this.slot = slot;
 		this.skin = skin;
@@ -36,7 +36,7 @@ public class SlotActor extends ImageButton implements SlotListener {
 			{
 				if(!slot.isEmpty())
 				{
-					dialog = new ItemDialog(slot, skin);
+					dialog = new ItemDialog(slot, skin, dialogLabel, buttonText);
 				}
 			}
 		});

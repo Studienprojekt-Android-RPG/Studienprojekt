@@ -2,29 +2,31 @@ package de.test.game;
 
 public enum Item {
 
-	MESSER("knife", false, 0 ,0), 
-	SCHWERT3("schwert3", false, 0, 0), 
-	SCHUHE("schuhe", false, 0, 0), 
-	BRUSTPANZER("armor", false, 0, 0), 
-	DONUT("donut", true, 40, 0), 
-	SCHWERT4("schwert4", false, 0, 0), 
-	WASSERFLASCHE("wasserflasche", true, 0, 40), 
-	MANATRANK("manapotion", true, 0, 500), 
-	ERSTEHILFESET("erstehilfeset", true, 200, 0), 
-	PIZZA("pizza", true, 100, 50), 
-	HEILTRANK("healthpot", true, 1000, 0), 
-	FLAMMENSCHWERT("schwert5", false, 0, 0), 
-	LEDERARMBAND("lederarmband", false, 0, 0), 
-	KRAUT("kraut", true, 0, 0), 
-	REICHTUMSELIXIER("reichtumselixier", true, 0, 0), 
-	LANGSCHWERT("schwert1", false, 0, 0), 
-	RUNENARMBAND("runenarmband", false, 0, 0), 
-	KURZSCHWERT("schwert2", false, 0, 0), 
-	LEBERKASSEMMEL("leberkassemmel", true, 50, 30);
+	MESSER("knife", false, 0, 0 , 0), 
+	LANGSCHWERT("schwert1", false, 0, 0, 0),
+	KURZSCHWERT("schwert2", false, 0, 0, 0), 
+	SCHWERT3("schwert3", false, 0, 0, 0), 
+	SCHWERT4("schwert4", false, 0, 0, 0), 
+	FLAMMENSCHWERT("schwert5", false, 0, 0, 0),
+	BRUSTPANZER("armor", false, 1, 0, 0), 
+	LEDERARMBAND("lederarmband", false, 2, 0, 0),
+	RUNENARMBAND("runenarmband", false, 2, 0, 0),
+	SCHUHE("schuhe", false, 3, 0, 0), 
+	
+	HEILTRANK("healthpot", true, 5, 1000, 0), 
+	MANATRANK("manapotion", true, 5, 0, 500), 
+	REICHTUMSELIXIER("reichtumselixier", true, 5, 0, 0), 
+	WASSERFLASCHE("wasserflasche", true, 5, 0, 40),
+	DONUT("donut", true, 6, 40, 0), 
+	KRAUT("kraut", true, 6, 0, 0), 
+	LEBERKASSEMMEL("leberkassemmel", true, 6, 50, 30),
+	PIZZA("pizza", true, 6, 100, 50), 
+	ERSTEHILFESET("erstehilfeset", true, 7, 200, 0);
 	
 	private String textureRegion;
 	private boolean consumable;
 	private boolean equipable;
+	private int sort;
 	private int atk;
 	private int def;
 	private int HP;
@@ -32,11 +34,12 @@ public enum Item {
 	private int exp;
 	private int SP;
 
-	private Item(String textureRegion, boolean pConsumable, int pHP, int pSP){
+	private Item(String textureRegion, boolean pConsumable, int cSort, int cHP, int cSP){
 		this.textureRegion = textureRegion;
 		this.consumable = pConsumable;
-		this.HP = pHP;
-		this.SP = pSP;
+		this.sort = cSort;
+		this.HP = cHP;
+		this.SP = cSP;
 	}
 	
 	public String getTextureRegion() {
@@ -56,5 +59,9 @@ public enum Item {
 	public int getSP()
 	{
 		return SP;
+	}
+	
+	public int getSort() {
+		return sort;
 	}
 }

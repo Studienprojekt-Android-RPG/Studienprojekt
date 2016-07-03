@@ -23,7 +23,7 @@ public class ItemDialog
 	
 	Dialog dialog;
 	
-	public ItemDialog(Slot slot, Skin skin)
+	public ItemDialog(Slot slot, Skin skin, String dialogLabel, String buttonText)
 	{		
 		if(slot.getItem().getConsumable()) {
 			skinDialog = new Skin();
@@ -32,7 +32,7 @@ public class ItemDialog
 			skin.add("default", labstyle);
 			font = new BitmapFont(Gdx.files.internal("default.fnt"));
 			labstyle.font = font;
-			label = new Label("Use Item?", labstyle);
+			label = new Label(dialogLabel, labstyle);
 			
 			dialog = new Dialog(slot.getItem().toString(), skin, "dialog")
 			{
@@ -49,7 +49,7 @@ public class ItemDialog
 			};
 			
 			dialog.text(label);
-			dialog.button("Use", true);
+			dialog.button(buttonText, true);
 			dialog.button("Cancel", false);
 			dialog.setPosition(300, 200);
 			dialog.sizeBy(100, 100);
