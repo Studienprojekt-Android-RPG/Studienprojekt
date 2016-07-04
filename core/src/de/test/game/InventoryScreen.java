@@ -22,7 +22,7 @@ public class InventoryScreen implements Screen {
 	public EquipmentActor equipment;
 
 	public static Stage stage;
-	Testmap inv;
+	Testmap game;
 
 	Viewport viewport;
 
@@ -31,7 +31,7 @@ public class InventoryScreen implements Screen {
 	ImageButtonStyle xb = new ImageButtonStyle();
 	
 	public InventoryScreen(Testmap Inventory){
-		this.inv = Inventory;
+		this.game = Inventory;
 		
 	}
 	
@@ -50,7 +50,7 @@ public class InventoryScreen implements Screen {
 		butwi.add("xbu",xb);
 		Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
 		inventoryActor = new InventoryActor(new Inventory(64), "Inventar", skin, 8, 500, 500, "Use Item?", "Use");
-		equipment = new EquipmentActor(new Inventory(5), "Equipment", skin, 1, 0, 500, "Equip Item?", "Equip");
+		equipment = new EquipmentActor(new Equipment(5), "Equipment", skin, 1, 0, 500, "Equip Item?", "Equip");
 		stage.addActor(inventoryActor);
 		stage.addActor(equipment);
 				
@@ -63,12 +63,14 @@ public class InventoryScreen implements Screen {
 		stage.addActor(xbutt);
 
 		Gamescreen.player.readInventory();
+		Gamescreen.player.readEquipment();
 		
 		xbutt.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
 	            System.out.println("Inventar geschlossen");
 	            Gamescreen.player.saveInventory();
-	            inv.setScreen(inv.getScreenType(ScreenType.Gamescreen));
+	            Gamescreen.player.saveEquipment();
+	            game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 	        }
 	    });
 		
@@ -83,12 +85,6 @@ public class InventoryScreen implements Screen {
 					Slot randomSlot = inventoryActor.inv.getSlots().get(MathUtils.random(0, inventoryActor.inv.getSlots().size - 1));
 					randomSlot.take(randomSlot.getAmount());
 				}*/
-	}
-	
-	public void equipItem(Item pItem) {
-		if(equipment.inv.firstSlotWithItem(null) != null) {
-			equipment.inv.firstSlotWithItem(null).add(pItem, 1);
-		}
 	}
 
 	@Override

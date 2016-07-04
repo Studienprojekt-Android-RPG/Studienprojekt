@@ -43,7 +43,9 @@ public class ItemDialog
 						Gamescreen.game.inventoryscreen.inventoryActor.inv.consume(slot.getItem());
 						slot.take(1);
 						Gamescreen.player.clearInventorySlots();
+						Gamescreen.player.clearEquipmentSlots();
 						Gamescreen.player.saveInventory();
+						Gamescreen.player.saveEquipment();
 					}
 				}
 			};
@@ -70,10 +72,13 @@ public class ItemDialog
 				{
 					if(obj.equals(true))
 					{
-						Gamescreen.game.inventoryscreen.equipItem(slot.getItem());
+						Item item = Gamescreen.game.inventoryscreen.equipment.equip.equip(slot.getItem(), 1);
+						Gamescreen.game.inventoryscreen.inventoryActor.inv.store(item, 1);
 						slot.take(1);
 						Gamescreen.player.clearInventorySlots();
+						Gamescreen.player.clearEquipmentSlots();
 						Gamescreen.player.saveInventory();
+						Gamescreen.player.saveEquipment();
 					}
 				}
 			};

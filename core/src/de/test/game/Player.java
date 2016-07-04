@@ -202,6 +202,14 @@ public class Player extends Fighter {
 		}
 	}
 	
+	public void clearEquipmentSlots() {
+		int i = 0;
+		for(Slot slot : Gamescreen.game.inventoryscreen.equipment.equip.getSlots()) {
+			Testmap.prefs.remove("equipmentSlot" + i);
+			i++;
+		}
+	}
+	
 	public void saveInventory()
 	{
 		int i = 0;
@@ -209,12 +217,21 @@ public class Player extends Fighter {
 		{
 			if(slot.getItem() != null)
 			{
-				Testmap.prefs.putString("inventorySlot"+i,slot.toString());
+				Testmap.prefs.putString("inventorySlot" + i,slot.toString());
 			}
 			i++;
 		}
 	}
-
+	
+	public void saveEquipment() {
+		int i = 0;
+		for(Slot slot : Gamescreen.game.inventoryscreen.equipment.equip.getSlots()) {
+			if(slot.getItem() != null) {
+				Testmap.prefs.putString("equipmentSlot" + i, slot.toString());
+			}
+			i++;
+		}
+	}
 
 	public void readInventory()
 	{
@@ -233,6 +250,29 @@ public class Player extends Fighter {
 					if(item != null && amount != 0)
 					{
 						Gamescreen.game.inventoryscreen.inventoryActor.inv.store(item, amount);
+					}
+				}
+			}
+		}
+	}
+	
+	public void readEquipment()
+	{
+		for (int i = 0; i <= 64; i++) 
+		{
+			if(Testmap.prefs != null)
+			{
+				String invSlot = Testmap.prefs.getString("equipmentSlot"+i);
+				if(invSlot != "")
+				{
+					String[] input = invSlot.split(":");
+				
+					Item item = Item.valueOf(input[0]);						 
+					int amount = Integer.parseInt(input[1]);
+				
+					if(item != null && amount != 0)
+					{
+						Gamescreen.game.inventoryscreen.equipment.equip.equip(item, amount);
 					}
 				}
 			}

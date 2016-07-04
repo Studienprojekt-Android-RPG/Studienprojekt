@@ -2,11 +2,11 @@ package de.test.game;
 
 import com.badlogic.gdx.utils.Array;
 
-public class Inventory{
-
+public class Equipment{
+	Testmap game;
 	private Array<Slot> slots;
 
-	public Inventory(int cSlotAmount) {
+	public Equipment(int cSlotAmount) {
 		slots = new Array<Slot>(cSlotAmount);
 		for (int i = 0; i < cSlotAmount; i++) {
 			slots.add(new Slot(null, 0));
@@ -40,26 +40,17 @@ public class Inventory{
 		return amount;
 	}
 
-	public boolean store(Item item, int amount) {
+	public Item equip(Item item, int amount) {
 		// first check for a slot with the same item type
 		Slot itemSlot = firstSlotWithItem(item);
 		if (itemSlot != null) {
+			Item equipped = itemSlot.getItem();
+			itemSlot.take(itemSlot.getAmount());
 			itemSlot.add(item, amount);
-			
-			return true;
-		} else {
-			// now check for an available empty slot
-			Slot emptySlot = firstSlotWithItem(null);
-			if (emptySlot != null) {
-				emptySlot.add(item, amount);
-				
-				return true;
-			}
+			return equipped;
 		}
-
 		// no slot to add
-
-		return false;
+		return null;
 	}
 
 	public Array<Slot> getSlots() {
@@ -68,7 +59,12 @@ public class Inventory{
 
 	public Slot firstSlotWithItem(Item item) {
 		for (Slot slot : slots) {
-			if (slot.getItem() == item) {
+			if (slot.getItem() != null) {
+				if(slot.getItem().getSort() == item.getSort()) {
+					return slot;
+				}
+			}
+			else {
 				return slot;
 			}
 		}
