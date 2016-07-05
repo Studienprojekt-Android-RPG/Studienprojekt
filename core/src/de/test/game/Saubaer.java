@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Saubaer extends Monster {
 
 	public Saubaer() {
-		super(10, 7, 50, 50, 1050, 10, 7, 500, 3, 600);
+		super(10, 7, 50, 50, 1050, 10, 7, 500, 3, 600, "MESSER", "HEILTRANK", elements.none);
 		texture = new TextureRegion(enemies.findRegion("Saubaer"));
 		name = "Saubär";
 	
@@ -46,6 +46,7 @@ public void moveAI(){
 		switch(coin){
 		case 0: 
 			attack(this, Battlescreen.player);
+			Battlescreen.animatk = true;
 			break;
 		case 1:
 			tollwut(this, Battlescreen.player);

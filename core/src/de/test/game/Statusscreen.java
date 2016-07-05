@@ -6,6 +6,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -113,7 +114,7 @@ public class Statusscreen implements Screen {
 		hp = new Label("HP: " + Gamescreen.player.getCurrentHP() + "/" + Gamescreen.player.getMaxHP(), labstyle);
 		lvl = new Label("Lvl: " + Fighter.getLevel(Gamescreen.player), labstyle);	
 		sp = new Label("SP: " + Fighter.getCurSP(Gamescreen.player) + "/" + Fighter.getMaxSP(Gamescreen.player) , labstyle);
-		exp = new Label("NextLvl: " + Fighter.getExp(Gamescreen.player), labstyle);
+		exp = new Label("NextLvl: " + Fighter.getExp(Gamescreen.player) + "/" + Gamescreen.player.nextLv, labstyle);
 		money = new Label("Geld: " + Fighter.getMoney(Gamescreen.player), labstyle);
 		
 		stats = new Label("Statuswerte: ", labstyle);
@@ -125,28 +126,28 @@ public class Statusscreen implements Screen {
 		
 		gear = new Label("Ausrüstung: ", labstyle);
 		
-		tablename.add(name).width(200).height(50).align(Align.center).padLeft(25);
+		tablename.add(name).width(250).height(50).align(Align.center).padLeft(25);
 		tablename.row();
-		tablename.add(hp).width(200).height(50).align(Align.center).padLeft(25);
-		tablename.add(lvl).width(200).height(50).align(Align.center).padLeft(25);
+		tablename.add(hp).width(250).height(50).align(Align.center).padLeft(25);
+		tablename.add(lvl).width(250).height(50).align(Align.center).padLeft(25);
 		tablename.row();
-		tablename.add(sp).width(200).height(50).align(Align.center).padLeft(25);
-		tablename.add(exp).width(200).height(50).align(Align.center).padLeft(25);
+		tablename.add(sp).width(250).height(50).align(Align.center).padLeft(25);
+		tablename.add(exp).width(250).height(50).align(Align.center).padLeft(25);
 		tablename.row();
-		tablename.add(money).width(200).height(50).align(Align.center).padLeft(25);
+		tablename.add(money).width(250).height(50).align(Align.center).padLeft(25);
 		tablename.pack();
 		tablename.setBackground(skin.getDrawable("default-window"));
 		tablename.setPosition(20, 480 - tablename.getHeight());
 		
-		tablestats.add(stats).width(200).height(50).align(Align.center).padLeft(25);
+		tablestats.add(stats).width(250).height(50).align(Align.center).padLeft(25);
 		tablestats.row();
-		tablestats.add(atk).width(200).height(50).align(Align.center).padLeft(25);
-		tablestats.add(satk).width(200).height(50).align(Align.center).padLeft(25);
+		tablestats.add(atk).width(250).height(50).align(Align.center).padLeft(25);
+		tablestats.add(satk).width(250).height(50).align(Align.center).padLeft(25);
 		tablestats.row();
-		tablestats.add(def).width(200).height(50).align(Align.center).padLeft(25);
-		tablestats.add(sdef).width(200).height(50).align(Align.center).padLeft(25);
+		tablestats.add(def).width(250).height(50).align(Align.center).padLeft(25);
+		tablestats.add(sdef).width(250).height(50).align(Align.center).padLeft(25);
 		tablestats.row();
-		tablestats.add(speed).width(200).height(50).align(Align.center).padLeft(25);
+		tablestats.add(speed).width(250).height(50).align(Align.center).padLeft(25);
 		tablestats.pack();
 		tablestats.setBackground(skin.getDrawable("default-window"));
 		tablestats.setPosition(20, tablename.getY() - tablestats.getHeight() - 20);

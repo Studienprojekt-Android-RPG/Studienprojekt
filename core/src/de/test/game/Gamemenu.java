@@ -81,12 +81,12 @@ public class Gamemenu extends Window {
 		        public void clicked(InputEvent e, float x, float y) {
 		            Gamescreen.gamenu.setVisible(false);
 		            Gamescreen.player.allowMov = true;
-		            if(Gamescreen.player.speed == 3f){
-		        		Gamescreen.player.speed = 10f;
+		            if(Gamescreen.player.rspeed == 3f){
+		        		Gamescreen.player.rspeed = 10f;
 		        		System.out.println("Speeeeeeeeeeeeeeed!!!");
 		        	}
 		        	else{
-		        		Gamescreen.player.speed = 3f;
+		        		Gamescreen.player.rspeed = 3f;
 		        		 System.out.println("Slooooooooooooooooow!!!");
 		        	}
 		        }

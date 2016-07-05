@@ -74,7 +74,7 @@ public class Battlescreen implements Screen {
 	ImageButton sel;
 	ImageButton pf;
 	static boolean anim = false;
-	float stateTime;
+	float stateTime, stateTime2;
 	ProgressBar barPlayer;
 	ProgressBar barEnemy1, barEnemy2, barEnemy3;
 	ProgressBarStyle barStyle;
@@ -96,8 +96,13 @@ public class Battlescreen implements Screen {
 	Stage stage;
 	static Testmap battle;
 	
+	EnemyAtk atkanim = new EnemyAtk();
+	static boolean animatk = false;
+	Vector2 animpos = new Vector2();
+	
 	Dialog dialog;
 	Label win, playerHP, enemy1HP, enemy2HP, enemy3HP;
+
 	
 	@SuppressWarnings("static-access")
 	public Battlescreen(Testmap battle){
@@ -159,11 +164,15 @@ public class Battlescreen implements Screen {
 		battleitem.setKeepWithinStage(false);
 		battleitem.setMovable(false);
 		
-		win = new Label("You WON\n" + "5000k GOLD\n" + "2 EXP", labstyle);
+		win = new Label("You WON\n" + "5000k GOLD\n" + player.expBucket, labstyle);
 		
 		dialog = new Dialog("", skin, "dialog") {
 			public void result(Object obj) {
 				if(obj.equals(true)){
+					player.readBattle();
+					player.levelSum();
+					player.saveBattle();
+					player.expBucket = 0;
 					battle.setScreen(battle.getScreenType(ScreenType.Gamescreen));
 				}
 		    }
@@ -209,6 +218,8 @@ public class Battlescreen implements Screen {
 					stage.addActor(enemy1HP);
 					fighterList.add(player);
 					fighterList.add(gegner1);
+					animpos.x = player.getPosition().x - 400;
+					animpos.y = player.getPosition().y;
 				break;
 				
 				case 1:
@@ -218,6 +229,8 @@ public class Battlescreen implements Screen {
 					enemy2HP = new Label(gegner2.getCurrentHP() + "/" + gegner2.getMaxHP(), labstyle);
 					stage.addActor(enemy2HP);
 					fighterList.add(gegner2);
+					animpos.x = player.getPosition().x - 400;
+					animpos.y = player.getPosition().y + 30;
 				break;
 				
 				case 2:
@@ -227,6 +240,8 @@ public class Battlescreen implements Screen {
 					enemy3HP = new Label(gegner3.getCurrentHP() + "/" + gegner3.getMaxHP(), labstyle);
 					stage.addActor(enemy3HP);
 					fighterList.add(gegner3);
+					animpos.x = player.getPosition().x - 400;
+					animpos.y = player.getPosition().y + 70;
 				break;
 			}
 		}
@@ -288,6 +303,7 @@ public class Battlescreen implements Screen {
 		}
 		
 		stateTime = 0f;
+		stateTime2 = 0f;
 		
 		arrow1 = new Vector2(player.getPosition().x - 375, player.getPosition().y + 130);
 		arrow2 = new Vector2(player.getPosition().x - 240, player.getPosition().y + 20);
@@ -303,11 +319,15 @@ public class Battlescreen implements Screen {
 					if(pf.getX() == arrow1.x && pf.getY() == arrow1.y){
 						pf.setPosition(arrow3.x, arrow3.y);
 						selEnemy = 2;
+						animpos.x = player.getPosition().x - 400;
+						animpos.y = player.getPosition().y - 150;	
 					}
 					
 					else if(pf.getX() == arrow3.x && pf.getY() == arrow3.y){
 						pf.setPosition(arrow1.x, arrow1.y);
 						selEnemy = 1;
+						animpos.x = player.getPosition().x - 400;
+						animpos.y = player.getPosition().y + 30;
 					}
 				}
 				
@@ -315,16 +335,22 @@ public class Battlescreen implements Screen {
 					if(pf.getX() == arrow1.x && pf.getY() == arrow1.y){
 						pf.setPosition(arrow2.x, arrow2.y);
 						selEnemy = 2;
+						animpos.x = player.getPosition().x - 240;
+						animpos.y = player.getPosition().y - 40;
 					}
 					
 					else if(pf.getX() == arrow2.x && pf.getY() == arrow2.y){
 						pf.setPosition(arrow3.x, arrow3.y);
 						selEnemy = 3;
+						animpos.x = player.getPosition().x - 400;
+						animpos.y = player.getPosition().y - 150;
 					}
 					
 					else if(pf.getX() == arrow3.x && pf.getY() == arrow3.y){
 						pf.setPosition(arrow1.x, arrow1.y);
 						selEnemy = 1;
+						animpos.x = player.getPosition().x - 400;
+						animpos.y = player.getPosition().y + 70;
 					}
 				}
 				
@@ -382,10 +408,24 @@ public class Battlescreen implements Screen {
 		}
 		batch.draw(background1, 0, 0, battlemenu.getWidth(), 480 - battlemenu.getHeight());
 		batch.draw(background2, battlemenu.getWidth(), 0, 920 - battlemenu.getWidth(), 480 - battlemenu.getHeight());
+		if(animatk)
+		batch.draw(atkanim.getCurrentFrame(), animpos.x, animpos.y);
 		batch.end();
 		stage.act();
 		stage.draw();
 		
+		if(animatk){
+			atkanim.update();
+//			if(stateTime2 <= 1f){
+//	        	stateTime2 += Gdx.graphics.getDeltaTime();
+//	        	atkanim.currentFrame = atkanim.lh1.getKeyFrame(stateTime2);
+//	        }
+//			else{
+//				animatk = false;
+//				stateTime2 = 0;
+//				atkanim.currentFrame = atkanim.lh1.getKeyFrame(stateTime2);
+//			}
+		}
 		playerHP.setText(player.getCurrentHP() + "/" + player.getMaxHP());
 		barPlayer.setValue(player.getCurrentHP());
 		if(i == 1){
@@ -438,21 +478,54 @@ public class Battlescreen implements Screen {
 					battlestate = Battlestate.EnemyTurn;
 				}
 			break;
-		
-			case LeonTurn:				
-				battlemenu.setTouchable(Touchable.enabled);
 
-				if(Battlemenu.hasClicked){
-					Battlemenu.hasClicked = false;
-					index++;
-					battlestate = Battlestate.Check;
+			case LeonTurn:
+				atkanim.enemyATK = false;
+				animpos.x = player.getPosition().x - 400;
+				animpos.y = player.getPosition().y;
+				if(i == 2){
+					if(selEnemy == 1){
+						animpos.x = player.getPosition().x - 400;
+						animpos.y = player.getPosition().y + 30;
+					}
+					
+					else if(selEnemy == 2){
+						animpos.x = player.getPosition().x - 400;
+						animpos.y = player.getPosition().y - 150;
+					}
 				}
 				
+				if(i == 3){
+					if(selEnemy == 1){
+						animpos.x = player.getPosition().x - 400;
+						animpos.y = player.getPosition().y + 70;
+					}
+					
+					else if(selEnemy == 2){
+						animpos.x = player.getPosition().x - 240;
+						animpos.y = player.getPosition().y - 40;
+					}
+					
+					else if(selEnemy == 3){
+						animpos.x = player.getPosition().x - 400;
+						animpos.y = player.getPosition().y - 150;
+					}
+				}
+				battlemenu.setTouchable(Touchable.enabled);
+				if(Battlemenu.hasClicked)
+					battlemenu.setTouchable(Touchable.disabled);
+				if(animatk == false){
+					if(Battlemenu.hasClicked){
+						Battlemenu.hasClicked = false;
+						index++;
+						battlestate = Battlestate.Check;
+					}
+				}
 				
 			break;
 			
 			case Check:
-				System.out.println("Check: " + fighterList.size());
+				System.out.println("Größe start: " + fighterList.size());
 				System.out.println("Index: " + index);
 				if(player.getCurrentHP() <= 0){
 					player.curHP = 0;
@@ -461,6 +534,7 @@ public class Battlescreen implements Screen {
 				}
 				if(i == 1){
 					if(gegner1.curHP <= 0){
+						player.increaseBucket(Fighter.getExp(gegner1));
 						fighterList.remove(gegner1);
 						battlestate = Battlestate.BattleOver;
 						break;
@@ -469,16 +543,16 @@ public class Battlescreen implements Screen {
 				if(i == 2){
 					if(gegner1.curHP < 0){
 						gegner1.curHP = 0;
-						if(index == fighterList.size()){
+						if(fighterList.indexOf(player) != 0 && fighterList.indexOf(player) > fighterList.indexOf(gegner1))
 							index--;
-						}
+						player.increaseBucket(Fighter.getExp(gegner1));
 						fighterList.remove(gegner1);
 					}
 					if(gegner2.curHP < 0){
 						gegner2.curHP = 0;
-						if(index == fighterList.size()){
+						if(fighterList.indexOf(player) != 0 && fighterList.indexOf(player) > fighterList.indexOf(gegner2))
 							index--;
-						}
+						player.increaseBucket(Fighter.getExp(gegner2));
 						fighterList.remove(gegner2);
 					}
 					if(gegner1.curHP <= 0 && gegner2.curHP <= 0){
@@ -490,23 +564,23 @@ public class Battlescreen implements Screen {
 				if(i == 3){
 					if(gegner1.curHP < 0){
 						gegner1.curHP = 0;
-						if(index == fighterList.size()){
+						if(fighterList.indexOf(player) != 0 && fighterList.indexOf(player) > fighterList.indexOf(gegner1))
 							index--;
-						}
+						player.increaseBucket(Fighter.getExp(gegner1));
 						fighterList.remove(gegner1);
 					}
 					if(gegner2.curHP < 0){
 						gegner2.curHP = 0;
-						if(index == fighterList.size()){
+						if(fighterList.indexOf(player) != 0 && fighterList.indexOf(player) > fighterList.indexOf(gegner2))
 							index--;
-						}
+						player.increaseBucket(Fighter.getExp(gegner2));
 						fighterList.remove(gegner2);
 					}
 					if(gegner3.curHP < 0){
 						gegner3.curHP = 0;
-						if(index == fighterList.size()){
+						if(fighterList.indexOf(player) != 0 && fighterList.indexOf(player) > fighterList.indexOf(gegner3))
 							index--;
-						}
+						player.increaseBucket(Fighter.getExp(gegner3));
 						fighterList.remove(gegner3);
 					}
 					
@@ -519,23 +593,26 @@ public class Battlescreen implements Screen {
 				
 				System.out.println("Größe: " + fighterList.size());
 				System.out.println("Index: " + index);
-				
-				
-				if(index >= fighterList.size()){
-					index = 0;
-					battlestate = Battlestate.firstStrike;
-				}
-				else{
-					if(fighterList.get(index).getClass() == player.getClass()){
-						battlestate = Battlestate.LeonTurn;
+				if(animatk == false){
+					if(index >= fighterList.size()){
+						index = 0;
+						battlestate = Battlestate.firstStrike;
 					}
 					else{
-						battlestate = Battlestate.EnemyTurn;
+						if(fighterList.get(index).getClass() == player.getClass()){
+							battlestate = Battlestate.LeonTurn;
+						}
+						else{
+							battlestate = Battlestate.EnemyTurn;
+						}
 					}
 				}
 			break;		
 			
 			case EnemyTurn:
+				atkanim.enemyATK = true;
+				animpos.x = player.position.x;
+				animpos.y = player.position.y;
 				System.out.println(fighterList.get(index).getName() + " ist dran");
 				battlemenu.setTouchable(Touchable.disabled);
 				
@@ -548,8 +625,8 @@ public class Battlescreen implements Screen {
 			break;
 			
 			case BattleOver:
+				win.setText("You WON\n" + "5000k GOLD\n" + player.expBucket + " Exp.");
 				battlemenu.setTouchable(Touchable.disabled);
-				player.saveBattle();
 				if(anim == false){
 					dialog.setVisible(true);
 				}

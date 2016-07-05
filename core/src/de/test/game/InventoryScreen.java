@@ -18,7 +18,7 @@ import de.test.game.Testmap.ScreenType;
 
 public class InventoryScreen implements Screen {
 
-	public InventoryActor inventoryActor;
+	public static InventoryActor inventoryActor;
 	public EquipmentActor equipment;
 
 	public static Stage stage;
@@ -70,6 +70,7 @@ public class InventoryScreen implements Screen {
 	            System.out.println("Inventar geschlossen");
 	            Gamescreen.player.saveInventory();
 	            Gamescreen.player.saveEquipment();
+	            Gamescreen.player.saveBattle();
 	            game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 	        }
 	    });

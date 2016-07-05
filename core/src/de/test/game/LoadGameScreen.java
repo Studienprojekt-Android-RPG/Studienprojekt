@@ -47,7 +47,6 @@ public class LoadGameScreen implements Screen {
 	ImageButtonStyle xButtonStyle = new ImageButtonStyle();
 	
 	String userName = System.getProperty("user.name");
-	//String userName = "Michel";
 	File folder;
 	File[] listOfFiles;
 	
@@ -142,9 +141,9 @@ public class LoadGameScreen implements Screen {
 						}
 					};
 					
-					dialog.button("Load", 1);
-					dialog.button("Delete", -1);
-					dialog.button("Cancel", 0);
+					dialog.button("Laden", 1);
+					dialog.button("Löschen", -1);
+					dialog.button("Abbrechen", 0);
 					dialog.setSize(300, 400);
 					
 					dialog.text(label);
@@ -158,7 +157,6 @@ public class LoadGameScreen implements Screen {
 		}
 		table.pack();
 		table.setPosition(300, 0);
-		
 		Table.debugCellColor.set(0, 0, 0, 0);
 		Table.debugTableColor.set(0, 0, 0, 0);
 		Table.debugActorColor.set(0, 0, 0, 0);

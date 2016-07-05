@@ -18,7 +18,7 @@ public class InventorySlotActor extends ImageButton implements SlotListener {
 	
 	ItemDialog dialog;
 
-	public InventorySlotActor(Skin skin, Slot slot, String dialogLabel, String buttonText) {
+	public InventorySlotActor(final Skin skin, final Slot slot, final String dialogLabel, final String buttonText) {
 		super(createStyle(skin, slot));
 		this.slot = slot;
 		this.skin = skin;

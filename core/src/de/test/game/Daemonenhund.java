@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Daemonenhund extends Monster {
 
 	public Daemonenhund() {
-		super(7, 7, 50, 50, 1050, 10, 7, 500, 3, 600);
+		super(7, 7, 50, 50, 1050, 10, 7, 500, 3, 600, "HEILTRANK", "MANATRANK", elements.ice);
 		texture = new TextureRegion(enemies.findRegion("Daemonenhund"));
 		name = "Dämonenhund";
 		
@@ -41,6 +41,7 @@ public void moveAI(){
 	switch(coin){
 	case 0: 
 		attack(this, Battlescreen.player);
+		Battlescreen.animatk = true;
 		break;
 	case 1:
 		bruellen(this, Battlescreen.player);

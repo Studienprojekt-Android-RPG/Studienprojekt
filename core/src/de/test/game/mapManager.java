@@ -3,7 +3,6 @@ package de.test.game;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
-
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;

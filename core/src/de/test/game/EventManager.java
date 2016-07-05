@@ -9,7 +9,7 @@ public class EventManager {
 	MapLayer layer;
 	Player player = Gamescreen.player;
 	enum eventState{Demo, eventEnd};
-	eventState eventstate = eventState.Demo;
+	static eventState eventstate = eventState.Demo;
 	Events demo = new Events();
 	String map = mapManager.map;
 	
@@ -35,7 +35,9 @@ public class EventManager {
 				break;
 				
 				case eventEnd:
-						eventstate = eventState.Demo;
+						Events.ani = null;
+//						Gamescreen.eventmanager.demo.demoStrings.setVisible(false);
+						Gamescreen.player.allowMov = true;
 				break;
 			}
 		}

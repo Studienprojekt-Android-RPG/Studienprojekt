@@ -1,5 +1,7 @@
 package de.test.game;
 
+import java.io.IOException;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -64,7 +66,7 @@ public class Gamescreen implements Screen {
 	
 	mapManager mapmanager;
 	
-	EventManager eventmanager;
+	static EventManager eventmanager;
 	
 	static Gamemenu gamenu;
 	
@@ -151,7 +153,7 @@ public class Gamescreen implements Screen {
 		batch = new SpriteBatch();
 		sr = new ShapeRenderer();
 		
-		player = new Player(new Vector2(playerx, playery), "leon.png", 55, 55, 10, 10, 200, 20, 10, 600, 10, 500);
+		player = new Player(new Vector2(playerx, playery), "leon.png"/*, 55, 55, 10, 10, 7000, 20, 10, 600, 10, 500*/);
 		tiledMap = new TmxMapLoader().load(map);
 		layer = tiledMap.getLayers().get("Spawnpoints");
 		rect = (RectangleMapObject) layer.getObjects().get("spalt3");

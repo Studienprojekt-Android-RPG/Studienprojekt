@@ -16,15 +16,17 @@ public class musicManager extends Testmap{
 	Music cave = Gdx.audio.newMusic(Gdx.files.internal("music/Cave of Trials.ogg"));
 	Music leon = Gdx.audio.newMusic(Gdx.files.internal("music/Leons Theme.ogg"));
 	Music anieres = Gdx.audio.newMusic(Gdx.files.internal("music/Anieres Theme.ogg"));
+	Music over = Gdx.audio.newMusic(Gdx.files.internal("music/Gameover.ogg"));
 	public void update() {
 		
 		switch(super.horst){
 			case "go":
 				battle.stop();
+				over.play();
+				
 				break;
 		
 			case "ev":
-				anieres.stop();
 				demtheme.stop();
 				school.stop();
 				forest.stop();
@@ -49,6 +51,7 @@ public class musicManager extends Testmap{
 				battle.play();
 				break;
 			case "sm":
+				over.stop();
 				anieres.stop();
 				demtheme.stop();
 				forest.stop();

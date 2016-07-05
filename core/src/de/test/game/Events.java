@@ -8,11 +8,14 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton.TextButtonStyle;
 import com.badlogic.gdx.scenes.scene2d.ui.Window.WindowStyle;
 
+import de.test.game.EventManager.eventState;
+
 
 public class Events {
 	
 	static NPC ani;
 	static boolean event = false;
+	static boolean end = false;
 	TextureAtlas butwin;
 	Skin skin;
 	BitmapFont font;
@@ -50,12 +53,24 @@ public class Events {
 		Gamescreen.player.allowMov = false;
 		event = true;
 		ani.movement = "left";
-		if(ani.position.x >= Gamescreen.player.position.x + 50){
-			ani.position.x -= 3f;
+		if(end == false){
+			if(ani.position.x >= Gamescreen.player.position.x + 50){
+				ani.position.x -= 3f;
+			}
+			else{
+				ani.movement = "still";
+				demoStrings.setVisible(true);
+			}
 		}
-		else{
-			ani.movement = "still";
-			demoStrings.setVisible(true);
+		if(end == true){
+			demoStrings.setVisible(false);
+			ani.movement = "right";
+			ani.position.x += 5f;
+			if(ani.position.x >= Gamescreen.player.position.x + 500){
+				event = false;
+				ani.position.x = Gamescreen.player.position.x + 500;
+				EventManager.eventstate = eventState.eventEnd;
+			}
 		}
 		ani.update();
 	}

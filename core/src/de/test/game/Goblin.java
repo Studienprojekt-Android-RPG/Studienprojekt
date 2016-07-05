@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Goblin extends Monster {
 
 	public Goblin() {
-		super(10, 5, 5, 5, 50, 2, 6, 100, 0, 150);
+		super(10, 5, 5, 5, 50, 2, 6, 100, 0, 150, "MESSER", "HEILTRANK", elements.ice);
 		texture = new TextureRegion(enemies.findRegion("Goblin"));
 		name = "Goblin";
 		
@@ -40,6 +40,7 @@ public void moveAI(){
 		switch(coin){
 		case 0: 
 			attack(this, Battlescreen.player);
+			Battlescreen.animatk = true;
 			break;
 		case 1:
 			dreckwurf(this, Battlescreen.player);

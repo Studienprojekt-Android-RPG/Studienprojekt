@@ -23,7 +23,7 @@ public class ItemDialog
 	
 	Dialog dialog;
 	
-	public ItemDialog(Slot slot, Skin skin, String dialogLabel, String buttonText)
+	public ItemDialog(final Slot slot, Skin skin, String dialogLabel, String buttonText)
 	{		
 		if(slot.getItem().getConsumable()) {
 			skinDialog = new Skin();

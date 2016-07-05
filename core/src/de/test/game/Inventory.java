@@ -1,10 +1,14 @@
 package de.test.game;
 
+import java.util.Comparator;
+
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.Array;
 
 public class Inventory{
 
 	private Array<Slot> slots;
+	private Comparator<Slot> comparator = new ItemComparator();
 
 	public Inventory(int cSlotAmount) {
 		slots = new Array<Slot>(cSlotAmount);
@@ -45,20 +49,20 @@ public class Inventory{
 		Slot itemSlot = firstSlotWithItem(item);
 		if (itemSlot != null) {
 			itemSlot.add(item, amount);
-			
+			slots.sort(comparator);
 			return true;
 		} else {
 			// now check for an available empty slot
 			Slot emptySlot = firstSlotWithItem(null);
 			if (emptySlot != null) {
 				emptySlot.add(item, amount);
-				
+				slots.sort(comparator);
 				return true;
 			}
 		}
 
 		// no slot to add
-
+		slots.sort(comparator);
 		return false;
 	}
 
@@ -93,6 +97,13 @@ public class Inventory{
 				Gamescreen.player.curSP = Gamescreen.player.maxSP;
 			}
 		}
-		
+		slots.sort(comparator);
+	}
+	
+	public void sortInventory() {
+		Array<Slot> inventory = getSlots();
+		slots.clear();
+		inventory.sort(comparator);
+		slots.addAll(inventory);
 	}
 }

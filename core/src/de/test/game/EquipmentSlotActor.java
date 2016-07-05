@@ -16,7 +16,7 @@ public class EquipmentSlotActor extends ImageButton implements SlotListener {
 	
 	Testmap game;
 
-	public EquipmentSlotActor(Skin skin, Slot slot) {
+	public EquipmentSlotActor(Skin skin, final Slot slot) {
 		super(createStyle(skin, slot));
 		this.slot = slot;
 		this.skin = skin;

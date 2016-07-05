@@ -7,8 +7,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.Align;
 
-import de.test.game.Battlescreen.Battlestate;
-
 public class BattleItem extends Window {
 	TextButton heil, pkt, etc, exit;
 
@@ -38,7 +36,7 @@ public class BattleItem extends Window {
 	        	Battlescreen.player.curHP = Battlescreen.player.maxHP;
 	        	Battlescreen.battlemenu.setVisible(true);
 	            Battlescreen.battleitem.setVisible(false);
-	            Battlescreen.battlestate = Battlestate.firstStrike;
+//	            Battlescreen.battlestate = Battlestate.firstStrike;
 	            Battlescreen.battlemenu.hasClicked = true;
 	        }
 	    });

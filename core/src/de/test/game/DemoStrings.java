@@ -1,6 +1,9 @@
 package de.test.game;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -10,6 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.scenes.scene2d.utils.Drawable;
+import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.Align;
 
 public class DemoStrings extends Window{
@@ -24,6 +29,7 @@ public class DemoStrings extends Window{
 	int index = 0;
 	TextureAtlas avatare;
 	Skin draw = new Skin();
+	boolean end = false;
 	
 	public DemoStrings(final Skin skin) {
 		super("", skin);
@@ -62,6 +68,9 @@ public class DemoStrings extends Window{
 		
 		next.addListener(new ClickListener() {
 			public void clicked(InputEvent e, float x, float y) {
+				if(index == 10){
+					Events.end = true;
+				}
 				if(index+1 < strings.length){
 					index++;
 					if(avatar.getDrawable().equals(draw.getDrawable("AnieresAvatar"))){
@@ -71,7 +80,9 @@ public class DemoStrings extends Window{
 						avatar.setDrawable(draw.getDrawable("AnieresAvatar"));
 					}
 				}
+				
 				label.setText(strings[index]);
+				
 	        }
 	    });
 	}

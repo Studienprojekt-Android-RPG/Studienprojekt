@@ -55,8 +55,9 @@ public class Battlemenu extends Window {
 		atk.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
 	        	Battlescreen.anim = true;
+	            EnemyAtk.enemyATK = false;
+	            Battlescreen.animatk = true;
 	            System.out.println("Angriff!");
-	            
 	            if(Battlescreen.selEnemy == 1){
 	            	Fighter.attack(Battlescreen.player, Battlescreen.gegner1);
 	            	if(Battlescreen.gegner1.curHP > 0){

@@ -2,6 +2,18 @@
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="150" height="150" tilewidth="32" tileheight="32" nextobjectid="36">
  <tileset firstgid="1" name="225835_hyptosis_tile-art-batch-1" tilewidth="32" tileheight="32" tilecount="900" columns="30">
   <image source="../Downloads/hyptosis tiles/225835_hyptosis_tile-art-batch-1.png" width="960" height="960"/>
+  <tile id="0">
+   <animation>
+    <frame tileid="781" duration="200"/>
+    <frame tileid="298" duration="200"/>
+   </animation>
+  </tile>
+  <tile id="781">
+   <animation>
+    <frame tileid="298" duration="10"/>
+    <frame tileid="329" duration="100"/>
+   </animation>
+  </tile>
  </tileset>
  <tileset firstgid="901" name="225836_hyptosis_til-art-batch-2" tilewidth="32" tileheight="32" tilecount="900" columns="30">
   <image source="../Downloads/hyptosis tiles/225836_hyptosis_til-art-batch-2.png" width="960" height="960"/>
@@ -37,7 +49,7 @@
  </layer>
  <layer name="Kachelebene 5" width="150" height="150">
   <data encoding="base64" compression="zlib">
-   eJzt3LENwjAQBdDUEDIpKzBAJkJmAUooWIMkiAUIEoURIIoEGVvvlScXv/i661xVAAAAQG66+nV2fDO7Oz/mm+Xz/PDhPcCcdk3qBJQmRJ2K+xV0jYmCPgEAAAAAAAAAAAAAAAAAAAAws6v/vgD4U/14owZ3CgAAAAAAAAAAAAAAAAAAAAAAAAAAirNepU5A7k6L1AkAAAAAAAAAAAAA+JV9kzoBwHfbaFe19hZQsEudOgG56sfuDPoDAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAk90ACM4SUQ==
+   eJzt3LENwjAQBdBIdBA8KSswABMhswAlKVgDEsQCBIkiCBBIARlb75UnF7/4uutcVQAAAEBujvXjrHkyuzrc5svZ/Xz34j3AN21C6gSUJg46NexX1DVGivoEAADZCJPUCQAAAAAAAAAAAAAAAADgM2f/fQHwp9r+RnXuFAAAAAAAAAAAAAAAAAAAAAAAAAAAFGcxT52A3O2nqRMAAAAAAAAAAAAA8CvbkDoBwHvrwa5a2VtAwU516gTkqu270+kPAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAjHYB7pcSYg==
   </data>
  </layer>
  <objectgroup name="Spawnpoints">

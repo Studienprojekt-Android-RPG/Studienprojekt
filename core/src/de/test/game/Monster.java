@@ -1,5 +1,6 @@
 package de.test.game;
 
+
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
@@ -11,8 +12,8 @@ public class Monster extends Fighter {
 	TextureRegion texture;
 	
 	public Monster(int atk, int satk, int def, int sdef, int hp, int lvl,
-			int spe, int exp, int sp, int money) {
-		super(atk, satk, def, sdef, hp, lvl, spe, exp, sp, money);
+			int spe, int exp, int sp, int money, String common, String rare, elements weak) {
+		super(atk, satk, def, sdef, hp, lvl, spe, exp, sp, money, common, rare, weak);
 	}
 	
 	static int success;
@@ -24,10 +25,6 @@ public class Monster extends Fighter {
 	}
 	
 	
-	public void growth(){
-		
-	}
-	
 	public static String getMove(String moveName){
 		
 		attackName = moveName;
@@ -37,20 +34,24 @@ public class Monster extends Fighter {
 	
 	
 	public static void einwickeln(Fighter attacker, Fighter defender){
+		moveElement = elements.none;
 		attackName = "Einwickeln";
 		attackDamage = attacker.ATK * attacker.speed / 1.5 - defender.DEF;
 		damage(attacker, defender);
 	}
 	
 	public static void bezirzen(Fighter attacker, Fighter defender){
+		moveElement = elements.none;
 		attackName = "Bezirzen";
 		Math.round(defender.speed /= 1.5);
 		System.out.println(defender.getName() + "'s Geschwindigkeit verringert sich auf " + Fighter.getSpeed(defender) + "!");
 	}
 	
 	public static void beissen(Fighter attacker, Fighter defender){
+		moveElement = elements.none;
 		attackName = "Beiﬂen";
 		attackDamage = (attacker.ATK * attacker.level * 2.2) - (defender.DEF * defender.level / 1.5);
+		statusChange("poison", 1, defender);
 		damage(attacker, defender);
 		
 	}
@@ -66,6 +67,7 @@ public class Monster extends Fighter {
 	}
 	
 	public static void irrlicht(Fighter attacker, Fighter defender){
+		moveElement = elements.fire;
 		attackName = "Irrlicht";
 		attackDamage = (attacker.sATK * attacker.level*3) - (defender.sDEF * defender.level / 1.5);
 		damage(attacker, defender);
@@ -81,6 +83,7 @@ public class Monster extends Fighter {
 		}
 		
 		public static void dreckwurf(Fighter attacker, Fighter defender){
+			moveElement = elements.earth;
 			attackName = "Dreckwurf";
 			attackDamage = attacker.sATK * attacker.level * 1.8 - defender.sDEF*defender.level/2;
 			damage(attacker, defender);
@@ -116,6 +119,7 @@ public class Monster extends Fighter {
 		}
 		
 		public static void ernte(Fighter attacker, Fighter defender){
+			moveElement = elements.nothingness;
 			attackName = "Ernte";
 			attackDamage = attacker.ATK * attacker.level * 2 - defender.DEF*defender.level/1.5;
 		    damage(attacker, defender);
@@ -133,18 +137,21 @@ public class Monster extends Fighter {
 		}
 		
 		public static void pranke(Fighter attacker, Fighter defender){
+			moveElement = elements.none;
 			attackName = "Prankenschwung";
 			attackDamage = attacker.ATK * attacker.level * 2.3 - defender.DEF*defender.level/1.5;
 			damage(attacker, defender);
 		}
 		
 		public static void tollwut(Fighter attacker, Fighter defender){
+			moveElement = elements.none;
 			attackName = "Tollwut-Wirbel";
 			attackDamage = attacker.ATK * attacker.level * 2.3 - defender.DEF*defender.level/1.5;
 			damage(attacker, defender);
 		}
 
 		public static void sprung(Fighter attacker, Fighter defender){
+			moveElement = elements.none;
 			attackName = "Sprungattacke";
 			attackDamage = attacker.ATK * attacker.level * 2.2 - defender.DEF*defender.level/1.7;
 			damage(attacker, defender);
@@ -185,6 +192,7 @@ public class Monster extends Fighter {
 	   
 	   public static void eisspeer(Fighter attacker, Fighter defender)
 	   {
+		   moveElement = elements.ice;
 		   attackName = "Eisspeer";
 			if(attacker.speed*1.5 <= defender.speed)
 			{
@@ -219,12 +227,14 @@ public class Monster extends Fighter {
 	   }
 	   
 	   public static void lichtblitz(Fighter attacker, Fighter defender){
+		   moveElement = elements.sacred;
 		   attackName = "Lichtblitz";
 		   attackDamage = attacker.ATK*attacker.level*2-defender.DEF*defender.level/1.7;
 		   damage(attacker, defender);
 	   }
 	   
 	   public static void extermination(Fighter attacker, Fighter defender){
+		   moveElement = elements.nothingness;
 		   attackName = "Extermination";
 		   attackDamage = attacker.sATK*attacker.level*2-defender.sDEF*defender.level;
 		   damage(attacker, defender);
@@ -232,6 +242,7 @@ public class Monster extends Fighter {
 	   
 	   
 	   public static void blutrausch(Fighter attacker, Fighter defender){
+		   moveElement = elements.none;
 		   attackName = "Blutrausch";
 		   attackDamage = attacker.ATK*defender.level*2.2-defender.ATK*defender.level/1.5;
 		   attacker.ATK = (int) Math.round(attacker.speed*1.1);
@@ -243,13 +254,15 @@ public class Monster extends Fighter {
 	   }
 	   
 	   public static void kombo(Fighter attacker, Fighter defender){
+		   moveElement = elements.none;
 		   attackName = "Kombo";
 		   attackDamage = attacker.ATK*attacker.level*2.5-defender.DEF*defender.level/1.8;
 		   damage(attacker, defender);
 	   }
 	   
+
 	   public static void avengers(Fighter attacker, Fighter defender){
-		   
+		   moveElement = elements.none;
 		   attackName = "Konter";
 		   attackDamage = (getDamageStorage(defender)/4);
 		   damage(attacker, defender);
@@ -257,12 +270,11 @@ public class Monster extends Fighter {
 	   
 	   
 	public static void damage(Fighter attacker, Fighter defender){
-		
+		attackDamage = attackDamage*attacker.weak(defender);
 		if (defender.guard){
 			attackDamage /= 2;
 			defender.guard = false;
 		}
-		
 		attackDamage = maxDamage();
 		defender.curHP -= attackDamage;
 		System.out.println(attackName + "!\n" + attacker.getName() + " f¸gt " + defender.getName() + " " +  attackDamage + " Schadenspunkte zu!");
