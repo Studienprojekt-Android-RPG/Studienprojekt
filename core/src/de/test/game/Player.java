@@ -2,7 +2,6 @@ package de.test.game;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.Calendar;
 import java.util.Random;
 
@@ -187,9 +186,9 @@ public class Player extends Fighter {
 		Testmap.prefs.putInteger("curSP", curSP);
 		Testmap.prefs.putInteger("maxSP", maxSP);
 		Testmap.prefs.putInteger("nextLv", nextLv);
-//		Calendar c = Calendar.getInstance();
-//		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-//		Testmap.prefs.putString("saveTime", sdf.format(c.getTime()));
+		Calendar c = Calendar.getInstance();
+		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+		Testmap.prefs.putString("saveTime", sdf.format(c.getTime()));
 		Testmap.prefs.flush();
 	}
 	
@@ -243,7 +242,7 @@ public class Player extends Fighter {
 	public void clearInventorySlots()
 	{
 		int i = 0;
-		for(Slot slot : Gamescreen.game.inventoryscreen.inventoryActor.inv.getSlots())
+		for(Slot slot : InventoryScreen.inventoryActor.inv.getSlots())
 		{
 			Testmap.prefs.remove("inventorySlot" + i);
 			i++;
@@ -260,7 +259,7 @@ public class Player extends Fighter {
 	public void saveInventory()
 	{
 		int i = 0;
-		for (Slot slot : Gamescreen.game.inventoryscreen.inventoryActor.inv.getSlots())
+		for (Slot slot : InventoryScreen.inventoryActor.inv.getSlots())
 		{
 			if(slot.getItem() != null)
 			{
@@ -296,7 +295,7 @@ public class Player extends Fighter {
 				
 					if(item != null && amount != 0)
 					{
-						Gamescreen.game.inventoryscreen.inventoryActor.inv.store(item, amount);
+						InventoryScreen.inventoryActor.inv.store(item, amount);
 					}
 				}
 			}
@@ -305,7 +304,7 @@ public class Player extends Fighter {
 	
 	public void readEquipment()
 	{
-		for (int i = 0; i <= 64; i++) 
+		for (int i = 0; i <= 5; i++) 
 		{
 			if(Testmap.prefs != null)
 			{
@@ -447,5 +446,21 @@ public class Player extends Fighter {
 		
 		this.expBucket += exp;
 		
+	}
+	
+	/**
+	 * Checks {@code Equipment} for equipped {@code Items} to change stats influenced by items.
+	 */
+	public void equippedItems() {
+		for(Slot slot : Gamescreen.game.inventoryscreen.equipment.equip.getSlots()) {
+			if(slot.getItem() != null) {
+				ATK += slot.getItem().getAtk();
+				DEF += slot.getItem().getDef();
+				maxHP += slot.getItem().getHP();
+				maxSP += slot.getItem().getSP();
+				speed += slot.getItem().getSpeed();
+			}
+		}
+		saveBattle();
 	}
 }

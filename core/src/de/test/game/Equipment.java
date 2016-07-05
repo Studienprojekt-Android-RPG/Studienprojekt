@@ -10,22 +10,7 @@ public class Equipment{
 		slots = new Array<Slot>(cSlotAmount);
 		for (int i = 0; i < cSlotAmount; i++) {
 			slots.add(new Slot(null, 0));
-		}
-		/*// create some random items
-		for (Slot slot : slots) {
-			//slot.add(Item.REICHTUMSELIXIER, 1);
-			slot.add(Item.values()[MathUtils.random(0, Item.values().length - 1)], 1);
-		}
-
-		// create a few random empty slots
-		for (int i = 0; i < 3; i++) {
-			Slot randomSlot = slots.get(MathUtils.random(0, slots.size - 1));
-			randomSlot.take(randomSlot.getAmount());
-		}*/
-		//this.store(Item.MESSER, 2);
-		//this.store(Item.DONUT, 5);
-		//this.store(Item.LEBERKASSEMMEL, 5);
-		
+		}		
 	}
 
 	public int checkInventory(Item item) {
@@ -49,8 +34,14 @@ public class Equipment{
 			itemSlot.add(item, amount);
 			return equipped;
 		}
-		// no slot to add
-		return null;
+		else {
+			Item equipped = slots.get(item.getSort()).getItem();
+			Slot slot = slots.get(item.getSort());
+			slot.take(slot.getAmount());
+			slot.add(item, amount);
+			slots.add(slot);
+			return equipped;
+		}
 	}
 
 	public Array<Slot> getSlots() {
@@ -64,11 +55,7 @@ public class Equipment{
 					return slot;
 				}
 			}
-			else {
-				return slot;
-			}
 		}
-
 		return null;
 	}
 	

@@ -40,7 +40,7 @@ public class ItemDialog
 				{
 					if(obj.equals(true))
 					{
-						Gamescreen.game.inventoryscreen.inventoryActor.inv.consume(slot.getItem());
+						InventoryScreen.inventoryActor.inv.consume(slot.getItem());
 						slot.take(1);
 						Gamescreen.player.clearInventorySlots();
 						Gamescreen.player.clearEquipmentSlots();
@@ -73,12 +73,13 @@ public class ItemDialog
 					if(obj.equals(true))
 					{
 						Item item = Gamescreen.game.inventoryscreen.equipment.equip.equip(slot.getItem(), 1);
-						Gamescreen.game.inventoryscreen.inventoryActor.inv.store(item, 1);
+						InventoryScreen.inventoryActor.inv.store(item, 1);
 						slot.take(1);
 						Gamescreen.player.clearInventorySlots();
 						Gamescreen.player.clearEquipmentSlots();
 						Gamescreen.player.saveInventory();
 						Gamescreen.player.saveEquipment();
+						Gamescreen.player.equippedItems();
 					}
 				}
 			};
@@ -94,5 +95,21 @@ public class ItemDialog
 		dialog.setVisible(true);
 		System.out.println(slot.toString() + " clicked");
 		InventoryScreen.stage.addActor(dialog);
+	}
+
+	public Skin getSkin() {
+		return skin;
+	}
+
+	public void setSkin(Skin skin) {
+		this.skin = skin;
+	}
+
+	public Slot getSlot() {
+		return slot;
+	}
+
+	public void setSlot(Slot slot) {
+		this.slot = slot;
 	}
 }
