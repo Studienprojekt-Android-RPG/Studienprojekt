@@ -69,12 +69,15 @@ public class Inventory{
 		return null;
 	}
 	
+	/**
+	 * Increases players stats by item stats.
+	 * Takes one item.
+	 * @param item
+	 */
 	public void consume(Item item)
 	{
 		if(item.getConsumable())
 		{
-			System.out.println(Gamescreen.player.curHP);
-			System.out.println(Gamescreen.player.curSP);
 			Gamescreen.player.curHP += item.getHP();
 			Gamescreen.player.curSP += item.getSP();
 			if(Gamescreen.player.curHP > Gamescreen.player.maxHP)
@@ -85,6 +88,7 @@ public class Inventory{
 			{
 				Gamescreen.player.curSP = Gamescreen.player.maxSP;
 			}
+			firstSlotWithItem(item).take(1);
 		}
 		slots.sort(comparator);
 	}

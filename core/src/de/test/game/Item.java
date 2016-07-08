@@ -2,7 +2,7 @@ package de.test.game;
 
 public enum Item {
 	//				textureRegion		consumable sort HP		SP		Atk		Def		Speed	Exp
-	MESSER			("knife", 				false,	0,	0, 		0,		0, 	 	0,		0,		0), 
+	MESSER			("knife", 				false,	0,	0, 		0,		5, 	 	0,		0,		0), 
 	LANGSCHWERT		("schwert1", 			false, 	0, 	0, 		0,		0,		0,		0,		0),
 	KURZSCHWERT		("schwert2", 			false, 	0, 	0, 		0,		0,		0,		0,		0), 
 	SCHWERT3		("schwert3", 			false, 	0, 	0, 		0,		0,		0,		0,		0), 

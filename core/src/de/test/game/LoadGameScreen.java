@@ -130,6 +130,8 @@ public class LoadGameScreen implements Screen {
 						{
 							if(obj.equals(1))
 							{
+								game.setScreen(game.getScreenType(ScreenType.Inventory));
+								game.inventoryscreen.hide();
 								game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 								game.render();
 							}

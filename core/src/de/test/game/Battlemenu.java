@@ -2,6 +2,7 @@ package de.test.game;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.ui.Window;
@@ -108,6 +109,7 @@ public class Battlemenu extends Window {
 		item.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
 	        	Battlescreen.battlemenu.setVisible(false);
+	        	checkForItems();
 	        	Battlescreen.battleitem.setVisible(true);
 	        }
 	    });
@@ -123,5 +125,13 @@ public class Battlemenu extends Window {
 	        }
 	    });
 	}
-
+	
+	private void checkForItems() {
+		if(InventoryActor.inv.checkInventory(Item.HEILTRANK) <= 0) {
+			Battlescreen.battleitem.removeActor(Battlescreen.battleitem.heil);
+		}
+		if(InventoryActor.inv.checkInventory(Item.MANATRANK) <= 0) {
+			Battlescreen.battleitem.removeActor(Battlescreen.battleitem.pkt);
+		}
+	}
 }

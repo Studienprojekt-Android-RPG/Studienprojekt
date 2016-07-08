@@ -39,7 +39,6 @@ public class Equipment{
 			Slot slot = slots.get(item.getSort());
 			slot.take(slot.getAmount());
 			slot.add(item, amount);
-			slots.add(slot);
 			return equipped;
 		}
 	}

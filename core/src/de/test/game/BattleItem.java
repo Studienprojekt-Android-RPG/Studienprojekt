@@ -33,16 +33,23 @@ public class BattleItem extends Window {
 		
 		heil.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
-	        	Battlescreen.player.curHP = Battlescreen.player.maxHP;
+	        	Battlescreen.player.curHP += Item.HEILTRANK.getHP();
+	        	InventoryActor.inv.consume(Item.HEILTRANK);
+	        	Battlescreen.player.saveBattle();
+	        	Battlescreen.player.saveInventory();
 	        	Battlescreen.battlemenu.setVisible(true);
 	            Battlescreen.battleitem.setVisible(false);
 //	            Battlescreen.battlestate = Battlestate.firstStrike;
-	            Battlescreen.battlemenu.hasClicked = true;
+	            Battlemenu.hasClicked = true;
 	        }
 	    });
 		
 		pkt.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
+	        	Battlescreen.player.curSP += Item.MANATRANK.getSP();
+	        	InventoryActor.inv.consume(Item.MANATRANK);
+	        	Battlescreen.player.saveBattle();
+	        	Battlescreen.player.saveInventory();
 	        	Battlescreen.battlemenu.setVisible(true);
 	            Battlescreen.battleitem.setVisible(false);
 	        }

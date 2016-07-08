@@ -41,7 +41,6 @@ public class ItemDialog
 					if(obj.equals(true))
 					{
 						InventoryScreen.inventoryActor.inv.consume(slot.getItem());
-						slot.take(1);
 						Gamescreen.player.clearInventorySlots();
 						Gamescreen.player.clearEquipmentSlots();
 						Gamescreen.player.saveInventory();
@@ -72,7 +71,8 @@ public class ItemDialog
 				{
 					if(obj.equals(true))
 					{
-						Item item = Gamescreen.game.inventoryscreen.equipment.equip.equip(slot.getItem(), 1);
+						Item item = InventoryScreen.equipment.equip.equip(slot.getItem(), 1);
+						Gamescreen.player.unequipItem(item);
 						InventoryScreen.inventoryActor.inv.store(item, 1);
 						slot.take(1);
 						Gamescreen.player.clearInventorySlots();

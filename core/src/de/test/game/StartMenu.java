@@ -156,6 +156,8 @@ public class StartMenu implements Screen
 					if(i <= 9)
 					{
 						game.setSaveFile(new File("C:/Users/" + userName + "/.prefs/haw" + i));
+						game.setScreen(game.getScreenType(ScreenType.Inventory));
+						game.inventoryscreen.hide();
 						game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 						game.render();
 						table.clear();
@@ -190,6 +192,8 @@ public class StartMenu implements Screen
 					if(i <= 9)
 					{
 						game.setSaveFile(new File("/data/data/de.test.game/shared_prefs/haw" + i + ".xml"));	
+						game.setScreen(game.getScreenType(ScreenType.Inventory));
+						game.inventoryscreen.hide();
 						game.setScreen(game.getScreenType(ScreenType.Gamescreen));
 						game.render();
 						table.clear();

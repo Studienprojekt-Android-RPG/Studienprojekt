@@ -19,7 +19,7 @@ import de.test.game.Testmap.ScreenType;
 public class InventoryScreen implements Screen {
 
 	public static InventoryActor inventoryActor;
-	public EquipmentActor equipment;
+	public static EquipmentActor equipment;
 
 	public static Stage stage;
 	Testmap game;
@@ -62,12 +62,14 @@ public class InventoryScreen implements Screen {
 		xbutt.setPosition(0, 0);
 		stage.addActor(xbutt);
 
-		Gamescreen.player.readInventory();
-		Gamescreen.player.readEquipment();
+		Player.readInventory();
+		Player.readEquipment();
 		
 		xbutt.addListener(new ClickListener() {
 	        public void clicked(InputEvent e, float x, float y) {
 	            System.out.println("Inventar geschlossen");
+	            Gamescreen.player.clearInventorySlots();
+	            Gamescreen.player.clearEquipmentSlots();
 	            Gamescreen.player.saveInventory();
 	            Gamescreen.player.saveEquipment();
 	            Gamescreen.player.saveBattle();
@@ -120,7 +122,7 @@ public class InventoryScreen implements Screen {
 	@Override
 	public void hide() {
 		Gdx.input.setInputProcessor(null);
-		dispose();
+		//dispose();
 	}
 
 	@Override

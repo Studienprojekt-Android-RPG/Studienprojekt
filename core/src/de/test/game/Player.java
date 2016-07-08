@@ -271,7 +271,7 @@ public class Player extends Fighter {
 
 	public void saveEquipment() {
 		int i = 0;
-		for(Slot slot : Gamescreen.game.inventoryscreen.equipment.equip.getSlots()) {
+		for(Slot slot : InventoryScreen.equipment.equip.getSlots()) {
 			if(slot.getItem() != null) {
 				Testmap.prefs.putString("equipmentSlot" + i, slot.toString());
 			}
@@ -279,7 +279,7 @@ public class Player extends Fighter {
 		}
 	}
 
-	public void readInventory()
+	public static void readInventory()
 	{
 		for (int i = 0; i <= 64; i++) 
 		{
@@ -302,7 +302,7 @@ public class Player extends Fighter {
 		}
 	}
 	
-	public void readEquipment()
+	public static void readEquipment()
 	{
 		for (int i = 0; i <= 5; i++) 
 		{
@@ -318,7 +318,7 @@ public class Player extends Fighter {
 				
 					if(item != null && amount != 0)
 					{
-						Gamescreen.game.inventoryscreen.equipment.equip.equip(item, amount);
+						InventoryScreen.equipment.equip.equip(item, amount);
 					}
 				}
 			}
@@ -449,10 +449,10 @@ public class Player extends Fighter {
 	}
 	
 	/**
-	 * Checks {@code Equipment} for equipped {@code Items} to change stats influenced by items.
+	 * Checks {@code Equipment} for equipped items to change stats influenced by items.
 	 */
 	public void equippedItems() {
-		for(Slot slot : Gamescreen.game.inventoryscreen.equipment.equip.getSlots()) {
+		for(Slot slot : InventoryScreen.equipment.equip.getSlots()) {
 			if(slot.getItem() != null) {
 				ATK += slot.getItem().getAtk();
 				DEF += slot.getItem().getDef();
@@ -462,5 +462,19 @@ public class Player extends Fighter {
 			}
 		}
 		saveBattle();
+	}
+	
+	/**
+	 * Decreases stats of player when item is unequipped
+	 * @param item
+	 */
+	public void unequipItem(Item item) {
+		if(item != null) {
+			ATK -= item.getAtk();
+			DEF -= item.getDef();
+			maxHP -= item.getHP();
+			maxSP -= item.getSP();
+			speed -= item.getSpeed();
+		}
 	}
 }
