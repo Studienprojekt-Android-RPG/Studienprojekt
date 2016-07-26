@@ -128,10 +128,10 @@ public class Battlemenu extends Window {
 	
 	private void checkForItems() {
 		if(InventoryActor.inv.checkInventory(Item.HEILTRANK) <= 0) {
-			Battlescreen.battleitem.removeActor(Battlescreen.battleitem.heil);
+			Battlescreen.battleitem.heil.setTouchable(Touchable.disabled);
 		}
 		if(InventoryActor.inv.checkInventory(Item.MANATRANK) <= 0) {
-			Battlescreen.battleitem.removeActor(Battlescreen.battleitem.pkt);
+			Battlescreen.battleitem.pkt.setTouchable(Touchable.disabled);
 		}
 	}
 }

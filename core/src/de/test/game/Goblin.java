@@ -7,13 +7,13 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Goblin extends Monster {
 
 	public Goblin() {
-		super(10, 5, 5, 5, 50, 2, 6, 100, 0, 150, "MESSER", "HEILTRANK", elements.ice);
+		super(10, 5, 5, 5, 50, 2, 6, 100, 15, 150, "MESSER", "HEILTRANK", elements.ice, null);
 		texture = new TextureRegion(enemies.findRegion("Goblin"));
 		name = "Goblin";
 		
 		if (this.level >= Battlescreen.player.level * 2 || this.level*5 <= Battlescreen.player.level){
 			this.level = Battlescreen.player.level;
-		    this.maxHP = 10000;
+		    this.maxHP = this.maxHP*this.level;
 		    this.curHP = this.maxHP;
 		    this.ATK = (int) Math.round (Battlescreen.player.ATK/3);
 		    this.sATK = (int) Math.round (Battlescreen.player.sATK/3);

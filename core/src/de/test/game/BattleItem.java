@@ -13,8 +13,8 @@ public class BattleItem extends Window {
 	public BattleItem(Skin skin) {
 		super("Items", skin);
 
-		heil = new TextButton("Heiltrank", skin, "Button");
-		pkt = new TextButton("Manatrank", skin, "Button");
+		heil = new TextButton("Heiltrank: " + InventoryActor.inv.checkInventory(Item.HEILTRANK), skin, "Button");
+		pkt = new TextButton("Manatrank: " + InventoryActor.inv.checkInventory(Item.MANATRANK), skin, "Button");
 		etc = new TextButton("Zeug", skin, "Button");
 		exit = new TextButton("Zurück", skin, "Button");
 		

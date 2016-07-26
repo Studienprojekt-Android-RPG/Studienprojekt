@@ -5,7 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Window;
 
 public class EquipmentActor extends Window {
 	
-	static Equipment equip;
+	Equipment equip;
 
 	public EquipmentActor(Equipment equipment, String cTitle, Skin skin, int cRow, int cPosX, int cPosY, String dialogLabel, String buttonText) {
 		super(cTitle, skin);

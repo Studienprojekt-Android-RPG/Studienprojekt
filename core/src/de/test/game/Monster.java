@@ -12,8 +12,8 @@ public class Monster extends Fighter {
 	TextureRegion texture;
 	
 	public Monster(int atk, int satk, int def, int sdef, int hp, int lvl,
-			int spe, int exp, int sp, int money, String common, String rare, elements weak) {
-		super(atk, satk, def, sdef, hp, lvl, spe, exp, sp, money, common, rare, weak);
+			int spe, int exp, int sp, int money, String common, String rare, elements weak, elements arm) {
+		super(atk, satk, def, sdef, hp, lvl, spe, exp, sp, money, common, rare, weak, arm);
 	}
 	
 	static int success;
@@ -67,10 +67,16 @@ public class Monster extends Fighter {
 	}
 	
 	public static void irrlicht(Fighter attacker, Fighter defender){
-		moveElement = elements.fire;
 		attackName = "Irrlicht";
+		if (getCurSP(attacker) >= 10){
+	    attacker.curSP -= 10;
+		moveElement = elements.fire;
 		attackDamage = (attacker.sATK * attacker.level*3) - (defender.sDEF * defender.level / 1.5);
 		damage(attacker, defender);
+		}
+		else{
+			fail();
+		}
 		}
 		
 		public static void reizen(Fighter attacker, Fighter defender){
@@ -83,10 +89,16 @@ public class Monster extends Fighter {
 		}
 		
 		public static void dreckwurf(Fighter attacker, Fighter defender){
-			moveElement = elements.earth;
 			attackName = "Dreckwurf";
+			if (getCurSP(attacker) >= 10){
+			attacker.curSP -= 10;
+			moveElement = elements.earth;
 			attackDamage = attacker.sATK * attacker.level * 1.8 - defender.sDEF*defender.level/2;
 			damage(attacker, defender);
+			}
+			else{
+				fail();
+			}
 		}
 		
 		public static void meditieren(Fighter attacker){
@@ -192,8 +204,12 @@ public class Monster extends Fighter {
 	   
 	   public static void eisspeer(Fighter attacker, Fighter defender)
 	   {
-		   moveElement = elements.ice;
+		   
 		   attackName = "Eisspeer";
+		   
+		   if(getCurSP(attacker) >= 25){
+		   attacker.curSP -= 25;
+		   moveElement = elements.ice;
 			if(attacker.speed*1.5 <= defender.speed)
 			{
 			    success = (int) Math.random ()*2;
@@ -211,6 +227,11 @@ public class Monster extends Fighter {
 							defender.speed = 0;
 				       }
 				}
+			}
+			else
+			{
+				fail();
+			}
 			}
 			
 			
@@ -283,6 +304,10 @@ public class Monster extends Fighter {
 	
 	public static void boosterMove(Fighter attacker){
 		System.out.println(attackName + "!\n" + attacker.getName() + " verändert die Werte!");
+	}
+	
+	public static void fail(){
+		System.out.println("Zu wenig SP für " + attackName + " " + "!");
 	}
 
 }

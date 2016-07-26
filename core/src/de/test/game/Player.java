@@ -2,6 +2,7 @@ package de.test.game;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.Calendar;
 import java.util.Random;
 
@@ -41,7 +42,7 @@ public class Player extends Fighter {
 	public Player(Vector2 position, String textureLoc/*, int atk, int satk, int def, int sdef, int hp, int lvl, int spe, int exp, int sp, int money*/){
 //		super(atk, satk, def, sdef, hp, lvl, spe, exp, sp, money);
 //		super(10, 7, 7, 7, 100, 1, 10, 0, 0, 50);				//for new character
-		super(55, 55, 10, 10, 7000, 20, 10, 600, 10, 500, null, null, null);		//for Demo
+		super(55, 55, 10, 10, 7000, 20, 10, 600, 10, 500, null, null, null, null);		//for Demo
 		
 		name = "Leon";
 		this.position = position;
@@ -186,9 +187,10 @@ public class Player extends Fighter {
 		Testmap.prefs.putInteger("curSP", curSP);
 		Testmap.prefs.putInteger("maxSP", maxSP);
 		Testmap.prefs.putInteger("nextLv", nextLv);
-		Calendar c = Calendar.getInstance();
-		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-		Testmap.prefs.putString("saveTime", sdf.format(c.getTime()));
+		Testmap.prefs.putInteger("money", money);
+//		Calendar c = Calendar.getInstance();
+//		SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+//		Testmap.prefs.putString("saveTime", sdf.format(c.getTime()));
 		Testmap.prefs.flush();
 	}
 	
@@ -205,6 +207,7 @@ public class Player extends Fighter {
 		Testmap.prefs.putInteger("curSP", curSP);
 		Testmap.prefs.putInteger("maxSP", maxSP);
 		Testmap.prefs.putInteger("nextLv", nextLv);
+		Testmap.prefs.putInteger("money", money);
 		Testmap.prefs.flush();
 	}
 	
@@ -236,13 +239,14 @@ public class Player extends Fighter {
 			curSP = Testmap.prefs.getInteger("curSP");
 			maxSP = Testmap.prefs.getInteger("maxSP");
 			nextLv = Testmap.prefs.getInteger("nextLv");
+			money = Testmap.prefs.getInteger("money");
 		}
 	}
 	
 	public void clearInventorySlots()
 	{
 		int i = 0;
-		for(Slot slot : InventoryScreen.inventoryActor.inv.getSlots())
+		for(Slot slot : Gamescreen.game.inventoryscreen.inventoryActor.inv.getSlots())
 		{
 			Testmap.prefs.remove("inventorySlot" + i);
 			i++;
@@ -259,7 +263,7 @@ public class Player extends Fighter {
 	public void saveInventory()
 	{
 		int i = 0;
-		for (Slot slot : InventoryScreen.inventoryActor.inv.getSlots())
+		for (Slot slot : Gamescreen.game.inventoryscreen.inventoryActor.inv.getSlots())
 		{
 			if(slot.getItem() != null)
 			{
@@ -271,7 +275,7 @@ public class Player extends Fighter {
 
 	public void saveEquipment() {
 		int i = 0;
-		for(Slot slot : InventoryScreen.equipment.equip.getSlots()) {
+		for(Slot slot : Gamescreen.game.inventoryscreen.equipment.equip.getSlots()) {
 			if(slot.getItem() != null) {
 				Testmap.prefs.putString("equipmentSlot" + i, slot.toString());
 			}
@@ -295,7 +299,7 @@ public class Player extends Fighter {
 				
 					if(item != null && amount != 0)
 					{
-						InventoryScreen.inventoryActor.inv.store(item, amount);
+						Gamescreen.game.inventoryscreen.inventoryActor.inv.store(item, amount);
 					}
 				}
 			}
@@ -304,7 +308,7 @@ public class Player extends Fighter {
 	
 	public static void readEquipment()
 	{
-		for (int i = 0; i <= 5; i++) 
+		for (int i = 0; i <= 64; i++) 
 		{
 			if(Testmap.prefs != null)
 			{
@@ -318,7 +322,7 @@ public class Player extends Fighter {
 				
 					if(item != null && amount != 0)
 					{
-						InventoryScreen.equipment.equip.equip(item, amount);
+						Gamescreen.game.inventoryscreen.equipment.equip.equip(item, amount);
 					}
 				}
 			}
@@ -377,6 +381,7 @@ public class Player extends Fighter {
 		defender.curHP -= attackDamage;
 		System.out.println(this.getName() + " fügt durch Schockschlag" + defender.getName() + " " + attackDamage + " Schadenspunkte zu!");
 	}
+
 	
 	//Level-Up Funktionen
 	public void levelSum(){
@@ -384,7 +389,7 @@ public class Player extends Fighter {
 		if(this.level < 30){
 			this.EXP += this.expBucket;
 						
-			if(this.EXP >= this.nextLv){
+			while(this.EXP >= this.nextLv && this.level != 30){
 				this.levelUp();
 				
 				if(this.level != 30){
@@ -447,34 +452,35 @@ public class Player extends Fighter {
 		this.expBucket += exp;
 		
 	}
-	
-	/**
-	 * Checks {@code Equipment} for equipped items to change stats influenced by items.
-	 */
-	public void equippedItems() {
-		for(Slot slot : InventoryScreen.equipment.equip.getSlots()) {
-			if(slot.getItem() != null) {
-				ATK += slot.getItem().getAtk();
-				DEF += slot.getItem().getDef();
-				maxHP += slot.getItem().getHP();
-				maxSP += slot.getItem().getSP();
-				speed += slot.getItem().getSpeed();
-			}
-		}
-		saveBattle();
-	}
-	
-	/**
-	 * Decreases stats of player when item is unequipped
-	 * @param item
-	 */
-	public void unequipItem(Item item) {
-		if(item != null) {
-			ATK -= item.getAtk();
-			DEF -= item.getDef();
-			maxHP -= item.getHP();
-			maxSP -= item.getSP();
-			speed -= item.getSpeed();
+
+
+/**
+ * Checks {@code Equipment} for equipped items to change stats influenced by items.
+ */
+public void equippedItems() {
+	for(Slot slot : InventoryScreen.equipment.equip.getSlots()) {
+		if(slot.getItem() != null) {
+			ATK += slot.getItem().getAtk();
+			DEF += slot.getItem().getDef();
+			maxHP += slot.getItem().getHP();
+			maxSP += slot.getItem().getSP();
+			speed += slot.getItem().getSpeed();
 		}
 	}
+	saveBattle();
+}
+
+/**
+ * Decreases stats of player when item is unequipped
+ * @param item
+ */
+public void unequipItem(Item item) {
+	if(item != null) {
+		ATK -= item.getAtk();
+		DEF -= item.getDef();
+		maxHP -= item.getHP();
+		maxSP -= item.getSP();
+		speed -= item.getSpeed();
+	}
+}
 }

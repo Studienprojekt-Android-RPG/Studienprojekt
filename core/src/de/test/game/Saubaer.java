@@ -7,7 +7,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Saubaer extends Monster {
 
 	public Saubaer() {
-		super(10, 7, 50, 50, 1050, 10, 7, 500, 3, 600, "MESSER", "HEILTRANK", elements.none);
+		super(10, 7, 50, 50, 1050, 10, 7, 500, 3, 600, "MESSER", "HEILTRANK", null, null);
 		texture = new TextureRegion(enemies.findRegion("Saubaer"));
 		name = "Saubär";
 	

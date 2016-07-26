@@ -7,9 +7,9 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class Daemonenhund extends Monster {
 
 	public Daemonenhund() {
-		super(7, 7, 50, 50, 1050, 10, 7, 500, 3, 600, "HEILTRANK", "MANATRANK", elements.ice);
+		super(7, 7, 50, 50, 1050, 10, 7, 500, 3, 600, "HEILTRANK", "MANATRANK", elements.ice, null);
 		texture = new TextureRegion(enemies.findRegion("Daemonenhund"));
-		name = "DÃ¤monenhund";
+		name = "Dämonenhund";
 		
 	if (this.level >= Battlescreen.player.level * 2 || this.level*2 <= Battlescreen.player.level){
 		this.level = Battlescreen.player.level;

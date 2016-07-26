@@ -164,21 +164,25 @@ public class Battlescreen implements Screen {
 		battleitem.setKeepWithinStage(false);
 		battleitem.setMovable(false);
 		
-		win = new Label("You WON\n" + "5000k GOLD\n" + player.expBucket, labstyle);
+		win = new Label("You WON\n" + player.wallet + player.expBucket, labstyle);
 		
 		dialog = new Dialog("", skin, "dialog") {
 			public void result(Object obj) {
 				if(obj.equals(true)){
 					player.readBattle();
+					player.heapHeapHooray();
+					player.wallet();
 					player.levelSum();
 					player.saveBattle();
+					player.saveInventory();
 					player.expBucket = 0;
+					player.wallet = 0;
 					battle.setScreen(battle.getScreenType(ScreenType.Gamescreen));
 				}
 		    }
 		};
 		dialog.text(win);
-		dialog.button("Heap Heap Hurra", true); //sends "true" as the result
+		dialog.button("Victory!", true); //sends "true" as the result
 		dialog.setVisible(false);
 		dialog.setPosition(300, 200);
 		dialog.sizeBy(100, 100);
@@ -535,7 +539,9 @@ public class Battlescreen implements Screen {
 				if(i == 1){
 					if(gegner1.curHP <= 0){
 						player.increaseBucket(Fighter.getExp(gegner1));
+						player.moneyBucket(gegner1);
 						fighterList.remove(gegner1);
+						player.itemReward(gegner1);
 						battlestate = Battlestate.BattleOver;
 						break;
 					}
@@ -546,6 +552,8 @@ public class Battlescreen implements Screen {
 						if(fighterList.indexOf(player) != 0 && fighterList.indexOf(player) > fighterList.indexOf(gegner1))
 							index--;
 						player.increaseBucket(Fighter.getExp(gegner1));
+						player.moneyBucket(gegner1);
+						player.itemReward(gegner1);
 						fighterList.remove(gegner1);
 					}
 					if(gegner2.curHP < 0){
@@ -553,6 +561,8 @@ public class Battlescreen implements Screen {
 						if(fighterList.indexOf(player) != 0 && fighterList.indexOf(player) > fighterList.indexOf(gegner2))
 							index--;
 						player.increaseBucket(Fighter.getExp(gegner2));
+						player.moneyBucket(gegner2);
+						player.itemReward(gegner2);
 						fighterList.remove(gegner2);
 					}
 					if(gegner1.curHP <= 0 && gegner2.curHP <= 0){
@@ -567,6 +577,8 @@ public class Battlescreen implements Screen {
 						if(fighterList.indexOf(player) != 0 && fighterList.indexOf(player) > fighterList.indexOf(gegner1))
 							index--;
 						player.increaseBucket(Fighter.getExp(gegner1));
+						player.moneyBucket(gegner1);
+						player.itemReward(gegner1);
 						fighterList.remove(gegner1);
 					}
 					if(gegner2.curHP < 0){
@@ -574,6 +586,8 @@ public class Battlescreen implements Screen {
 						if(fighterList.indexOf(player) != 0 && fighterList.indexOf(player) > fighterList.indexOf(gegner2))
 							index--;
 						player.increaseBucket(Fighter.getExp(gegner2));
+						player.moneyBucket(gegner2);
+						player.itemReward(gegner2);
 						fighterList.remove(gegner2);
 					}
 					if(gegner3.curHP < 0){
@@ -581,6 +595,8 @@ public class Battlescreen implements Screen {
 						if(fighterList.indexOf(player) != 0 && fighterList.indexOf(player) > fighterList.indexOf(gegner3))
 							index--;
 						player.increaseBucket(Fighter.getExp(gegner3));
+						player.moneyBucket(gegner3);
+						player.itemReward(gegner3);
 						fighterList.remove(gegner3);
 					}
 					
@@ -625,7 +641,7 @@ public class Battlescreen implements Screen {
 			break;
 			
 			case BattleOver:
-				win.setText("You WON\n" + "5000k GOLD\n" + player.expBucket + " Exp.");
+				win.setText("You WON\n" + player.wallet + " Dollar\n" + player.expBucket + " Exp.");
 				battlemenu.setTouchable(Touchable.disabled);
 				if(anim == false){
 					dialog.setVisible(true);

@@ -39,9 +39,10 @@ public abstract class Fighter {
 	static elements moveElement;
 	int modifier = 1;
 	
-	public Fighter(int atk, int satk, int def, int sdef, int hp, int lvl, int spe, int exp, int sp, int money, String cItem, String rItem, elements weak) {
+	public Fighter(int atk, int satk, int def, int sdef, int hp, int lvl, int spe, int exp, int sp, int money, String cItem, String rItem, elements weak, elements arm) {
 		
 		this.ATK = atk;
+		
 		this.sATK = satk;
 		this.DEF = def;
 		this.sDEF = sdef;
@@ -59,7 +60,7 @@ public abstract class Fighter {
 		this.rare = rItem;
 		this.condition = ailment.healthy;
 		this.weakness = weak;
-		this.armor = null;
+		this.armor = arm;
 		
 	}
 	
@@ -88,11 +89,11 @@ public abstract class Fighter {
 		if(chance <= 75){
 		}
 		if(chance > 75 && chance < 90){
-				this.rewardList.add (dropper.item.valueOf(dropper.common));
+				this.rewardList.add(dropper.item.valueOf(dropper.common));
 			}
 		
 		if(chance >= 90){
-			this.rewardList.add (dropper.item.valueOf(dropper.rare));
+			this.rewardList.add(dropper.item.valueOf(dropper.rare));
 		}
 	}
 	
