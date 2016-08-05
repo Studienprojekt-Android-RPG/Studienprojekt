@@ -7,7 +7,7 @@ public enum Item {
 	KURZSCHWERT		("schwert2", 			false, 	0, 	0, 		0,		0,		0,		0,		0), 
 	SCHWERT3		("schwert3", 			false, 	0, 	0, 		0,		0,		0,		0,		0), 
 	SCHWERT4		("schwert4", 			false, 	0, 	0, 		0,		0,		0,		0,		0), 
-	FLAMMENSCHWERT	("schwert5", 			false, 	0, 	0, 		0,		0,		0,		0,		0),
+	FLAMMENSCHWERT	("schwert5", 			false, 	0, 	0, 		0,		100,	0,		0,		0),
 	BRUSTPANZER		("armor", 				false, 	1, 	0, 		0,		0,		0,		0,		0), 
 	LEDERARMBAND	("lederarmband", 		false, 	2, 	0, 		0,		0,		0,		0,		0),
 	RUNENARMBAND	("runenarmband", 		false, 	2, 	0, 		0,		0,		0,		0,		0),
@@ -42,6 +42,10 @@ public enum Item {
 		this.def = cDef;
 		this.speed = cSpeed;
 		this.exp = cExp;
+	}
+	
+	public static Item getRandom() {
+		return values()[(int) (Math.random() * values().length)];
 	}
 	
 	public String getTextureRegion() {

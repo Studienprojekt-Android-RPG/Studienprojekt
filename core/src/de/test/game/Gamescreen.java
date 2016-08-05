@@ -67,7 +67,7 @@ public class Gamescreen implements Screen {
 	mapManager mapmanager;
 	
 	static EventManager eventmanager;
-	
+	static Crate crate;
 	static Gamemenu gamenu;
 	
 	OrthographicCamera cam;
@@ -80,7 +80,6 @@ public class Gamescreen implements Screen {
 	static Testmap game;
 	
 	static String userName = System.getProperty("user.name");
-	//static String userName = "Michel";
 	
 	public Gamescreen(Testmap game){
 		
@@ -172,7 +171,7 @@ public class Gamescreen implements Screen {
 		mapmanager.setBattle();		
 		
 		eventmanager = new EventManager();
-
+		crate = new Crate();
 		stage.addActor(up);
 		stage.addActor(down);
 		stage.addActor(left);
@@ -210,6 +209,8 @@ public class Gamescreen implements Screen {
 	    cam.update();
 	    mapmanager.update();
 	    eventmanager.abfrage();
+	    crate.abfragecrate();
+	    
 		batch.begin();
 		batch.draw(player.getCurrentFrame(), player.getPosition().x, player.getPosition().y);
 		if(eventmanager.demo.event == true)
@@ -223,7 +224,6 @@ public class Gamescreen implements Screen {
 		
 		if(act.isPressed()){
 			player.curHP = player.maxHP;
-			System.out.println("Geheilt!!!");
 		}
 	}
 	

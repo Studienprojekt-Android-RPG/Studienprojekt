@@ -10,6 +10,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -50,9 +51,9 @@ public class StartMenu implements Screen
 	TextButton options;
 	TextButton exitGame;
 	TextButtonStyle button = new TextButtonStyle();
+	Texture logo = new Texture(Gdx.files.internal("Logo.png"));
 	
 	String userName = System.getProperty("user.name");
-	//String userName = "Michel";
 	
 	Dialog dialog;
 	
@@ -84,8 +85,6 @@ public class StartMenu implements Screen
 		options = new TextButton("Optionen", skin, "buttonSkin");
 		exitGame = new TextButton("Spiel verlassen", skin, "buttonSkin");
 		
-		table.setPosition(300, 120);
-		
 		table.add(newGame).width(200).align(Align.center);
 		table.row();
 		table.add(loadGame);
@@ -94,6 +93,8 @@ public class StartMenu implements Screen
 		table.row();
 		table.add(exitGame);
 		table.pack();
+		
+		table.setPosition((stage.getWidth()/2)-(table.getWidth()/2), stage.getHeight()/6);
 		
 		Table.debugCellColor.set(0, 0, 0, 0);
 		Table.debugTableColor.set(0, 0, 0, 0);
@@ -244,7 +245,11 @@ public class StartMenu implements Screen
 	{		
 		Gdx.gl.glClearColor(0, 0, 0, 0);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
+		
+		batch.begin();
+		batch.draw(logo, 0, table.getHeight()+logo.getHeight()/20, logo.getWidth()/10*3, logo.getHeight()/10*3);
+		batch.end();
+		
 		stage.act();
 		stage.draw();
 	}
